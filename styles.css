@@ -1,39 +1,20 @@
-/* Navigation Bar */
-.navbar {
-    width: 100%;
-    height: 10%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: var(--black);
-    display: flex;
-    align-items: center;
-    z-index: 1;
-    }
-    
-.navbar img {
-    height: 50%;
-    top: 50%;
-    padding-left: 30px;
-    padding-right: 10%;
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+:root {
+  --black: #121212;
+  --light-gray: #363636;
+  --orange: #f47920;
+  --light-orange: #f79550;
+  --white: #fff;
+  --font1: "Be Vietnam Pro", sans-serif;
+  --translate: translate(-50%, -50%);
+  --transition: 0.5s ease;
 }
 
-.nav_button {
-    background-color: var(--black);
-    color: var(--white);
-    border: none;
-    font-family: var(--font1);
-    font-size: 16px;
-    height: 100%;
-    width: 15%;
-    transition: var(--transition);
-}
-.nav_button:hover {
-    background-color: var(--light-gray);
-    transition: var(--transition);
+* {
+  user-select: none;
+  outline: none;
 }
 
-#search_button {
-    background-color: var(--orange);
-    aspect-ratio: 1;
+button:hover {
+  cursor: pointer;
 }
