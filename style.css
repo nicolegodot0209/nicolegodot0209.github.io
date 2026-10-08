@@ -3,7 +3,7 @@
   --black: #121212;
   --light-gray: #212121;
   --orange: #f47920;
-  --light-orange: #f79550;
+  --light-orange: #fde0cb;
   --white: #fff;
   --font1: "Be Vietnam Pro", sans-serif;
   --translate: translate(-50%, -50%);
@@ -17,4 +17,33 @@
 
 button:hover {
   cursor: pointer;
+}
+
+/* Icons */
+.icon_black {
+  background-color: var(--light-gray);
+  color: white;
+  font-size: 25px;
+  box-shadow: 0 4px 0px 0px rgba(0, 0, 0, 0.2);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 30%;
+}
+
+.icon_orange {
+  background-color: var(--orange);
+  color: var(--black);
+  font-size: 25px;
+  box-shadow: 0 4px 0px 0px rgba(0, 0, 0, 0.2);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 30%;
 }

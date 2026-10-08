@@ -13,7 +13,6 @@ function searchButtonToggled() {
 
 function openSearch() {
     isSearchOpen = true;
-    searchInput.placeholder = "Search...";
     searchInput.classList.add('active');
     searchInput.focus();
 }
@@ -21,7 +20,6 @@ function openSearch() {
 function closeSearch() {
     isSearchOpen = false;
     searchInput.classList.remove('active');
-    searchInput.placeholder = "";
 }
 
 searchButton.addEventListener('click', searchButtonToggled);
