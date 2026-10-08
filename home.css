@@ -10,14 +10,6 @@
     align-items: center;
     z-index: 1;
   }
-  .navbar_buttons {
-    width: 70%;
-    height: 100%;
-    position: absolute;
-    left: 15%;
-    background-color: tan;
-    display: flex;
-  }
   .nav_button {
     background-color: var(--black);
     color: var(--white);
@@ -28,7 +20,7 @@
     width: 15%;
     transition: var(--transition);
   }
-  .navbar button:hover {
+  .nav_button:hover {
     background-color: var(--light-gray);
     transition: var(--transition);
   }
@@ -36,22 +28,70 @@
   .navbar img {
     height: 50%;
     top: 50%;
-    padding-left: 30px; 
-    padding-right: 20px; 
+    padding-left: 3%; 
+    padding-right: 3%; 
   }
   
-  #search_button {
-    background-color: var(--orange);
-    aspect-ratio: 1;
-    height: 45%;
-    border-radius: 100%;
-    border: none;
-  
+  .search_cont {
+    position: relative;
     display: flex;
     align-items: center;
-    justify-content: center;
     margin-left: auto;
-    margin-right: 30px;
+    margin-right: 3%;
+  }
+
+  #search_input {
+    font-family: var(--font1);
+    color: transparent;
+    position: relative;
+    background-color: var(--light-gray);
+    border-radius: 50px;
+    border: none;
+    transition: var(--transition);
+    height: 35px;
+    width: 35px;
+    box-shadow: 0 5px 0px 0px rgba(0, 0, 0, 0.6);
+
+    color: var(--white);
+    padding-left: 0px;
+  }
+
+  #search_input.active {
+    width: 250px;
+    padding-left: 15px;
+  }
+  #search_input.active + #search_button {
+    transition: var(--transition);
+  }
+
+  #search_button {
+    background-color: var(--light-gray);
+    height: 100%;
+    border-radius: 100%;
+    border: none;
+    aspect-ratio: 1;
+    z-index: 1;
+
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(0%, -50%);
+    transition: var(--transition);
+  }
+  #search_button .fa-magnifying-glass {
+    color: var(--white);
+    pointer-events: none;
+    transition: var(--transition);
+  }
+
+  #search_button:hover {
+    background-color: var(--orange);
+    transition: var(--transition);
+  }
+
+  #search_button:hover .fa-magnifying-glass {
+    color: var(--black);
+    transition: var(--transition);
   }
   
   /* Home Photo */
@@ -72,11 +112,11 @@
   
   .home_text_cont {
     position: absolute;
-    top: 30%;
+    top: 42.5%;
     width: 100%;
     left: 3%;
     font-family: var(--font1);
-    color: white;
+    color: var(--white);
   }
   
   .home_text_cont h1{
