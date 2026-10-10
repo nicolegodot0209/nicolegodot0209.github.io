@@ -13,8 +13,14 @@
   --box-shadow: 0 8px 0px rgba(28, 16, 8, 0.16);
 }
 
-html, body {
-  touch-action: manipulation;
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+textarea,
+select {
+  font-size: 16px;
 }
 
 * {
@@ -26,31 +32,26 @@ button:hover {
   cursor: pointer;
 }
 
-/* Icons */
-.icon_black {
-  background-color: var(--light-gray);
-  color: white;
+/* Base styles shared by all icons */
+.icon {
   font-size: 25px;
   box-shadow: 0 4px 0px 0px rgba(0, 0, 0, 0.2);
-
   display: flex;
   align-items: center;
   justify-content: center;
   width: 50px;
-  aspect-ratio: 1;
+  height: 50px;
   border-radius: 30%;
 }
 
-.icon_orange {
-  background-color: var(--light-orange2);
-  color: var(--black);
-  font-size: 25px;
-  box-shadow: 0 4px 0px 0px rgba(0, 0, 0, 0.2);
+/* Color Modifier: Black version */
+.icon--black {
+  background-color: var(--light-gray);
+  color: white;
+}
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50px;
-  aspect-ratio: 1;
-  border-radius: 30%;
+/* Color Modifier: Orange version */
+.icon--orange {
+  background-color: var(--orange);
+  color: var(--black);
 }
