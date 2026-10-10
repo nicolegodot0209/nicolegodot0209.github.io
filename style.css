@@ -2,13 +2,19 @@
 :root {
   --black: #121212;
   --light-gray: #212121;
+  --light-orange1: #fde0cb;
+  --light-orange2: #fa954e;
   --orange: #f47920;
-  --light-orange: #fde0cb;
   --white: #fff;
+ 
   --font1: "Be Vietnam Pro", sans-serif;
   --translate: translate(-50%, -50%);
   --transition: 0.5s ease;
-  --mobile-screen-size: 768px;
+  --box-shadow: 0 8px 0px rgba(28, 16, 8, 0.16);
+}
+
+html, body {
+  touch-action: manipulation;
 }
 
 * {
@@ -36,7 +42,7 @@ button:hover {
 }
 
 .icon_orange {
-  background-color: var(--orange);
+  background-color: var(--light-orange2);
   color: var(--black);
   font-size: 25px;
   box-shadow: 0 4px 0px 0px rgba(0, 0, 0, 0.2);
