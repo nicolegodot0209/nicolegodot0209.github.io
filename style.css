@@ -22,10 +22,11 @@
 
 html {
   scroll-behavior: smooth;
+  touch-action: manipulation;
 }
-
 body, button, input {
   font-family: var(--font);
+  touch-action: manipulation;
 }
 
 input[type="text"],
