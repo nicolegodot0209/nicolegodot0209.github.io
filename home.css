@@ -111,9 +111,9 @@
     background-color: var(--light-gray);
     border: none;
     border-radius: 100%;
+    box-shadow: 0 5px 0px 0px rgba(0, 0, 0, 0.6);
     transform: translate(0%, -50%);
     transition: background-color var(--transition);
-    box-shadow: 0 5px 0px 0px rgba(0, 0, 0, 0.6);
     aspect-ratio: 1;
   
     /* Default icon styles */
@@ -141,25 +141,25 @@
   /* Search */
   .search_cont {
     position: absolute;
+    right: 3%;
     display: flex;
     align-items: center;
-    right: 3%;
 
     & input {
       position: relative;
       width: 35px;
-      box-sizing: border-box;
       height: 35px;
       margin: 0;
       padding-top: 1px;
+      box-sizing: border-box;
       color: transparent;
       color: var(--white);
       background-color: var(--light-gray);
       border: none;
       border-radius: 50px;
       box-shadow: 0 5px 0px 0px rgba(0, 0, 0, 0.6);
-      transition: var(--transition);
       visibility: hidden;
+      transition: var(--transition);
     
       /* When search is toggled */
       &.active {
@@ -206,21 +206,21 @@
 
   /* Header Animations & Sizes */
   & h1 {
-    font-weight: bold;
-    font-size: clamp(24px, 2vw + 16px, 100px);
     margin-bottom: -15px;
+    font-size: clamp(24px, 2vw + 16px, 100px);
+    font-weight: bold;
     &:nth-of-type(1) { animation-delay: 1.0s; }
     &:nth-of-type(2) { animation-delay: 1.5s; }
   }
   & h2 {
-    font-weight: normal;
-    font-size: clamp(16px, 1vw + 12px, 65px);
-    animation-delay: 2.0s;
     margin-top: 40px;
+    font-size: clamp(16px, 1vw + 12px, 65px);
+    font-weight: normal;
+    animation-delay: 2.0s;
   }
   & h3 {
-    font-weight: normal;
     font-size: clamp(8px, 0.25vw + 14px, 65px);
+    font-weight: normal;
     animation-delay: 0.5s;
   }
 
@@ -254,7 +254,7 @@
   /* Sizing */
   @media (max-width: 900px) {
     margin-bottom: 10px;
-    margin-left: 2%;
+    margin-left: 3%;
   }
 }
 
@@ -295,7 +295,7 @@
 
   @media (max-width: 900px) {
     grid-template-rows: repeat(3, 100px);
-    margin-right: 2%;
+    margin-right: 3%;
   }
 }
 
