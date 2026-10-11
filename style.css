@@ -7,10 +7,25 @@
   --orange: #f47920;
   --white: #fff;
  
-  --font1: "Be Vietnam Pro", sans-serif;
+  --font: "Be Vietnam Pro", sans-serif;
   --translate: translate(-50%, -50%);
   --transition: 0.5s ease;
   --box-shadow: 0 8px 0px rgba(28, 16, 8, 0.16);
+}
+* {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE10+/Edge */
+  user-select: none;  
+  outline: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body, button, input {
+  font-family: var(--font);
 }
 
 input[type="text"],
@@ -23,19 +38,24 @@ select {
   font-size: 16px;
 }
 
-* {
-  user-select: none;
-  outline: none;
+img, svg {
+  /* Prevents the image from being dragged with the mouse */
+  -webkit-user-drag: none;
+  user-drag: none;
 }
 
+img {
+  -webkit-user-drag: none;
+  user-drag: none;
+}
 button:hover {
   cursor: pointer;
 }
 
+
 /* Base styles shared by all icons */
 .icon {
   font-size: 25px;
-  box-shadow: 0 4px 0px 0px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -46,12 +66,14 @@ button:hover {
 
 /* Color Modifier: Black version */
 .icon--black {
+  box-shadow: 0 4px 0px 0px rgba(0, 0, 0, 0.2);
   background-color: var(--light-gray);
   color: white;
 }
 
 /* Color Modifier: Orange version */
 .icon--orange {
+  box-shadow: 0 4px 0px 0px rgba(0, 0, 0, 0.6);
   background-color: var(--orange);
   color: var(--black);
 }

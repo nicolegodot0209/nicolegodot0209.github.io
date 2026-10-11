@@ -13,13 +13,16 @@
     <!-- Navbar -->
     <div class="navbar" id="navbar">
       <a href="#" class="logo"><img src="images/logo.png"/></a>
-        <button class="nav_button">Calendar</button>
-        <button class="nav_button">Resources</button>
-        <button class="nav_button">No idea</button>
+        <div id="nav_buttons" class="nav_buttons">
+          <button class="nav_button">Calendar</button>
+          <button class="nav_button">Resources</button>
+          <button class="nav_button">No idea</button>
+        </div>
 
+        <button class="icon_button" id="menu_button"><i class="fa-solid fa-bars"></i></button>
         <div id="search_cont" class="search_cont">
-            <input type="text" id="search_input" autocomplete="off" placeholder="Search...">   
-            <button id="search_button"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <input type="text" id="search_input" autocomplete="off">   
+            <button class="icon_button" id="search_button"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
       </div>
     </div>
@@ -34,8 +37,8 @@
       <h2>Stay connected with important dates, discover
         clubs and opportunities, and find support
         when you need it.</h2>
-      <a href="#"><button class="hero_button">Explore the Calendar  <i class="fa-solid fa-up-right-from-square"></i></button></a>
-      <a href="#"><button class="hero_button hero_button--transparent">Find Support</button></a>
+      <button>Explore the Calendar  <i class="fa-solid fa-up-right-from-square"></i></button>
+      <button>Find Support</button>
     </div>
 
     <div class="hero_photo_cont">
