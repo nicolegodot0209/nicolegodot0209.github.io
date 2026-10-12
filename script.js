@@ -1,5 +1,5 @@
 //// Nav bar
-const navbar = document.getElementById('navbar');
+const nav_bar = document.getElementById('nav_bar');
 const menuButton = document.getElementById('menu_button');
 const navButtons = document.getElementById('nav_buttons')
 let isMenuOpen = false;
@@ -14,12 +14,12 @@ function menuButtonToggled() {
 
 function openMenu() {
     isMenuOpen = true;
-    navbar.classList.add('menuOpen');
+    nav_bar.classList.add('menuOpen');
 }
 
 function closeMenu() {
     isMenuOpen = false;
-    navbar.classList.remove('menuOpen');
+    nav_bar.classList.remove('menuOpen');
 }
 
 menuButton.addEventListener('click', menuButtonToggled);
@@ -63,13 +63,13 @@ window.addEventListener('scroll', () => {
   if (currentScrollY > lastScrollY) { // When scrolling down
     if (lastScrollDir != -1) {
         lastScrollDir = -1;
-        navbar.classList.add('scrollingDown');
+        nav_bar.classList.add('scrollingDown');
     }
   } else if (currentScrollY < lastScrollY) { // When scrolling up
 
     if (lastScrollDir != 1) {
         lastScrollDir = 1;
-        navbar.classList.remove('scrollingDown');
+        nav_bar.classList.remove('scrollingDown');
     }
   }
 
@@ -88,7 +88,7 @@ const observer = new IntersectionObserver((entries) => {
     }
   });
 }, {
-    threshold: 0.2
+    threshold: 0.5
 });
 
 // Start watching each element separately.

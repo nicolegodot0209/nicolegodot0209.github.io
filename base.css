@@ -1,0 +1,66 @@
+/* Imports */
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Variables */
+:root {
+  --black: #121212;
+  --light-gray: #212121;
+  --light-orange1: #fde0cb;
+  --light-orange2: #fa954e;
+  --orange: #f47920;
+  --white: #fff;
+ 
+  --font: "Be Vietnam Pro", sans-serif;
+  --translate: translate(-50%, -50%);
+  --transition: 0.5s ease;
+  --box-shadow: 0 8px 0px rgba(28, 16, 8, 0.16);
+}
+/* Prevent user select across all platforms */
+* { 
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
+  outline: none;
+}
+/* Default Behaviors */
+html, body {
+  font-family: var(--font); 
+  scroll-behavior: smooth;
+  touch-action: manipulation;
+  & :is(button, input) {
+    font-family: var(--font);
+  }
+}
+img, svg { -webkit-user-drag: none; } /* Prevents the image from being dragged with the mouse */
+button:hover { cursor: pointer; } /* All buttons should change cursor */
+
+/* Icons */
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  font-size: 25px;
+  border-radius: 30%;
+  box-shadow: 0 4px 0px 0px rgba(0, 0, 0, 0.2);
+
+  &.icon--black { /* Color Modifier: Black Version */
+    color: var(--white);
+    background-color: var(--light-gray);
+  }
+  &.icon--orange { /* Color Modifier: Orange Version */
+    color: var(--black);
+    background-color: var(--orange);
+  }
+}
+
+/* Header Sizes */
+h1 { font-size: clamp(1.75rem, 2.5vw + 1rem, 4rem); font-weight: bold; }
+h2 { font-size: clamp(1.5rem, 2.0vw + 0.85rem, 3rem); font-weight: normal; }
+h3 { font-size: clamp(1.25rem, 1.5vw + 0.75rem, 2.25rem); font-weight: normal; }
+h4 { font-size: clamp(1.1rem, 1.25vw + 0.65rem, 1.75rem); font-weight: normal; } /* Typos fixed here 👇 */
+h5 { font-size: clamp(1.0rem, 1.0vw + 0.55rem, 1.4rem); font-weight: normal; }  /* Changed w to vw */
+h6 { font-size: clamp(0.875rem, 0.85vw + 0.5rem, 1.15rem); font-weight: normal; } /* Changed w to vw */
+p  { font-size: clamp(12px, 1.25vw + 8px, 20px); font-weight: normal; }

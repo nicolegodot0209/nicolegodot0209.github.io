@@ -21,7 +21,7 @@
 }
 
 /* Navigation Bar */
-.navbar {
+.nav_bar {
   position: fixed;
   top: 0;
   left: 0;
@@ -78,7 +78,7 @@
       & button {
         width: 100%;
       }
-      .navbar.menuOpen & {
+      .nav_bar.menuOpen & {
         visibility: visible;
         pointer-events: auto;
       }
@@ -176,7 +176,7 @@
   }
 }
 
-/* Home Photo */
+/* Hero */
 .hero {
   position: absolute;
   top: 0;
@@ -198,35 +198,29 @@
   color: var(--black);
   transition: margin var(--transition);
 
-  /* Header Style */
-  :is(h1, h2, h3) {
+  /* Header Style & Animation */
+  :is(h1, h3, h4) {
     opacity: 0;
     animation: fade_text 0.75s ease-in-out forwards;
+
+    &:nth-child(1) { animation-delay: 0.5s; }
+    &:nth-child(2) { animation-delay: 1.0s; }
+    &:nth-child(3) { animation-delay: 1.5s; }
+    &:nth-child(4) { animation-delay: 2.0s; }
   }
 
-  /* Header Animations & Sizes */
   & h1 {
     margin-bottom: -15px;
-    font-size: clamp(24px, 2vw + 16px, 100px);
     font-weight: bold;
-    &:nth-of-type(1) { animation-delay: 1.0s; }
-    &:nth-of-type(2) { animation-delay: 1.5s; }
-  }
-  & h2 {
-    margin-top: 40px;
-    font-size: clamp(16px, 1vw + 12px, 65px);
-    font-weight: normal;
-    animation-delay: 2.0s;
   }
   & h3 {
-    font-size: clamp(8px, 0.25vw + 14px, 65px);
-    font-weight: normal;
-    animation-delay: 0.5s;
+    margin-top: 40px;
   }
 
   /* Buttons */
   & button {
     margin-top: 10px;
+    margin-right: 10px;
     padding: 15px;
     font-weight: bold;
     color: var(--white);
@@ -257,7 +251,6 @@
     margin-left: 3%;
   }
 }
-
 
 .hero_photo_cont {
   display: grid;
@@ -323,31 +316,24 @@ hr {
   align-items: flex-start;
   gap: 50px;
   width: 100%;
-  margin-top: 55px;
-  padding-bottom: 55px;
+  margin-top: 40px;
+  padding-bottom: 40px;
   opacity: 1;
 
   /* Content Default */
-  & h1 {
-    margin-bottom: -10px;
-    font-size: clamp(24px, 2.25vw + 12px, 36px);
-  }
-  & p {
-    font-size: clamp(12px, 1.25vw + 8px, 20px);
-  }
-  & h1, p, .icon {
-    opacity: 0;
-  }
+  & h2 { margin-bottom: -10px; }
+  & :is(h2, p, .icon) { opacity: 0; }
+  
   /* Content AFTER Animation */
   &.visible {
     & .info {
-      :is(h1, p, .icon) {
+      :is(h2, p, .icon) {
         animation: fade_text 0.75s ease-in-out forwards;
       }
       /* Orders the animations */
-      &:nth-child(1) :is(h1, p, .icon) { animation-delay: 0s; }
-      &:nth-child(2) :is(h1, p, .icon) { animation-delay: 0.5s; }
-      &:nth-child(3) :is(h1, p, .icon) { animation-delay: 1s; }
+      &:nth-child(1) :is(h2, p, .icon) { animation-delay: 0s; }
+      &:nth-child(2) :is(h2, p, .icon) { animation-delay: 0.5s; }
+      &:nth-child(3) :is(h2, p, .icon) { animation-delay: 1s; }
     }
   }
 
@@ -368,8 +354,26 @@ hr {
   box-shadow: var(--box-shadow);
   opacity: 1;
 
+  & h2 {
+    margin-bottom: -10px;
+    font-weight: bold;
+  }
   &:nth-of-type(2) {
     color: white;
     background-color: var(--light-gray);
+  }
+}
+
+/* Calendar */
+.calendar_section {
+  & h5 {
+    margin-bottom: -20px;
+  }
+  & h2 { 
+   margin-bottom: -10px;
+   font-weight: bold;
+  }
+  & h3 {
+    font-weight: normal; 
   }
 }
