@@ -385,9 +385,9 @@ hr {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(1, 15vh);
+  gap: 15px;
 
   align-items: center;
-  gap: 20px;
   width: 100%;
   justify-items: center;
 
@@ -402,8 +402,8 @@ hr {
   /* Sizing */
   @media (max-width: 900px) {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 15vh);
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(4, 15vh);
   }
 }
 
@@ -411,7 +411,7 @@ hr {
   display: flex;
   align-items: center;
   width: 100%;
-  padding: 20px;
+  padding: 17.5px;
   background-color: var(--white);
   border: 2px solid var(--light-gray);
   border-radius: 20px;
@@ -419,6 +419,7 @@ hr {
   opacity: 0;
   transition: translate var(--transition), box-shadow var(--transition);
   translate: 0 0;
+  color: var(--black);
   
   /* Hover State */
   &:hover {
@@ -468,8 +469,6 @@ hr {
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     overflow: hidden;
-    
-    @media (max-width: 950px) { display: none; } /* Sizing */
   }
 }
 
@@ -479,6 +478,10 @@ hr {
   margin: 0;
   padding: 80px 150px;
   background-color: var(--light-orange1);
+
+  @media (max-width: 950px) { 
+    padding: 80px 30px; 
+  }
 }
 
 .mental_health_section .section_text {
@@ -506,4 +509,12 @@ hr {
       background-color: var(--light-black);
     }
   }
+
+  @media (max-width: 950px) { 
+    & p:nth-of-type(1) {
+      display: none;
+    }
+  }
+
+  
 }
