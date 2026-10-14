@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>My Website</title>
-    <link rel="stylesheet" href="base.css">
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/home.css">
     <script src="https://kit.fontawesome.com/1a99a24fea.js" crossorigin="anonymous"></script>
 </head>
   
@@ -37,8 +37,8 @@
       <h3>Stay connected with important dates, discover
         clubs and opportunities, and find support
         when you need it.</h3>
-      <button>Explore the Calendar  <i class="fa-solid fa-up-right-from-square"></i></button>
-      <button>Find Support</button>
+      <button class="standard_button">Explore the Calendar  <i class="fa-solid fa-up-right-from-square"></i></button>
+      <button class="standard_button">Find Support</button>
     </div>
 
     <div class="hero_photo_cont">
@@ -81,57 +81,42 @@
       <h6>CALENDAR</h6>
       <h2>What's coming up</h2>
       <h4>lorem ipsum dolor sit amet consectetur adipiscing elit culpa sint laborum.</h4>
+      <a href="#">View Full Calendar <i class="fa-solid fa-up-right-from-square"></i></a>
 
-      <div class="event_section">
-        <div class="event">
+      <!-- JS loads the cards into here-->
+      <div class="event_list scroll-reveal" id="event_list"></div>
+     
+      <!-- Template for the event cards-->
+      <template id="event_template">
+        <button class="event">
           <div class="date">
-            <h6 class="month">OCT</h6>
-            <h4 class="day">00</h4>
+            <h6 class="month">Oct</h6>
+            <h4 class="day">13</h4>
           </div>
-          <div class="event_desc">
-            <h5>Title</h5>
-            <h6>lorem ipsum dolor.</h6>
+          <div class="event_info">
+            <h5 class="event_title">Title</h5>
+            <h6 class="event_details">3:00 PM • Class 123</h6>
+            <p class="event_desc">Insert a super cool description that gets cut off by the width of the screen!</p>
           </div>
-        </div>
+        </button>
+      </template>
+    </div>
 
-        <div class="event">
-          <div class="date">
-            <h6 class="month">OCT</h6>
-            <h4 class="day">00</h4>
-          </div>
-          <div class="event_desc">
-            <h5>Title</h5>
-            <h6>lorem ipsum dolor.</h6>
-          </div>
-        </div>
+    <div class="mental_health_section">
 
-        <div class="event">
-          <div class="date">
-            <h6 class="month">OCT</h6>
-            <h4 class="day">00</h4>
-          </div>
-          <div class="event_desc">
-            <h5>Title</h5>
-            <h6>lorem ipsum dolor.</h6>
-          </div>
-        </div>
-
-        <div class="event">
-          <div class="date">
-            <h6 class="month">OCT</h6>
-            <h4 class="day">00</h4>
-          </div>
-          <div class="event_desc">
-            <h5>Title</h5>
-            <h6>lorem ipsum dolor.</h6>
-          </div>
-        </div>
-        
+      <div class="section_text">
+        <h6>YOUR MENTAL HEALTH MATTERS</h6>
+        <h3>Put a title here?</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore erunt mollit anim id est laborum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore erunt mollit anim id est laborum.</p>
+        <br>
+        <button class="standard_button">Preview Resources</button>
       </div>
     </div>
   </div>
 
 
-  <script src="script.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/home.js"></script>
   </body>
 </html>
