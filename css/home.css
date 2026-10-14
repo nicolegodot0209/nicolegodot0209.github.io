@@ -488,13 +488,13 @@ hr {
   box-sizing: border-box;
   color: var(--black);
   background-color: var(--light-orange2);
-  border: 15px solid var(--orange);
+  border: 12.5px solid var(--orange);
   border-radius: 15px;
   box-shadow: var(--box-shadow);
   margin-inline: auto;
 
   & h6 { margin-bottom: -18px; }
-  & h3 { font-weight: bold;}
+  & h2 { font-weight: bold;}
   & p { margin-bottom: 12px; font-weight: normal;}
   & button {
     color: var(--black);
