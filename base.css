@@ -4,7 +4,8 @@
 /* Variables */
 :root {
   --black: #121212;
-  --light-gray: #212121;
+  --light-black: #212121;
+  --light-gray: #f5f5f5;
   --light-orange1: #fde0cb;
   --light-orange2: #fa954e;
   --orange: #f47920;
@@ -13,7 +14,7 @@
   --font: "Be Vietnam Pro", sans-serif;
   --translate: translate(-50%, -50%);
   --transition: 0.5s ease;
-  --box-shadow: 0 8px 0px rgba(28, 16, 8, 0.16);
+  --box-shadow: 0 8px 0 rgba(28, 16, 8, 0.16);
 }
 /* Prevent user select across all platforms */
 * { 
@@ -48,7 +49,7 @@ button:hover { cursor: pointer; } /* All buttons should change cursor */
 
   &.icon--black { /* Color Modifier: Black Version */
     color: var(--white);
-    background-color: var(--light-gray);
+    background-color: var(--light-black);
   }
   &.icon--orange { /* Color Modifier: Orange Version */
     color: var(--black);
@@ -56,11 +57,13 @@ button:hover { cursor: pointer; } /* All buttons should change cursor */
   }
 }
 
-/* Header Sizes */
-h1 { font-size: clamp(1.75rem, 2.5vw + 1rem, 4rem); font-weight: bold; }
-h2 { font-size: clamp(1.5rem, 2.0vw + 0.85rem, 3rem); font-weight: normal; }
-h3 { font-size: clamp(1.25rem, 1.5vw + 0.75rem, 2.25rem); font-weight: normal; }
-h4 { font-size: clamp(1.1rem, 1.25vw + 0.65rem, 1.75rem); font-weight: normal; } /* Typos fixed here 👇 */
-h5 { font-size: clamp(1.0rem, 1.0vw + 0.55rem, 1.4rem); font-weight: normal; }  /* Changed w to vw */
-h6 { font-size: clamp(0.875rem, 0.85vw + 0.5rem, 1.15rem); font-weight: normal; } /* Changed w to vw */
-p  { font-size: clamp(12px, 1.25vw + 8px, 20px); font-weight: normal; }
+/* Header Sizing/Styling */
+h1 { font-size: clamp(1.75rem, 2.5vmin + 1rem, 4rem); font-weight: bold; }
+
+:is(h2, h3, h4, h5, h6, p) { font-weight: normal }
+h2 { font-size: clamp(1.5rem, 2.0vmin + 0.85rem, 3rem); }
+h3 { font-size: clamp(1.25rem, 1.5vmin + 0.75rem, 2.25rem); }
+h4 { font-size: clamp(1.1rem, 1.25vmin + 0.65rem, 1.75rem); }
+h5 { font-size: clamp(1.0rem, 1.0vmin + 0.55rem, 1.4rem); }
+h6 { font-size: clamp(0.875rem, 0.85vmin + 0.5rem, 1.15rem); }
+p {font-size: clamp(12px, 1.25vmin + 8px, 20px); }
