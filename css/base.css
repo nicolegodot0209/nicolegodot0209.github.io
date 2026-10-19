@@ -62,7 +62,7 @@ button:hover { cursor: pointer; } /* All buttons should change cursor */
   font-weight: bold;
   border-radius: 30px;
   box-shadow: 0 4px 0 rgba(28, 16, 8, 0.16);
-  transition: background-color var(--transition), font-size var(--transition)
+  transition: border var(--transition), background-color var(--transition), font-size var(--transition)
 }
 
 /* Header Sizing/Styling */

@@ -303,7 +303,8 @@
 }
 
 hr {
-  border: 2.5px dashed var(--light-orange1);
+  &.hr-orange-1 { border: 2.5px dashed var(--light-orange1); }
+  &.hr-orange-2 { border: 2.5px dashed var(--light-orange2); }
 }
 
 /* Info */
@@ -364,8 +365,7 @@ hr {
 
 /* Calendar */
 .calendar_section {
-  margin: 80px 50px;
-  padding-bottom: 50px;
+  margin: 80px 50px;  
 
   & h6 { margin-bottom: -18px; }
   & h2 { margin-bottom: -12px; font-weight: bold;}
@@ -386,9 +386,9 @@ hr {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(1, 15vh);
-  gap: 15px;
 
   align-items: center;
+  gap: 15px;
   width: 100%;
   justify-items: center;
 
@@ -399,13 +399,12 @@ hr {
     & > .event:nth-child(2) { animation-delay: 0.5s; }
     & > .event:nth-child(3) { animation-delay: 1s; }
     & > .event:nth-child(4) { animation-delay: 1.5s; }
-    gap: 70px;
   }
   /* Sizing */
   @media (max-width: 900px) {
-    display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(4, 15vh);
+    gap: 40px;
   }
 }
 
@@ -414,17 +413,19 @@ hr {
   align-items: center;
   width: 100%;
   padding: 17.5px;
+  color: var(--black);
   background-color: var(--white);
   border: 2px solid var(--light-gray);
   border-radius: 20px;
   box-shadow: 0 5px 0 rgba(28, 16, 8, 0.05);
   opacity: 0;
-  transition: translate var(--transition), box-shadow var(--transition);
+  transition-property: translate, box-shadow, border;
+  transition-duration: 0.5s;
   translate: 0 0;
-  color: var(--black);
   
   /* Hover State */
   &:hover {
+    border: 2px solid var(--light-orange1);
     box-shadow: 0 10px 0 rgba(28, 16, 8, 0.05);
     translate: 0 -5px;
   }
@@ -474,15 +475,103 @@ hr {
   }
 }
 
-/* Mental Health Section */
-.mental_health_section {
+/* Second Section */
+.orange_section {
   height: auto;
   margin: 0;
-  padding: 80px 150px;
   background-color: var(--light-orange1);
+  padding-block: 80px;
+}
 
-  @media (max-width: 950px) { 
-    padding: 80px 30px; 
+/* Career Section */
+.career_section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px 50px; 
+  margin-bottom: 80px;
+
+  background-color: var(--white);
+  padding: 50px;
+  border-radius: 15px;
+  box-shadow: var(--box-shadow);
+}
+
+.career_section .button_section {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  width: 45%;
+
+  button {
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+    align-items: center;
+    width: 100%;
+    padding: 17.5px;
+    color: var(--black);
+    background-color: var(--white);
+    border: 2px solid var(--light-gray);
+    border-radius: 20px;
+    box-shadow: 0 5px 0 rgba(28, 16, 8, 0.05);
+    transition-property: translate, box-shadow, border;
+    transition-duration: 0.5s;
+    translate: 0 0;
+    
+    h5 {
+      white-space: nowrap;
+    }
+    .icon {
+      background-color: var(--light-orange2);
+    }
+    /* Hover State */
+    &:hover {
+      border: 2px solid var(--light-orange1);
+      box-shadow: 0 10px 0 rgba(28, 16, 8, 0.05);
+      translate: 0 -5px;
+    }
+  }
+}
+
+.career_section .section_text { 
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+
+  /* Contents */
+  h1 { font-weight: bold; }
+  h6 { margin-bottom: -18px; }
+  button { 
+    width: 50%;
+    margin-top: 18px;
+    color: var(--white);
+    background-color: var(--light-black);
+    border: 5px solid var(--light-black); 
+
+    &:hover {
+      color: var(--black);
+      background-color: var(--orange);
+      border: 5px solid var(--orange);
+    }
+  }
+  
+  /* Sizing */
+  ul {
+    font-size: 24px;
+
+    .fa-li { color: var(--orange); }
+  }
+}
+
+/* Mental Health Section */
+.mental_health_section {
+  margin-top: 80px;
+  padding: 0 150px;
+
+  @media (max-width: 900px) { 
+    padding: 0 30px; 
   }
 }
 
@@ -496,12 +585,14 @@ hr {
   border: 12.5px solid var(--orange);
   border-radius: 15px;
   box-shadow: var(--box-shadow);
+  opacity: 0;
   margin-inline: auto;
 
-  & h6 { margin-bottom: -18px; }
-  & h2 { font-weight: bold;}
-  & p { margin-bottom: 12px; font-weight: normal;}
-  & button {
+  /* Contents */
+  h6 { margin-bottom: -18px; }
+  h2 { font-weight: bold;}
+  p { margin-bottom: 12px; font-weight: normal;}
+  button {
     color: var(--black);
     background-color: transparent;
     border: 5px solid var(--light-black);
@@ -511,27 +602,45 @@ hr {
       background-color: var(--light-black);
     }
   }
-
+  /* Sizing */
   @media (max-width: 650px) { 
-    & p:nth-of-type(1) {
+    p:nth-of-type(1) { /* Hide the first line */
       display: none;
     }
   } 
+  /* Animation */
+  &.visible {
+    animation: fade_text 0.75s ease-in-out forwards; 
+  }
 }
 
 /* Footer */
 .footer {
-  margin-top: -30px;
-  background-color: var(--light-black);
-  height: 80px;
   color: white;
-  padding-block: 35px;
+  background-color: var(--light-black);
+  padding-block: 5px;
 
-  & .footer_text {
+  .footer_text {
     padding: 0px 30px;
+  
+    h6 { font-size: clamp(0.575rem, 0.5vmin + 0.25rem, 0.85rem);}
+    h4 { font-weight: bold; }
   }
 }
+.footer_links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 30px;
 
-.footer .footer_text {
-  padding: 0px 30px;
+  a {
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: -10px;
+    font-size: clamp(0.775rem, 0.75vmin + 0.4rem, 1.05rem);
+    color: white;
+    text-decoration: none;
+
+    &:hover { text-decoration: underline; }
+  }
 }
