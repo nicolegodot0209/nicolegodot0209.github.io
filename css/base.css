@@ -29,9 +29,7 @@ html, body {
   font-family: var(--font); 
   scroll-behavior: smooth;
   touch-action: manipulation;
-  & :is(button, input) {
-    font-family: var(--font);
-  }
+  & :is(button, input) { font-family: var(--font); }
 }
 img, svg { -webkit-user-drag: none; } /* Prevents the image from being dragged with the mouse */
 button:hover { cursor: pointer; } /* All buttons should change cursor */
@@ -43,6 +41,7 @@ button:hover { cursor: pointer; } /* All buttons should change cursor */
   align-items: center;
   width: 50px;
   height: 50px;
+  aspect-ratio: 1;
   font-size: 25px;
   border-radius: 30%;
   box-shadow: 0 4px 0px 0px rgba(0, 0, 0, 0.2);
@@ -74,4 +73,4 @@ h3 { font-size: clamp(1.25rem, 1.5vmin + 0.75rem, 2.25rem); }
 h4 { font-size: clamp(1.1rem, 1.25vmin + 0.65rem, 1.75rem); }
 h5 { font-size: clamp(1.0rem, 1.0vmin + 0.55rem, 1.4rem); }
 h6 { font-size: clamp(0.775rem, 0.75vmin + 0.4rem, 1.05rem); }
-p {font-size: clamp(12px, 1.25vmin + 8px, 20px); }
+p { font-size: clamp(12px, 1.25vmin + 8px, 20px); }

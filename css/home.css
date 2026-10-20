@@ -49,6 +49,7 @@
       color: var(--white);
       background-color: var(--black);
       border: none;
+      transition: background-color var(--transition);
     
       &:hover {
         background-color: var(--light-black);
@@ -312,7 +313,7 @@ hr {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: flex-start;
+  align-items: stretch;
   gap: 50px;
   width: 80%;
   padding: 60px 0px;
@@ -386,6 +387,7 @@ hr {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(1, 15vh);
+  min-height: max-content;
 
   align-items: center;
   gap: 15px;
@@ -403,7 +405,7 @@ hr {
   /* Sizing */
   @media (max-width: 900px) {
     grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(4, 15vh);
+    grid-template-rows: repeat(4, 20vh);
     gap: 40px;
   }
 }
@@ -496,35 +498,56 @@ hr {
   padding: 50px;
   border-radius: 15px;
   box-shadow: var(--box-shadow);
+  gap: 80px;
+  opacity: 0;
+
+  &.visible {animation: fade 0.75s ease-in-out forwards;}
 }
 
 .career_section .button_section {
   display: flex;
   flex-direction: column;
-  gap: 50px;
-  width: 45%;
+  gap: 30px;
+  width: 50%;
+
+  @media (max-width: 900px) { 
+    width: max-content; 
+    display: none;
+  }
 
   button {
     display: flex;
-    flex-direction: row;
+    flex-grow: 1;
     text-align: left;
     align-items: center;
     width: 100%;
-    padding: 17.5px;
+    min-width: max-content;
+    padding: 20px;
     color: var(--black);
     background-color: var(--white);
     border: 2px solid var(--light-gray);
     border-radius: 20px;
     box-shadow: 0 5px 0 rgba(28, 16, 8, 0.05);
-    transition-property: translate, box-shadow, border;
+    transition-property: translate, box-shadow, border, width;
     transition-duration: 0.5s;
     translate: 0 0;
-    
-    h5 {
-      white-space: nowrap;
+
+    .text {
+      h5 { 
+        white-space: nowrap; 
+        margin: 0 0 5px 0;
+        color: var(--light-black);
+      }
+      h6 { 
+        overflow: hidden; 
+        text-overflow: ellipsis; 
+        margin: 0;
+        color: #919191;
+      }
     }
     .icon {
       background-color: var(--light-orange2);
+      margin-right: 15px;
     }
     /* Hover State */
     &:hover {
@@ -538,13 +561,13 @@ hr {
 .career_section .section_text { 
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 40%;
 
   /* Contents */
   h1 { font-weight: bold; }
   h6 { margin-bottom: -18px; }
   button { 
-    width: 50%;
+    width: 100%;
     margin-top: 18px;
     color: var(--white);
     background-color: var(--light-black);
@@ -556,12 +579,24 @@ hr {
       border: 5px solid var(--orange);
     }
   }
-  
-  /* Sizing */
-  ul {
-    font-size: 24px;
 
-    .fa-li { color: var(--orange); }
+  ul {
+    font-size: clamp(12px, 1.25vmin + 8px, 20px);
+    .fa-li { 
+      transition: color var(--transition);
+      color: var(--orange);
+    }
+
+    & li {
+      margin-bottom: 5px;
+      &:hover .fa-li {
+        color: var(--light-orange2);
+      }
+    }
+  }
+
+  @media (max-width: 900px) { 
+    width: 100%;
   }
 }
 
@@ -570,9 +605,7 @@ hr {
   margin-top: 80px;
   padding: 0 150px;
 
-  @media (max-width: 900px) { 
-    padding: 0 30px; 
-  }
+  @media (max-width: 900px) { padding: 0 30px; }
 }
 
 .mental_health_section .section_text {
@@ -582,7 +615,6 @@ hr {
   box-sizing: border-box;
   color: var(--black);
   background-color: var(--light-orange2);
-  border: 12.5px solid var(--orange);
   border-radius: 15px;
   box-shadow: var(--box-shadow);
   opacity: 0;
