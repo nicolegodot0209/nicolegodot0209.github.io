@@ -146,7 +146,7 @@ p { font-size: clamp(12px, 1.25vmin + 8px, 20px); }
       visibility: hidden;
       pointer-events: none;
      
-      button { width: 100%;}
+      a { width: 100%;}
       .nav_bar.menuOpen & {
         visibility: visible;
         pointer-events: auto;
