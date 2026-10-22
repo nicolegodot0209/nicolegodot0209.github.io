@@ -504,34 +504,3 @@ hr {
     animation: fade_text 0.75s ease-in-out forwards; 
   }
 }
-
-/* Footer */
-.footer {
-  color: white;
-  background-color: var(--light-black);
-  padding-block: 5px;
-
-  .footer_text {
-    padding: 0px 30px;
-  
-    h6 { font-size: clamp(0.575rem, 0.5vmin + 0.25rem, 0.85rem);}
-    h4 { font-weight: bold; }
-  }
-}
-.footer_links {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 30px;
-
-  a {
-    flex-direction: row;
-    align-items: center;
-    margin-bottom: -10px;
-    font-size: clamp(0.775rem, 0.75vmin + 0.4rem, 1.05rem);
-    color: white;
-    text-decoration: none;
-
-    &:hover { text-decoration: underline; }
-  }
-}

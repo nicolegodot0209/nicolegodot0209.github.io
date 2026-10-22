@@ -87,6 +87,7 @@ h5 { font-size: clamp(1.0rem, 1.0vmin + 0.55rem, 1.4rem); }
 h6 { font-size: clamp(0.775rem, 0.75vmin + 0.4rem, 1.05rem); }
 p { font-size: clamp(12px, 1.25vmin + 8px, 20px); }
 
+
 /* Navigation Bar */
 .nav_bar {
   position: fixed;
@@ -192,7 +193,7 @@ p { font-size: clamp(12px, 1.25vmin + 8px, 20px); }
       transition: var(--transition);
     }
   
-    /* Hover state */
+    /* Hover State */
     &:hover {
       background-color: var(--orange);
       & .svg-inline--fa {
@@ -242,5 +243,36 @@ p { font-size: clamp(12px, 1.25vmin + 8px, 20px); }
     }
 
     @media (max-width: 900px) { display: none; }
+  }
+}
+
+/* Footer */
+.footer {
+  color: white;
+  background-color: var(--light-black);
+  padding-block: 5px;
+
+  .footer_text {
+    padding: 0px 30px;
+  
+    h6 { font-size: clamp(0.575rem, 0.5vmin + 0.25rem, 0.85rem);}
+    h4 { font-weight: bold; }
+  }
+}
+.footer_links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 30px;
+
+  a {
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: -10px;
+    font-size: clamp(0.775rem, 0.75vmin + 0.4rem, 1.05rem);
+    color: white;
+    text-decoration: none;
+
+    &:hover { text-decoration: underline; }
   }
 }
