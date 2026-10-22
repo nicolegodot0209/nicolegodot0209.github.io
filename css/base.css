@@ -111,16 +111,16 @@ p { font-size: clamp(12px, 1.25vmin + 8px, 20px); }
     height: 100%;
 
     & a {
+      display: flex; 
+      justify-content: center; 
+      align-items: center;
       width: 15%;
       height: 100%;
       font-size: 16px;
       color: var(--white);
       background-color: var(--black);
       border: none;
-      transition: background-color var(--transition);
-      display: flex; 
-      justify-content: center; 
-      align-items: center; 
+      transition: background-color var(--transition); 
       text-decoration: none;
     
       &:hover {
