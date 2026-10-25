@@ -5,7 +5,7 @@
 :root {
   --black: #121212;
   --light-black: #212121;
-  --light-gray: #dedede;
+  --light-gray: #efefef;
   --light-orange1: #fde0cb;
   --light-orange2: #fa954e;
   --orange: #f47920;
@@ -37,7 +37,9 @@ html, body {
   & :is(button, input) { font-family: var(--font); }
 }
 img, svg { -webkit-user-drag: none; } /* Prevents the image from being dragged with the mouse */
-:is(button, a):hover { cursor: pointer; } /* All buttons should change cursor */
+:is(button:enabled, a) { /* All buttons should change cursor */
+  cursor: pointer;
+}
 
 /* Icons */
 .icon {

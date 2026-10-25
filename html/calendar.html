@@ -28,28 +28,106 @@
     </div>
     <!-- End of Nav Bar -->
 
-    <template id="cell_template">
-        <div class="cell">
-            <h5 id="date_number">1</h5>
-
-            <div class="events">
-                
-            </div>
-        </div>
+    <template id="day_button_template">
+      <button id="day_button_0" class="day_button">0</button>
     </template>
 
-    <div class="calendar_cont">
-        <div class="calendar">
-          <div class="header">
-            <h1 id="month_year">October 2026</h1>
+    <div class="page_content">
+      <div class="sidebar">
+        <div class="calendar_shortcut">
+          <div class="calendar_header">
+            <button id="prev_month_btn"><i class="fa-solid fa-caret-left"></i></button>
+            <h2 id="month_year">January 2000</h2>
+            <button id="next_month_btn"><i class="fa-solid fa-caret-right"></i></button>
           </div>
-          <div class="content" id="calendar_content">
+          <!-- Static Weekday Headers -->
+          <ul class="weekday_header">
+            <li>S</li>
+            <li>M</li>
+            <li>T</li>
+            <li>W</li>
+            <li>T</li>
+            <li>F</li>
+            <li>S</li>
+          </ul>
+          <!-- Dynamic Day Buttons -->
+          <div id="shortcut_buttons" class="shortcut_buttons"></div>
+        </div>
 
-            
-
+        <div class="checkboxes">
+          <div class="calendar_checkbox">
+            <input type="checkbox" id="academics" name="category" value="academics" checked>
+            <label for="academics">Academics</label>
+          </div>
+          <div class="calendar_checkbox">
+            <input type="checkbox" id="clubs" name="category" value="clubs" checked>
+            <label for="clubs">Clubs</label>
+          </div>
+          <div class="calendar_checkbox">
+            <input type="checkbox" id="sports" name="category" value="sports" checked>
+            <label for="sports">Sports</label>
+          </div>
+          <div class="calendar_checkbox">
+            <input type="checkbox" id="social" name="category" value="social" checked>
+            <label for="social">Social & Community</label>
+          </div>
+          <div class="calendar_checkbox">
+            <input type="checkbox" id="school_dates" name="category" value="school_dates" checked>
+            <label for="school_dates">Announcements</label>
           </div>
         </div>
+      </div>
+
+      <!-- Main Calendar -->
+      <template id="event_template">
+        <div class="event type_academic" id="event">
+          <button id="event_button">
+            <div class="event_title">
+              <span class="event_title_text"></span>
+              <i class="fa-solid fa-people-group" id="icon"></i>
+            </div>
+            <div class="event_details" id="event_details"></div>
+          </button>
+
+          <p class="event_desc" id="event_desc"></p>
+        </div>
+      </template>
+
+
+      <div class="calendar">
+        <div class="event_amount_cont">
+          <div>0</div>
+          <h6>events scheduled</h6>
+        </div>
+        <hr>
+        
+        <!-- Event Rows -->
+        <div class="event_cont">
+          <h6>ALL DAY</h6>
+          <div class="event_list" id="event_list0"></div>
+        </div>
+        <div class="event_cont">
+          <h6>6AM - 9AM</h6>
+          <div class="event_list" id="event_list1"></div>
+        </div>
+        <div class="event_cont">
+          <h6>10AM - 1PM</h6>
+          <div class="event_list" id="event_list2"></div> 
+        </div>
+        <div class="event_cont">
+          <h6>2PM - 5PM</h6>
+          <div class="event_list" id="event_list3"></div> 
+        </div>
+        <div class="event_cont">
+          <h6>6PM - 9PM</h6>
+          <div class="event_list" id="event_list4"></div> 
+        </div>
+         <!-- End of Event Rows -->
+
+        
+      </div>
     </div>
+
 
 
     <!-- Footer -->
