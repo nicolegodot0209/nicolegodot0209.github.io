@@ -169,8 +169,9 @@ function addEvent (eventInfo) {
    }
    // 2. Set details
    const event_details = clone.getElementById('event_details');
+   const time = `${parseInt(eventInfo.time.split(':')[0], 10) % 12 || 12}:${eventInfo.time.split(':')[1]}`;
    if (eventInfo.time != '') {
-       event_details.textContent = `${eventInfo.time} • ${eventInfo.location}`;
+       event_details.textContent = `${time} • ${eventInfo.location}`;
    } else {
        event_details.textContent = `${eventInfo.location}`;
    }
@@ -187,7 +188,6 @@ function addEvent (eventInfo) {
    const isBetween = (time, start, end) => time >= start && time <= end;
   
    let event_list_id = eventInfo.time === '' ? 0 : bounds.findIndex(b => eventInfo.time <= b) + 1;
-   console.log(event_list_id);
    const event_list = document.getElementById(`event_list${event_list_id}`);
    event_list.appendChild(clone);
 }
