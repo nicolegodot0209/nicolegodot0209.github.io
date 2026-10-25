@@ -19,12 +19,9 @@ function initializeCalendar() {
    }); 
 }
 
-
 function updateCalendar() {
    updateCalendarShortcut(currentDate);
 }
-
-
 
 
 // Calendar Shortcut
@@ -127,26 +124,30 @@ function isWeekend(date) {
 // Main Calendar
 const exampleEvent = {
    'title': 'FBLA Club Meeting',
-   'month': 10,
-   'day': 13,
-   'time' : '09:48',
+   'date': new Date(),
    'location': 'Cafeteria',
    'type' : 'club',
    'description': `Hey, its me!
    I am a cool description.
+   asdasdsdasdasdoahsodhasdihasoidhaosdhasd
+   asdoashdoaishdoiasd
+   asdaiusdhiashdos
    Wow wow this is such a description haha pretend I'm saying something very useful right now.`,
 };
 
+function updateMainCalendar(date) {
+    
+}
 
 function addEvent (eventInfo) {
    const eventTemplate = document.getElementById('event_template');
    const clone = eventTemplate.content.cloneNode(true);
    const event = clone.getElementById('event');
 
-
    let title = eventInfo.title;
    // 1. Set title
    event.querySelector('.event_title_text').textContent = eventInfo.title;
+   event.classList.add(`event_${eventInfo.type}`);
    const icon = clone.getElementById('icon');
    switch (eventInfo.type) {
        case 'academic':
@@ -168,26 +169,30 @@ function addEvent (eventInfo) {
            icon.className = '';
    }
    // 2. Set details
-   const event_details = clone.getElementById('event_details');
-   const time = `${parseInt(eventInfo.time.split(':')[0], 10) % 12 || 12}:${eventInfo.time.split(':')[1]}`;
-   if (eventInfo.time != '') {
-       event_details.textContent = `${time} • ${eventInfo.location}`;
-   } else {
-       event_details.textContent = `${eventInfo.location}`;
-   }
-   // 3. Set description
-   const event_desc = clone.getElementById('event_desc');
-   event_desc.textContent = eventInfo.description;
-   // 4. Connect button
-   const button = clone.getElementById('event_button');
-   button.addEventListener('click', () => {
-       handleEventClick(button);
-   });
+    const hours = eventInfo.date.getHours().toString().padStart(2, '0');
+    const minutes = eventInfo.date.getMinutes().toString().padStart(2, '0');
+    const time = `${hours}:${minutes}`; // Get the military time
+
+    const event_details = clone.getElementById('event_details');
+    const formattedTime = `${parseInt(time.split(':')[0], 10) % 12 || 12}:${time.split(':')[1]}`; // Military -> Standard
+    if (time != '00:00') {
+        event_details.textContent = `${formattedTime} • ${eventInfo.location}`;
+    } else {
+        event_details.textContent = `${eventInfo.location}`;
+    }
+    // 3. Set description
+    const event_desc = clone.getElementById('event_desc');
+    event_desc.textContent = eventInfo.description;
+    // 4. Connect button
+    const button = clone.getElementById('event_button');
+    button.addEventListener('click', () => {
+        handleEventClick(button);
+    });
    // 4. Add element
    const bounds = ['09:59', '13:59', '17:59', '99:99'];
    const isBetween = (time, start, end) => time >= start && time <= end;
   
-   let event_list_id = eventInfo.time === '' ? 0 : bounds.findIndex(b => eventInfo.time <= b) + 1;
+   let event_list_id = time === '' ? 0 : bounds.findIndex(b => time <= b) + 1;
    const event_list = document.getElementById(`event_list${event_list_id}`);
    event_list.appendChild(clone);
 }
@@ -214,7 +219,6 @@ exampleEvent.time = '';
 exampleEvent.location = ''
 exampleEvent.type = 'announcement'
 addEvent(exampleEvent);
-exampleEvent.time = '16:30';
 exampleEvent.type = 'sport'
 exampleEvent.title = 'Football Game';
 exampleEvent.location = 'Stadium';

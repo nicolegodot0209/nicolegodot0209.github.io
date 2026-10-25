@@ -1,13 +1,26 @@
-.footer {display: none;}
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer {
+    position: static;
+    margin-top: 0;
+    flex-shrink: 0;
+}
 
 .page_content {
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: relative; /* NOT absolute */
+
     display: flex;
     flex-direction: row;
+
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
+    flex-shrink: 0;
 }
 
 /* Sidebar */
@@ -17,11 +30,12 @@
     justify-content: center;
     gap: 50px;
     width: max-content;
-    height: 100%;
+    
     margin: 0;
     padding: 0 30px 0 30px;
     background-color: var(--white);
     box-shadow: 3px 5px 10px 0px rgba(28, 16, 8, 0.05);
+    flex-shrink: 0;
 }
 
 
@@ -50,6 +64,8 @@
             color: var(--black);
         }
     }
+
+    
 }
 .weekday_header {
     display: flex;
@@ -69,8 +85,11 @@
         font-size: 10px;
         font-weight: bold;
         flex: 1;
+        @media (max-width: 600px) { 
+            font-size: 8px;
+        }
     }
-  }
+}
 .shortcut_buttons {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
@@ -84,11 +103,11 @@
     border: 2px solid var(--light-gray);
     border-radius: 0 0 15px 15px;
     box-shadow: 0 5px 0 rgba(28, 16, 8, 0.16);
-    transition: var(--transition);
 }
 .day_button {
-    width: 30px;
+    width: min-content;
     padding: 5px;
+    font-size: 14px;
     font-weight: bold;
     color: var(--black);
     background-color: var(--white);
@@ -98,10 +117,10 @@
     transition-property: color, background-color;
     transition-duration: 0.5s;
 
+    /* Active/Inactive State */
     &:disabled {
         color: #dbd9d9;
     }
-
     &:enabled {
         &.weekend { background-color: var(--light-gray); }
         /* Inactive Properties */
@@ -115,11 +134,23 @@
             &:hover {background-color: var(--light-orange2); }
         }
     }
+    /* Sizing */
+    @media (max-width: 600px) { 
+        font-size: 9.5px;
+    }
 }
 
 
 /* Checkboxes */
-.checkboxes { width: max-content; }
+.checkboxes { 
+    width: max-content; 
+    /* Sizing */
+    @media (max-width: 600px) { 
+        label {
+            font-size: 14px;
+        }
+    }
+}
 .calendar_checkbox {
     display: flex;
     flex-direction: row;
@@ -139,6 +170,7 @@
         display: grid;
 
         width: 20px;
+        height: 20px;
         margin: 0 10px 0 0;
         box-sizing: border-box;
         background-color: var(--white);
@@ -152,7 +184,7 @@
             background-color 150ms ease,
             border-color 150ms ease;
         appearance: none;
-        aspect-ratio: 1;
+        aspect-ratio: 1 / 1;
         place-content: center;
 
         &:before {
@@ -182,17 +214,38 @@
     }
 }
 
+.page_content:has(#academics:not(:checked)) .event_academic {
+    display: none;
+}
+.page_content:has(#clubs:not(:checked)) .event_club {
+    display: none;
+}
+.page_content:has(#sports:not(:checked)) .event_sport {
+    display: none;
+}
+.page_content:has(#social:not(:checked)) .event_social {
+    display: none;
+}
+.page_content:has(#announcements:not(:checked)) .event_announcement {
+    display: none;
+}
+
 /* Calendar */
 .calendar {
-    width: 100%;
-    margin: 12vh 20px 0 20px;
     display: flex;
     flex-direction: column;
+    width: auto;
+    min-width: 0;
+    
+    margin: 0;
+    padding: 12vh 20px 0;
+    box-sizing: border-box;
+    flex: 1;
 
     hr {
         width: 100%;
-        border: 2px dashed #e2e2e2;
         margin-bottom: 20px;
+        border: 2px dashed #e2e2e2;
     }
 }
 
@@ -224,31 +277,52 @@
     }
 }
 
+.events {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    min-width: 0;
+
+    height: auto;
+    box-sizing: border-box;
+    padding-bottom: 30px;
+}
+
 .event_cont {
     display: flex;
     flex-direction: row;
     align-items: center;
-    height: auto;
-    min-height: 20%;
     gap: 30px;
+    width: 90%;
+    min-width: 0;
+    height: auto;
+    min-height: 0;
+    box-sizing: border-box;
+    flex-shrink: 0;
 
     h6 {
-        flex: 0 0 100px;
-        text-align: center;
         font-weight: bold;
-        white-space: nowrap;
+        text-align: center;
+        flex: 0 0 100px;
     }
 
     &:has(.event_list:empty) {
         display: none;
     }
 
-    /* Sizing */
-    @media (max-width: 900px) { 
+    @media (max-width: 900px) {
         flex-direction: column;
+
         h6 {
-            flex: 0 0 0;
             margin-bottom: 0;
+            flex: 0 0 auto;
+        }
+        .event_list {
+            width: 100%;
+            flex: 0 0 auto;
         }
     }
 }
@@ -260,6 +334,7 @@
     padding: 5px;
     background-color: var(--light-orange2);
     border-radius: 15px;
+    max-width: 1500px;
 
     &#event_list1, &#event_list3 {
         background-color: var(--light-orange1);
@@ -282,6 +357,7 @@
         border: none;
         border-radius: 15px;
         transition: background-color var(--transition);
+        color: var(--black);
 
         /* Events */
         &:hover {
@@ -289,8 +365,8 @@
         }
         &.active ~ #event_desc {
             height: auto;
-            opacity: 1;
             margin-top: 10px;
+            opacity: 1;
         }
         /* Sizing */
         @media (max-width: 900px) { 

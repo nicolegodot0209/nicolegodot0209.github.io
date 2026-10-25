@@ -72,15 +72,15 @@
             <label for="social">Social & Community</label>
           </div>
           <div class="calendar_checkbox">
-            <input type="checkbox" id="school_dates" name="category" value="school_dates" checked>
-            <label for="school_dates">Announcements</label>
+            <input type="checkbox" id="announcements" name="category" value="school_dates" checked>
+            <label for="announcements">Announcements</label>
           </div>
         </div>
       </div>
 
       <!-- Main Calendar -->
       <template id="event_template">
-        <div class="event type_academic" id="event">
+        <div class="event" id="event">
           <button id="event_button">
             <div class="event_title">
               <span class="event_title_text"></span>
@@ -102,25 +102,27 @@
         <hr>
         
         <!-- Event Rows -->
-        <div class="event_cont">
-          <h6>ALL DAY</h6>
-          <div class="event_list" id="event_list0"></div>
-        </div>
-        <div class="event_cont">
-          <h6>6AM - 9AM</h6>
-          <div class="event_list" id="event_list1"></div>
-        </div>
-        <div class="event_cont">
-          <h6>10AM - 1PM</h6>
-          <div class="event_list" id="event_list2"></div> 
-        </div>
-        <div class="event_cont">
-          <h6>2PM - 5PM</h6>
-          <div class="event_list" id="event_list3"></div> 
-        </div>
-        <div class="event_cont">
-          <h6>6PM - 9PM</h6>
-          <div class="event_list" id="event_list4"></div> 
+        <div class="events">
+          <div class="event_cont">
+            <h6>ALL DAY</h6>
+            <div class="event_list" id="event_list0"></div>
+          </div>
+          <div class="event_cont">
+            <h6>6AM - 9AM</h6>
+            <div class="event_list" id="event_list1"></div>
+          </div>
+          <div class="event_cont">
+            <h6>10AM - 1PM</h6>
+            <div class="event_list" id="event_list2"></div> 
+          </div>
+          <div class="event_cont">
+            <h6>2PM - 5PM</h6>
+            <div class="event_list" id="event_list3"></div> 
+          </div>
+          <div class="event_cont">
+            <h6>6PM - 9PM</h6>
+            <div class="event_list" id="event_list4"></div> 
+          </div>
         </div>
          <!-- End of Event Rows -->
 
