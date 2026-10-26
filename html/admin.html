@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MyMHS</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/admin.css">
+    <script src="https://kit.fontawesome.com/1a99a24fea.js" crossorigin="anonymous"></script>
+</head>
+  
+  <body>
+
+    <section id="sign_in_cont">
+        <div class="sign-in">
+            <div class="text">
+                <span>
+                    <h6>Welcome to MyMHS</h6>
+                    <img src="/images/logo.png">
+                </span>
+                <h1>Sign In</h1>
+            </div>
+            
+            <form id="login_form" class="login-form">
+                <input type="text" id="login_email" placeholder="Email address..." required>
+                <input type="password" id="login_password" placeholder="Password..." required>
+                <div class="checkbox_cont">
+                    <input type="checkbox" id="remember_me" value="yes">
+                    <label for="remember_me">Remember me?</label>
+                </div>
+                <button id="sign_in" class="standard_button" type="submit">Sign In</button>
+                <button id="google_sign_in" class="standard_button" type="button"><img src="/images/g-logo.png">Sign In with Google</button>
+                <p id="status" role="status"></p>
+            </form>
+        </div>
+        <a href="../index.html">Return to Home Page</a>
+    </section>
+
+    <section id="event_submit_cont">
+        <div class="sidebar">
+            <h6>MyMHS</h6>
+            <hr>
+            <button class="active">Events <i class="fa-solid fa-calendar"></i></button>
+            <button>Announcement <i class="fa-solid fa-bullhorn"></i></button>
+        </div>
+
+        <form class="event-submission" id="event_form">
+            <div class="cont">
+                <h1>Add Event</h1>
+                <div class="text">
+                    <div>
+                        <input type="text" id="event_title" placeholder="Title..." autocomplete="off" required>
+                        <input type="text" id="location" placeholder="Location..." autocomplete="off" required>
+                    </div>
+                    <textarea id="description" placeholder="Description..." maxlength="250"></textarea>
+                </div>
+
+                <div class="event-types">
+                    <input type="radio" id="academic" name="event_type" value="academic" checked>
+                    <label for="academic">Academic</label>
+
+                    <input type="radio" id="club" name="event_type" value="club">
+                    <label for="club">Club</label>
+
+                    <input type="radio" id="sport" name="event_type" value="sport">
+                    <label for="sport">Sport</label>
+                    
+                    <input type="radio" id="social" name="event_type" value="social">
+                    <label for="social">Social</label>
+                </div>
+
+                <input id="date" type="datetime-local">
+                <button class="standard_button" type="submit" id="event_submit" disabled>Submit</button>
+            </div>
+        </form>
+
+    </section>
+
+
+  <script type="module" src="/js/admin.js"></script>
+  <script type="module" src="/js/firebase-config.js"></script>
+  <script type="module" src="/js/login.js"></script>
+  </body>
+</html>

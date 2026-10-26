@@ -80,13 +80,13 @@ window.addEventListener('scroll', () => {
   if (currentScrollY > lastScrollY) { // When scrolling down
     if (lastScrollDir != -1) {
         lastScrollDir = -1;
-        nav_bar.classList.add('scrollingDown');
+        nav_bar.classList.add('shrink');
     }
   } else if (currentScrollY < lastScrollY) { // When scrolling up
 
     if (lastScrollDir != 1) {
         lastScrollDir = 1;
-        nav_bar.classList.remove('scrollingDown');
+        nav_bar.classList.remove('shrink');
     }
   }
   lastScrollY = currentScrollY;

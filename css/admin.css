@@ -1,0 +1,333 @@
+/* Text Inputs */
+input[type="text"], input[type="password"], textarea {
+    width: 90%;
+    padding: 15px 10px 15px 10px;
+    border: 2px solid var(--light-gray1);
+    border-radius: 10px;
+    box-shadow: 0 5px 0 rgba(28, 16, 8, 0.1);
+    transition: border var(--transition);
+
+    &:focus {
+        border: 2px solid var(--light-orange2);
+    }
+}
+
+/* Sign-In Page */
+#sign_in_cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--light-gray1);
+
+    a {
+        margin-top: 50px;
+        color: var(--orange);
+        opacity: 0;
+        animation: fade_text 0.75s ease forwards;
+        text-decoration: none;
+        animation-delay: 1.0s;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.sign-in {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 40%;
+    height: 50vh;
+    min-height: max-content;
+    padding: 40px;
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+    opacity: 0;
+    transition: width var(--transition);
+    animation: fade 0.75s ease forwards;
+    animation-delay: 0.25s;
+
+    /* Sizing */
+    @media (max-width: 900px) { 
+        width: 75%;
+    }
+    /* Inputs */
+    .login-form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        flex: 1;
+         
+        /* Checkbox & Button */
+        .checkbox_cont {
+            width: 40%;
+        }
+        #sign_in {
+            transition: background-color var(--transition), border var(--transition);
+
+            &:not(.active):enabled, &:disabled {
+                color: var(--light-gray2);
+                background-color: transparent; 
+                border: 5px solid var(--light-gray1);
+            }
+
+            &.active:enabled {
+              color: var(--black);
+              background-color: var(--light-orange2);
+              border: 5px solid var(--light-orange2);
+              &:hover {
+                background-color: var(--orange);
+                border: 5px solid var(--orange);
+              }
+            }
+          }
+        #google_sign_in {
+            gap: 12px;
+            color: var(--black);
+            background-color: transparent; 
+            border: 5px solid var(--light-gray1);
+            transition: background-color var(--transition), border var(--transition);
+
+            &:enabled:hover {
+                background-color: var(--light-gray1);
+            }
+            img {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+    /* Text */
+    .text {
+        padding-bottom: 40px;
+        h6 { 
+            margin: 0; 
+            color: var(--light-gray2);
+        }
+        h1 { 
+            margin: 0; 
+        }
+        img {
+            display: block;
+            max-width: 25px;
+            height: auto;
+        }
+        span {
+            display: inline-flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            height: auto;
+        }
+    }
+    /* Status */
+    #status {
+        font-size: 14px;
+        text-align: center;
+        color: var(--orange);
+    }
+}
+
+/* Event Page */
+#event_submit_cont {
+    --sidebar-width: 200px;
+    display: none;
+    flex-direction: row;
+    min-height: 100vh;
+    background-color: var(--light-orange1);
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    flex-direction: column;
+    width: var(--sidebar-width);
+    height: 100vh;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: var(--white);
+    box-shadow: 3px 5px 10px 0px rgba(28, 16, 8, 0.05);
+    overflow-y: auto;
+    overflow: hidden;
+
+    h6 {
+        margin: 30px 0 10px 0;
+        color: var(--light-gray2)
+    }
+    hr {
+        width: 100%;
+        margin-bottom: 20px;
+        border: 2px dashed var(--light-gray1);
+    }
+
+    button {
+        padding: 30px;
+        font-weight: bold;
+        background-color: transparent;
+        border: none;
+        transition: background-color var(--transition), color var(--transition);
+        &:not(.active):hover {
+            background-color: var(--light-orange1);
+        }
+        &.active {
+            background-color: var(--light-orange2);
+            &:hover { 
+                background-color: var(--orange); 
+            }
+        }
+    }
+}
+
+.event-submission {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 0;
+    margin-left: var(--sidebar-width);
+    padding: 24px;
+    box-sizing: border-box;
+    flex: 1;
+}
+
+.cont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 75%;
+    height: 50%;
+    min-height: max-content;
+    padding: 30px;
+
+    background-color: var(--white);
+    border: 5px solid var(--light-gray1);
+    border-radius: 15px;
+    box-shadow: 0 5px 0 rgba(28, 16, 8, 0.1);
+
+    .text {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 15px;
+        width: 100%;
+    
+        div {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            flex: 1;
+        }
+    
+        textarea {
+            max-height: 5lh;
+            field-sizing: content;
+            min-block-size: 2lh;
+            flex: 1;
+            resize: none;   
+        }
+    
+    }   
+    button {
+        width: 25%;
+        min-width: 150px;
+        transition: background-color var(--transition), border var(--transition);
+
+         &:disabled {
+            color: var(--light-gray2);
+            background-color: transparent; 
+            border: 5px solid var(--light-gray1);
+        }
+
+        &:enabled {
+            color: var(--black);
+            background-color: var(--light-orange2);
+            border: 5px solid var(--light-orange2);
+            &:hover {
+            background-color: var(--orange);
+            border: 5px solid var(--orange);
+            }
+        }
+    } 
+}
+
+.event-types {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    width: 70%;
+    
+
+    input[type="radio"] {
+        display: none;
+
+        &:checked + label {
+            background-color: var(--orange);
+            border-color: var(--orange);
+            &:hover { background-color: var(--light-orange2); }
+        }
+    }
+
+    label {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 12.5px;
+        box-sizing: border-box;
+        font-size: 14px;
+        font-weight: normal;
+        font-weight: bold;
+        text-align: center;
+
+        background-color: var(--white);
+        border: 2px solid var(--light-gray1);
+        border-radius: 20px;
+        box-shadow: 0 3px 0 rgba(28, 16, 8, 0.1);
+        transition-property: font-weight, border, background-color;
+        transition-duration: 0.5s;
+
+        &:hover {
+            cursor: pointer;
+            border-color: var(--light-gray2);
+        }
+    }
+
+    /* Sizing */
+    @media (max-width: 700px) { 
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+    }
+}
+
+input[type="datetime-local"] {
+    display: inline-flex;
+    align-items: center;
+    width: 50%;
+    padding: 12.5px 20px;
+    box-sizing: border-box;
+    font-family: inherit;
+    
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    color: var(--black);
+
+    background-color: var(--white, #fff);
+    border: 2px solid var(--light-gray1, #ccc);
+    border-radius: 25px;
+    box-shadow: 0 3px 0 rgba(28, 16, 8, 0.1);
+    cursor: pointer;
+    
+    transition: border-color 0.5s, background-color 0.5s;
+    outline: none;
+
+    &:hover { border-color: var(--light-orange1); }
+    &:focus { border-color: var(--light-orange2); }
+}

@@ -1,8 +1,5 @@
 let currentDate = new Date();
 let selectedDate = new Date();
-updateCalendar();
-initializeCalendar();
-
 
 function initializeCalendar() {
    // Calendar Shortcut
@@ -10,17 +7,13 @@ function initializeCalendar() {
    const prevBtn = document.getElementById('prev_month_btn');
    prevBtn.addEventListener('click', () => {
        currentDate.setMonth(currentDate.getMonth() - 1, 1);
-       updateCalendar();
+       updateCalendarShortcut(currentDate);
    });
    const nextBtn = document.getElementById('next_month_btn');
    nextBtn.addEventListener('click', () => {
        currentDate.setMonth(currentDate.getMonth() + 1, 1);
-       updateCalendar();
+       updateCalendarShortcut(currentDate);
    }); 
-}
-
-function updateCalendar() {
-   updateCalendarShortcut(currentDate);
 }
 
 
@@ -71,7 +64,6 @@ function updateCalendarShortcut(date) {
    }
 }
 
-
 function createDayButton(date) {
    // 1. Create a clone of the button template
    const buttonTemplate = document.getElementById('day_button_template');
@@ -92,13 +84,8 @@ function createDayButton(date) {
      ) {
        button.classList.add('active');
    }
-
-
-
-
    return button; // Return the button to be added to the shortcut
 }
-
 
 function handleDayClick(date, clickedButton) {
    // De-select current button
@@ -110,9 +97,9 @@ function handleDayClick(date, clickedButton) {
        // Select the new button
        clickedButton.classList.add('active');
        selectedDate = new Date(date);
+       renderEvents();
    }
 }
-
 
 // Helper Functions
 function isWeekend(date) {
@@ -122,23 +109,6 @@ function isWeekend(date) {
 
 
 // Main Calendar
-const exampleEvent = {
-   'title': 'FBLA Club Meeting',
-   'date': new Date(),
-   'location': 'Cafeteria',
-   'type' : 'club',
-   'description': `Hey, its me!
-   I am a cool description.
-   asdasdsdasdasdoahsodhasdihasoidhaosdhasd
-   asdoashdoaishdoiasd
-   asdaiusdhiashdos
-   Wow wow this is such a description haha pretend I'm saying something very useful right now.`,
-};
-
-function updateMainCalendar(date) {
-    
-}
-
 function addEvent (eventInfo) {
    const eventTemplate = document.getElementById('event_template');
    const clone = eventTemplate.content.cloneNode(true);
@@ -169,8 +139,9 @@ function addEvent (eventInfo) {
            icon.className = '';
    }
    // 2. Set details
-    const hours = eventInfo.date.getHours().toString().padStart(2, '0');
-    const minutes = eventInfo.date.getMinutes().toString().padStart(2, '0');
+    const date = new Date(eventInfo.date.seconds * 1000)
+    const hours = date.getHours().toString().padStart(2, '0');
+    const minutes = date.getMinutes().toString().padStart(2, '0');
     const time = `${hours}:${minutes}`; // Get the military time
 
     const event_details = clone.getElementById('event_details');
@@ -197,7 +168,6 @@ function addEvent (eventInfo) {
    event_list.appendChild(clone);
 }
 
-
 function handleEventClick(button) {
    // Toggle button
    if (button.classList.contains('active')) {
@@ -205,21 +175,51 @@ function handleEventClick(button) {
    } else {
        button.classList.add('active');
    }
-   console.log('clicked');
 }
 
+// Render events
+import { db } from "./firebase-config.js";
+import {
+  collection,
+  getDocs
+} from "https://www.gstatic.com/firebasejs/13.1.0/firebase-firestore.js";
 
-addEvent(exampleEvent);
-exampleEvent.title = 'PSAT';
-exampleEvent.type = 'academic'
-exampleEvent.location = 'Room 507'
-addEvent(exampleEvent);
-exampleEvent.title = 'No School Tomorrow!';
-exampleEvent.time = '';
-exampleEvent.location = ''
-exampleEvent.type = 'announcement'
-addEvent(exampleEvent);
-exampleEvent.type = 'sport'
-exampleEvent.title = 'Football Game';
-exampleEvent.location = 'Stadium';
-addEvent(exampleEvent);
+let savedEvents = await loadEvents();
+async function loadEvents() { // Loads all events from the database
+const snapshot = await getDocs(collection(db, "events"));
+return snapshot.docs.map((document) => ({
+    ...document.data(),
+    id: document.id
+}));
+}
+
+const event_amount = document.getElementById("event_amount");
+async function renderEvents() {
+    // Clear all events
+    const eventsDisplayed = 0;
+    const eventLists = document.getElementsByClassName("event_list");
+    for (const eventList of eventLists) {
+        eventList.innerHTML = '';
+    }
+    // Load each event
+    for (const eventInfo of savedEvents) {
+        const eventDate = new Date(eventInfo.date.seconds * 1000);
+        const sameDay = (
+            selectedDate.getFullYear() === eventDate.getFullYear() &&
+            selectedDate.getMonth() === eventDate.getMonth() &&
+            selectedDate.getDate() === eventDate.getDate()
+        );
+        
+        if (sameDay) {
+            addEvent(eventInfo);
+            eventsDisplayed += 1;
+        }
+    }
+
+    event_amount.value = eventsDisplayed;
+}
+
+updateCalendarShortcut(currentDate);
+initializeCalendar();
+renderEvents();
+setInterval(loadEvents, 15000); // Re-load events every 15 seconds
