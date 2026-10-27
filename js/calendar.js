@@ -145,8 +145,8 @@ function addEvent (eventInfo) {
     const time = `${hours}:${minutes}`; // Get the military time
 
     const event_details = clone.getElementById('event_details');
-    const formattedTime = `${parseInt(time.split(':')[0], 10) % 12 || 12}:${time.split(':')[1]}`; // Military -> Standard
-    if (time != '00:00') {
+    const formattedTime = `${parseInt(time.split(':')[0], 10) % 12 || 12}:${time.split(':')[1]} ${(hours < '11') ? 'AM' : 'PM'}`; // Military -> Standard
+    if (eventInfo.type != 'announcement') {
         event_details.textContent = `${formattedTime} • ${eventInfo.location}`;
     } else {
         event_details.textContent = `${eventInfo.location}`;
@@ -186,21 +186,20 @@ import {
 
 let savedEvents = await loadEvents();
 async function loadEvents() { // Loads all events from the database
-const snapshot = await getDocs(collection(db, "events"));
-return snapshot.docs.map((document) => ({
-    ...document.data(),
-    id: document.id
-}));
+    const snapshot = await getDocs(collection(db, "events"));
+    return snapshot.docs.map((document) => ({
+        ...document.data(),
+        id: document.id
+    }));
 }
 
 const event_amount = document.getElementById("event_amount");
+const event_amount_text = document.getElementById("event_amount_text");
 async function renderEvents() {
     // Clear all events
-    const eventsDisplayed = 0;
+    let eventsDisplayed = 0;
     const eventLists = document.getElementsByClassName("event_list");
-    for (const eventList of eventLists) {
-        eventList.innerHTML = '';
-    }
+    for (const eventList of eventLists) { eventList.innerHTML = ''; }
     // Load each event
     for (const eventInfo of savedEvents) {
         const eventDate = new Date(eventInfo.date.seconds * 1000);
@@ -215,11 +214,11 @@ async function renderEvents() {
             eventsDisplayed += 1;
         }
     }
-
-    event_amount.value = eventsDisplayed;
+    // Change event amount text
+    event_amount.textContent = eventsDisplayed;
+    event_amount_text.textContent = (eventsDisplayed === 1) ? "event scheduled" : "events scheduled";
 }
 
 updateCalendarShortcut(currentDate);
 initializeCalendar();
 renderEvents();
-setInterval(loadEvents, 15000); // Re-load events every 15 seconds
