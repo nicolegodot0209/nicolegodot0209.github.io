@@ -61,6 +61,14 @@ input[type="text"], input[type="password"], textarea {
         flex-direction: column;
         gap: 20px;
         flex: 1;
+
+        .button_cont {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+        }
          
         /* Checkbox & Button */
         .checkbox_cont {
