@@ -12,8 +12,8 @@ body {
 }
 
 .page_content {
-    position: relative; /* NOT absolute */
-
+    margin-top: 10vh;
+    position: relative;
     display: flex;
     flex-direction: row;
 
@@ -94,7 +94,7 @@ body {
     grid-template-rows: repeat(5, 1fr);
     gap: 5px;
 
-    width: max-content;
+    width: auto;
     margin: 0;
     padding: 5px;
     background-color: var(--white);
@@ -103,7 +103,7 @@ body {
     box-shadow: 0 5px 0 rgba(28, 16, 8, 0.16);
 }
 .day_button {
-    width: min-content;
+    width: max-content;
     padding: 5px;
     font-size: 14px;
     font-weight: bold;
@@ -265,10 +265,34 @@ body {
     background-color: var(--light-orange2);
     border-radius: 15px;
     box-shadow: 0 5px 0 rgba(28, 16, 8, 0.15);
-
-    &#event_list1, &#event_list3 {
-        background-color: var(--light-orange1);
+    &#event_list0 {
+       animation: fade 0.225s ease forwards; 
+       opacity: 0;
+       animation-delay: 0.0s;
     }
+    &#event_list1 {
+       animation: fade 0.5s ease forwards; 
+       opacity: 0;
+       background-color: var(--light-orange1);
+       animation-delay: 0.25s;
+    }
+    &#event_list2 {
+       animation: fade 0.25s ease forwards; 
+       opacity: 0;
+       animation-delay: 0.5s;
+    }
+    &#event_list3 {
+       animation: fade 0.25s ease forwards; 
+       opacity: 0;
+       background-color: var(--light-orange1);
+       animation-delay: 0.75s;
+    }
+    &#event_list4 {
+       animation: fade 0.25s ease forwards; 
+       opacity: 0;
+       animation-delay: 1.0s;
+    }
+    
     /* Sizing */
     @media (max-width: 900px) {
         width: 100%;

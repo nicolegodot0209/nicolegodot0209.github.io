@@ -1,3 +1,5 @@
+// FIXME ADD TOGGLED FOR ACTIVE
+
 //// Animation
 const elements = document.querySelectorAll(".scroll-reveal");
 const observer = new IntersectionObserver((entries) => {

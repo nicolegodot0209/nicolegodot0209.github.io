@@ -71,6 +71,10 @@ function createDayButton(date) {
    const button = clone.querySelector('button');
    // 2. Set the properties of the clone
    button.textContent = `${date.getDate()}`;
+   const isWeekend = (date) => {
+        const dayOfWeek = date.getDay();
+        return (dayOfWeek === 0 || dayOfWeek === 6);
+    };
    if (isWeekend(date)) { button.classList.add('weekend') } // Check if day is on the weekend
    // 3. Trigger handleDayClick when button is clicked
    button.addEventListener('click', () => {
@@ -100,13 +104,6 @@ function handleDayClick(date, clickedButton) {
        renderEvents();
    }
 }
-
-// Helper Functions
-function isWeekend(date) {
-   const dayOfWeek = date.getDay();
-   return (dayOfWeek === 0 || dayOfWeek === 6)
-}
-
 
 // Main Calendar
 function addEvent (eventInfo) {
@@ -157,7 +154,7 @@ function addEvent (eventInfo) {
     // 4. Connect button
     const button = clone.getElementById('event_button');
     button.addEventListener('click', () => {
-        handleEventClick(button);
+        button.classList.toggle('active');
     });
    // 4. Add element
    const bounds = ['09:59', '13:59', '17:59', '99:99'];
@@ -166,15 +163,6 @@ function addEvent (eventInfo) {
    let event_list_id = time === '' ? 0 : bounds.findIndex(b => time <= b) + 1;
    const event_list = document.getElementById(`event_list${event_list_id}`);
    event_list.appendChild(clone);
-}
-
-function handleEventClick(button) {
-   // Toggle button
-   if (button.classList.contains('active')) {
-       button.classList.remove('active');
-   } else {
-       button.classList.add('active');
-   }
 }
 
 // Render events
@@ -198,6 +186,7 @@ const event_amount_text = document.getElementById("event_amount_text");
 async function renderEvents() {
     // Clear all events
     let eventsDisplayed = 0;
+    savedEvents.sort((a, b) => a.date - b.date); // Sort by time
     const eventLists = document.getElementsByClassName("event_list");
     for (const eventList of eventLists) { eventList.innerHTML = ''; }
     // Load each event

@@ -20,6 +20,7 @@ input[type="text"], input[type="password"], textarea {
     align-items: center;
     min-height: 100vh;
     background-color: var(--light-gray1);
+    padding: 30px;
 
     a {
         margin-top: 50px;
