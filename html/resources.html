@@ -28,52 +28,291 @@
    <!-- End of Nav Bar -->
 
    <!-- AI Chat Bot -->
-   <div class="ai_chat">
+   <div class="ai-chat">
         <div class="chat">
             <div class="header">Title</div>
-            <div class="chat_cont">
-                <div class="ai_message">Hello! I am a chat message that is slowly expanding to fit its contents!</div>
-                <div class="user_message">Hello! I am a chat message that is slowly expanding to fit its contents!</div>
-                <div class="ai_message">Hello! I am a chat message that is slowly expanding to fit its contents!</div>
-                <div class="user_message">Hello! I am a chat message that is slowly expanding to fit its contents!</div>
-                <div class="ai_message">Hello! I am a chat message that is slowly expanding to fit its contents!</div>
-                <div class="user_message">Hello! I am a chat message that is slowly expanding to fit its contents!</div>
-                <div class="chat_input">
+            <div class="chat-cont">
+                <div class="ai-message">Hello! I am a chat message that is slowly expanding to fit its contents!</div>
+                <div class="user-message">Hello! I am a chat message that is slowly expanding to fit its contents!</div>
+                <div class="ai-message">Hello! I am a chat message that is slowly expanding to fit its contents!</div>
+                <div class="user-message">Hello! I am a chat message that is slowly expanding to fit its contents!</div>
+                <div class="ai-message">Hello! I am a chat message that is slowly expanding to fit its contents!</div>
+                <div class="user-message">Hello! I am a chat message that is slowly expanding to fit its contents!</div>
+                <div class="chat-input">
                     <textarea placeholder="..."></textarea>
                     <button><i class="fa-solid fa-paper-plane"></i></button>
                 </div>
             </div>
 
         </div>
-        <button class="chat_button" id="ai_chat_button"><i class="fa-solid fa-robot"></i></button>
+        <button class="chat-button" id="ai_chat_button"><i class="fa-solid fa-robot"></i></button>
     </div>
-    <!-- AI Chat Bot -->
+    <!-- End of AI Chat Bot -->
         
-   <div class="page_content">
+   <div class="page-content">
         <div class="block">
-            <h2>Need help now?</h2>
+            <h2>Need support now?</h2>
             <p>Call or text 988 for free, confidential support, available 24/7. You don’t have to be suicidal to reach out.</p>
-            <a href="tel:988" class="crisis-button standard_button">Call 988 — Suicide & Crisis Lifeline</a>
+            <div>
+                <a href="tel:988" class="crisis-button standard_button">Call 988 — Suicide & Crisis Lifeline</a>
+            </div>
         </div>
 
-        <div class="grid">
-            <div class="grid-item">
-                <div class="grid-text">
-                    <h3>Resource 1</h3>
-                    <p>Description of resource 1.</p>
+        <div class="grid-section">
+            <h1 class="grid-header">What would you like support with?</h1>
+            <div class="grid">
+                <div class="card" tabindex="0" aria-label="Flip school stress resource card">
+                    <div class="card-front">
+                        <div class="icon icon--black">
+                            <i class="fa-solid fa-school"></i>
+                        </div>
+                        <h3>School Stress &amp; Overwhelm</h3>
+                        <p>
+                            Find resources for managing schoolwork, deadlines,
+                            and the pressure to keep up.
+                        </p>
+                    </div>
+            
+                    <div class="card-back" inert>
+                        <h3>School Stress Resources</h3>
+                        <a href="https://www.youngminds.org.uk/young-person/coping-with-life/exam-stress/">
+                            YoungMinds — Exam Stress
+                        </a>
+                        <p>
+                            Explore practical ways to manage exam pressure,
+                            prepare for tests, and ask for support when
+                            school feels overwhelming.
+                        </p>
+                    </div>
                 </div>
-                <a href="#" class="icon"><i class="fa-solid fa-fax"></i></a>
+            
+                <div class="card" tabindex="0" aria-label="Flip anxiety resource card">
+                    <div class="card-front">
+                        <div class="icon icon--black">
+                            <i class="fa-solid fa-face-grimace"></i>
+                        </div>
+                        <h3>Feeling Anxious or Worried</h3>
+                        <p>
+                            Explore ways to navigate worries and find support
+                            when things feel overwhelming.
+                        </p>
+                    </div>
+            
+                    <div class="card-back" inert>
+                        <h3>Anxiety &amp; Worry Resources</h3>
+                        <a href="https://kidshealth.org/en/teens/your-mind/problems">
+                            Nemours KidsHealth — Dealing With Problems
+                        </a>
+                        <p>
+                            Find teen-friendly guidance on coping with anxiety,
+                            handling worries, and managing everyday stress.
+                        </p>
+                    </div>
+                </div>
+            
+                <div class="card" tabindex="0" aria-label="Flip low mood resource card">
+                    <div class="card-front">
+                        <div class="icon icon--black">
+                            <i class="fa-solid fa-face-sad-tear"></i>
+                        </div>
+                        <h3>Feeling Low or Unmotivated</h3>
+                        <p>
+                            Find support for difficult days, low moods,
+                            and feeling stuck.
+                        </p>
+                    </div>
+            
+                    <div class="card-back" inert>
+                        <h3>Low Mood &amp; Support</h3>
+                        <a href="https://www.nimh.nih.gov/health/publications/teen-depression">
+                            NIMH — Teen Depression: More Than Just Moodiness
+                        </a>
+                        <p>
+                            Learn about signs of depression, how to talk
+                            to a trusted adult, and where to find
+                            professional support.
+                        </p>
+                    </div>
+                </div>
+            
+                <div class="card" tabindex="0" aria-label="Flip sleep resource card">
+                    <div class="card-front">
+                        <div class="icon icon--orange">
+                            <i class="fa-solid fa-bed"></i>
+                        </div>
+                        <h3>Sleep &amp; Daily Routines</h3>
+                        <p>
+                            Explore tips for better rest and building routines
+                            that work for you.
+                        </p>
+                    </div>
+            
+                    <div class="card-back" inert>
+                        <h3>Sleep &amp; Wellbeing Resources</h3>
+                        <a href="https://www.mind.org.uk/for-young-people/feelings-and-experiences/sleep-and-mental-health/">
+                            Mind — Sleep and Mental Health
+                        </a>
+                        <p>
+                            Explore the connection between sleep and mental
+                            health, what can affect your rest, and ways
+                            to find support.
+                        </p>
+                    </div>
+                </div>
+            
+                <div class="card" tabindex="0" aria-label="Flip friendship resource card">
+                    <div class="card-front">
+                        <div class="icon icon--orange">
+                            <i class="fa-solid fa-heart"></i>
+                        </div>
+                        <h3>Friendships &amp; Belonging</h3>
+                        <p>
+                            Find guidance on navigating friendships,
+                            handling conflict, and feeling connected.
+                        </p>
+                    </div>
+            
+                    <div class="card-back" inert>
+                        <h3>Friendship &amp; Belonging Resources</h3>
+                        <a href="https://kidshealth.org/en/teens/school-jobs/good-friends">
+                            Nemours KidsHealth — Good Friends
+                        </a>
+                        <p>
+                            Explore resources about building friendships,
+                            navigating relationships, and asking for help
+                            when you need it.
+                        </p>
+                    </div>
+                </div>
+            
+                <div class="card" tabindex="0" aria-label="Flip helping a friend resource card">
+                    <div class="card-front">
+                        <div class="icon icon--orange">
+                            <i class="fa-solid fa-handshake-angle"></i>
+                        </div>
+                        <h3>Helping a Friend</h3>
+                        <p>
+                            Learn how to listen, show you care,
+                            and help a friend connect with support.
+                        </p>
+                    </div>
+            
+                    <div class="card-back" inert>
+                        <h3>Resources for Helping a Friend</h3>
+                        <a href="https://childmind.org/article/support-friend-with-mental-health-challenges/">
+                            Child Mind Institute — Supporting a Friend
+                        </a>
+                        <p>
+                            Learn how to listen without judgment, offer
+                            support, and recognize when to involve
+                            a trusted adult.
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div class="grid-item">
-                <div class="grid-text">
-                    <h3>Resource 2</h3>
-                    <p>Description of resource 2.</p>
+        </div>
+
+        <div class="wellbeing-section">
+            <div class="title">
+                <h6>SMALL STEPS, EVERYDAY</h6>
+                <h1>Everyday Wellbeing</h1>
+                <h4>Make room for rest, conncetion, and routines </h4>
+             </div>
+
+            <div class="wellbeing-cont">
+                <div class="card-cont">
+                    <div class="card">
+                        <div class="text">
+                            <h3>Build Your Routine</h3>
+                            <h5>Explore small ways to balance school, downtime, and the things you enjoy.</h5>
+                        </div>
+                        <button class="standard_button routine-button">Explore Routines</button>
+                    </div>
+                    <div class="card">
+                        <div class="text">
+                            <h3>Take a Breather</h3>
+                            <h5>Find ideas for stepping away from schoolwork and making time to recharge.</h5>
+                        </div>
+                        <button class="standard_button breather-button">Find Break Ideas</button>
+                    </div>
+                    <div class="card">
+                        <div class="text">
+                            <h3>Stay Connected</h3>
+                            <h5>Make space for friendships shared interests, and people you can turn to.</h5>
+                        </div>
+                        <button class="standard_button connection-button">Explore Connection</button>
+                    </div>
                 </div>
-                <a href="#" class="standard_button">/a>
+
+                <div class="tips">
+                    <div class="breather">
+                        <h5>Choose Your Next Break</h5>
+                        <button>
+                            <h4><i class="fa-solid fa-headphones symbol"></i> Listen to a song</h4>
+                            <h6>Enjoy a favorite track.</h6>
+                        </button>
+                        <button>
+                            <h4><i class="fa-solid fa-desktop"></i> Go screen-free</h4>
+                            <h6>Step away from your screen.</h6>
+                        </button>
+                        <button>
+                            <h4><i class="fa-solid fa-paintbrush"></i> Listen to a song</h4>
+                            <h6>Make a little time for a hobby.</h6>
+                        </button>
+                        <a href="https://aacap.org/AACAP/AACAP/Families_and_Youth/Facts_for_Families/FFF-Guide/Helping-Teenagers-With-Stress-066.aspx">More everyday stress-management ideas<i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+
+                    <div class="routine">
+                        <h5>Build a Routine That Works for You</h5>
+                    
+                        <button type="button">
+                            <h4><i class="fa-solid fa-sun"></i>Plan your day</h4>
+                            <h6>Make a little time to organize what's ahead.</h6>
+                        </button>
+                    
+                        <button type="button">
+                            <h4><i class="fa-solid fa-clipboard"></i>Start with one task</h4>
+                            <h6>Choose something small and manageable.</h6>
+                        </button>
+                    
+                        <button type="button">
+                            <h4><i class="fa-solid fa-couch"></i>Make room for downtime</h4>
+                            <h6>Plan time for rest and things you enjoy.</h6>
+                        </button>
+                    
+                        <a href="https://kidshealth.org/HumanaLouisiana/en/teens/stress-tips.html?WT.ac=t-ra">
+                            More ideas for routines and balance
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+
+                    <div class="connection">
+                        <h5>Find Your Way to Connect</h5>
+                    
+                        <button type="button">
+                            <h4><i class="fa-solid fa-hand-holding-heart"></i>Reach out to someone</h4>
+                            <h6>Send a message to someone you care about.</h6>
+                        </button>
+                    
+                        <button type="button">
+                            <h4><i class="fa-solid fa-person-walking"></i>Share an activity</h4>
+                            <h6>Make time for something you both enjoy.</h6>
+                        </button>
+                    
+                        <button type="button">
+                            <h4><i class="fa-solid fa-door-open"></i>Make someone feel included</h4>
+                            <h6>Say hello or invite someone to join you.</h6>
+                        </button>
+                    
+                        <a href="https://kidshealth.org/en/teens/lonely-help.html">
+                            More ways to feel connected
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
    </div>
-
 
  <script src="/js/script.js"></script>
  <script src="/js/resources.js"></script>

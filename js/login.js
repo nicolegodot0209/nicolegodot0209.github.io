@@ -9,12 +9,10 @@ import {
  onAuthStateChanged
 } from 'https://www.gstatic.com/firebasejs/13.1.0/firebase-auth.js';
 
-
 // List of approved emails
 const allowedEmails = [
  'nicolek0209@gmail.com'
 ];
-
 
 // Regular Sign-In
 let email = '';
@@ -29,7 +27,6 @@ const signInButton = document.getElementById('sign_in');
 function checkInputs() {
  email = emailInput.value.trim();
  password = passwordInput.value.trim();
-
 
  // Check if BOTH have text
  if (email !== '' && password !== '') {
@@ -67,7 +64,6 @@ loginForm.addEventListener('submit', async (event) => {
  }
 });
 
-
 // Google Sign-in
 const googleButton = document.getElementById('google_sign_in');
 const provider = new GoogleAuthProvider();
@@ -75,11 +71,9 @@ provider.setCustomParameters({
  prompt: 'select_account'
 });
 
-
 googleButton.addEventListener('click', async () => {
  googleButton.disabled = true;
  signInButton.disabled = true;
-
 
  try {
    const currentUser = auth.currentUser;
@@ -120,7 +114,6 @@ googleButton.addEventListener('click', async () => {
      status.textContent = 'This account is not approved for admin access.';
      return;
    }
-
 
    loginSuccess();
  } catch (error) {

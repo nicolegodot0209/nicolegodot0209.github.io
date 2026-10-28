@@ -4,7 +4,7 @@
 /* Variables */
 :root {
   --black: #121212;
-  --light-black: #212121;
+  --light-black: #2c2c2c;
   --light-gray1: #efefef;
   --light-gray2: #919191;
   --light-orange1: #fde0cb;
@@ -32,7 +32,7 @@ html, body {
   padding: 0;
 
   font-family: var(--font);
-  /* overflow-x: hidden; */
+  /*overflow-x: hidden;*/
   scroll-behavior: smooth;
   touch-action: manipulation;
   & :is(button, input, textarea, select) { font-family: var(--font); }
@@ -87,6 +87,7 @@ img, svg { -webkit-user-drag: none; } /* Prevents the image from being dragged w
 /* Button */
 .standard_button {
   display: inline-flex;
+  gap: 8px;
   justify-content: center;
   align-items: center;
 
@@ -96,7 +97,8 @@ img, svg { -webkit-user-drag: none; } /* Prevents the image from being dragged w
   text-align: center;
   border-radius: 30px;
   box-shadow: 0 4px 0 rgba(28, 16, 8, 0.16);
-  transition: border var(--transition), background-color var(--transition), font-size var(--transition);
+  transition-property: border, background-color, font-size, color;
+  transition-duration: 0.5s;
   text-decoration: none
 }
 

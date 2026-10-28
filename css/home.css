@@ -422,6 +422,7 @@ hr {
         color: var(--light-gray2); 
         overflow: hidden; 
         text-overflow: ellipsis;
+        font-weight: lighter;
       }
     }
     .icon {
