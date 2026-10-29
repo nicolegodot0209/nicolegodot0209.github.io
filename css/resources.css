@@ -4,10 +4,16 @@
 }
 
 .page-content {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 50px;
-    margin-top: 300px;
+
+    width: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    padding-top: 10rem;
 }
 
 hr {
@@ -17,7 +23,7 @@ hr {
 
 .block {
     max-width: 750px;
-    margin: 0px auto;
+    margin: 50px;
     padding: 40px;
     box-sizing: border-box;
     color: var(--black);
@@ -59,8 +65,15 @@ hr {
     background-color: var(--light-orange1);
 }
 .grid-header {
-    margin-bottom: 50px;
     text-align: center;
+    h6 {
+        color: var(--orange);
+        margin-bottom: -10px;
+        font-weight: bold;
+    }
+    h1 {
+        margin-bottom: 50px;
+    }
 }
 .grid {
     display: grid;
@@ -156,7 +169,7 @@ hr {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 0 50px;
+    padding: 0;
     text-align: center;
     color: var(--light-black);
 

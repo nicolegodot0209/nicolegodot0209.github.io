@@ -268,29 +268,29 @@ body {
     &#event_list0 {
        animation: fade 0.225s ease forwards; 
        opacity: 0;
-       animation-delay: 0.0s;
+       animation-delay: 0.25s;
     }
     &#event_list1 {
        animation: fade 0.5s ease forwards; 
        opacity: 0;
        background-color: var(--light-orange1);
-       animation-delay: 0.25s;
+       animation-delay: 0.5s;
     }
     &#event_list2 {
        animation: fade 0.25s ease forwards; 
        opacity: 0;
-       animation-delay: 0.5s;
+       animation-delay: 0.75s;
     }
     &#event_list3 {
        animation: fade 0.25s ease forwards; 
        opacity: 0;
        background-color: var(--light-orange1);
-       animation-delay: 0.75s;
+       animation-delay: 1.0s;
     }
     &#event_list4 {
        animation: fade 0.25s ease forwards; 
        opacity: 0;
-       animation-delay: 1.0s;
+       animation-delay: 1.25s;
     }
     
     /* Sizing */
