@@ -1,3 +1,4 @@
+/* ==================== Page layout ==================== */
 body {
     display: flex;
     flex-direction: column;
@@ -11,38 +12,36 @@ body {
     flex-shrink: 0;
 }
 
-.page_content {
+.page-content {
     position: relative;
     display: flex;
     flex-direction: row;
-
     width: 100%;
     min-height: 100vh;
+    padding-top: 5rem;
     box-sizing: border-box;
     flex-shrink: 0;
-    padding-top: 5rem;
 }
 
-/* Sidebar */
+/* ==================== Sidebar ==================== */
 .sidebar {
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 50px;
     width: max-content;
-    
     margin: 0;
     padding: 0 30px 0 30px;
     background-color: var(--white);
-    box-shadow: 3px 5px 10px 0px rgba(28, 16, 8, 0.05);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
     flex-shrink: 0;
 }
 
 
-.calendar_shortcut {
+.calendar-shortcut {
     width: max-content;
 }
-.calendar_header {
+.calendar-header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -57,21 +56,21 @@ body {
     button {
         margin: 0;
         color: var(--light-gray2);
-        background: none;
+        background-color: transparent;
         border: none;
-        transition: color var(--transition);
-        &:hover { color: var(--black); }
+        transition: color 0.5s ease;
+        &:hover { 
+            color: var(--black); 
+        }
     }
 
     
 }
-.weekday_header {
+.weekday-header {
     display: flex;
     flex-direction: row;
-    
     justify-content: space-between;
     margin: 0;
-    padding: 0;
     padding: 5px;
     text-align: center;
     color: var(--black);
@@ -88,21 +87,20 @@ body {
         }
     }
 }
-.shortcut_buttons {
+.shortcut-buttons {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(5, 1fr);
     gap: 5px;
-
     width: auto;
     margin: 0;
     padding: 5px;
     background-color: var(--white);
     border: 2px solid var(--light-gray1);
     border-radius: 0 0 15px 15px;
-    box-shadow: 0 5px 0 rgba(28, 16, 8, 0.16);
+    box-shadow: var(--shadow-panel);
 }
-.day_button {
+.day-button {
     width: max-content;
     padding: 5px;
     font-size: 14px;
@@ -111,25 +109,30 @@ body {
     background-color: var(--white);
     border: none;
     border-radius: 50%;
+    transition: 
+        color 0.5s ease, 
+        background-color 0.5s ease;
     aspect-ratio: 1;
-    transition-property: color, background-color;
-    transition-duration: 0.5s;
 
-    /* Active/Inactive State */
+    /* Active & Inactive State */
     &:disabled {
         color: var(--light-gray1);
     }
     &:enabled {
-        &.weekend { background-color: var(--light-gray1); }
+        &.weekend { 
+            background-color: var(--light-gray1);
+        }
         /* Inactive Properties */
         &:not(.active):hover {
-            &:hover { background-color: var(--light-orange1); }
+            background-color: var(--light-orange1); 
         }
         /* Active Properties */
         &.active {
             color: var(--white);
             background-color: var(--orange);
-            &:hover {background-color: var(--light-orange2); }
+            &:hover {
+                background-color: var(--light-orange2); 
+            }
         }
     }
     /* Sizing */
@@ -150,23 +153,16 @@ body {
     }
 }
 
-.page_content:has(#academics:not(:checked)) .event_academic {
-    display: none;
-}
-.page_content:has(#clubs:not(:checked)) .event_club {
-    display: none;
-}
-.page_content:has(#sports:not(:checked)) .event_sport {
-    display: none;
-}
-.page_content:has(#social:not(:checked)) .event_social {
-    display: none;
-}
-.page_content:has(#announcements:not(:checked)) .event_announcement {
+/* Toggle Event Visibility */
+.page-content:has(#academics:not(:checked)) .event-academic,
+.page-content:has(#clubs:not(:checked)) .event-club,
+.page-content:has(#sports:not(:checked)) .event-sport,
+.page-content:has(#social:not(:checked)) .event-social,
+.page-content:has(#announcements:not(:checked)) .event-announcement {
     display: none;
 }
 
-/* Calendar */
+/* ==================== Main Calendar ==================== */
 .calendar {
     display: flex;
     flex-direction: column;
@@ -185,13 +181,13 @@ body {
     }
 }
 
-.event_amount_cont {
+.event-amount-cont {
     display: flex;
     flex-direction: row;
     align-items: center;
     height: max-content;
 
-    div {
+    #event_amount {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -201,10 +197,20 @@ body {
         font-weight: bold;
         background-color: var(--light-gray1);
         border-radius: 50%;
-        box-shadow: 0 3px 0 rgba(28, 16, 8, 0.16);
-        aspect-ratio: 1;;
+        box-shadow: var(--shadow-button);
+        transition:
+            background-color 0.5s ease,
+            color 0.5s ease;
+        aspect-ratio: 1;
+        &.active {
+            color: var(--white);
+            background-color: var(--orange);
+        }
     }
-    h6 { margin: 0; }
+    #event_amount_text { 
+        margin: 0; 
+        font-size: clamp(0.775rem, 0.75vmin + 0.4rem, 1.05rem);
+    }
 
     /* Sizing */
     @media (max-width: 900px) { 
@@ -221,13 +227,12 @@ body {
     gap: 20px;
     width: 100%;
     min-width: 0;
-
     height: auto;
     padding-bottom: 30px;
     box-sizing: border-box;
 }
 
-.event_cont {
+.event-cont {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -239,7 +244,12 @@ body {
     box-sizing: border-box;
     flex-shrink: 0;
 
-    h6 {
+    &:has(.event-list:empty) {
+        display: none;
+    }
+
+    span {
+        font-size: clamp(0.775rem, 0.75vmin + 0.4rem, 1.05rem);
         font-weight: bold;
         text-align: center;
         flex: 0 0 100px;
@@ -249,14 +259,10 @@ body {
         }
     }
 
-    &:has(.event_list:empty) {
-        display: none;
-    }
-
     @media (max-width: 900px) { flex-direction: column; }
 }
 
-.event_list {
+.event-list {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -264,34 +270,19 @@ body {
     padding: 5px;
     background-color: var(--light-orange2);
     border-radius: 15px;
-    box-shadow: 0 5px 0 rgba(28, 16, 8, 0.15);
-    &#event_list0 {
-       animation: fade 0.225s ease forwards; 
-       opacity: 0;
-       animation-delay: 0.25s;
+    box-shadow: var(--shadow-panel); 
+    opacity: 0;
+    animation: fade 0.5s ease forwards;
+
+    &#event_list1, &#event_list3 {
+        background-color: var(--light-orange1);
     }
-    &#event_list1 {
-       animation: fade 0.5s ease forwards; 
-       opacity: 0;
-       background-color: var(--light-orange1);
-       animation-delay: 0.5s;
-    }
-    &#event_list2 {
-       animation: fade 0.25s ease forwards; 
-       opacity: 0;
-       animation-delay: 0.75s;
-    }
-    &#event_list3 {
-       animation: fade 0.25s ease forwards; 
-       opacity: 0;
-       background-color: var(--light-orange1);
-       animation-delay: 1.0s;
-    }
-    &#event_list4 {
-       animation: fade 0.25s ease forwards; 
-       opacity: 0;
-       animation-delay: 1.25s;
-    }
+
+    &#event_list0 { animation-delay: 0.25s; }
+    &#event_list1 { animation-delay: 0.5s;}
+    &#event_list2 { animation-delay: 0.75s; }
+    &#event_list3 { animation-delay: 1.0s; }
+    &#event_list4 { animation-delay: 1.25s; }
     
     /* Sizing */
     @media (max-width: 900px) {
@@ -306,7 +297,6 @@ body {
 
     button {
         display: flex;
-        flex-direction: row;
         justify-content: space-between;
         width: 100%;
         margin: 0;
@@ -316,11 +306,11 @@ body {
         background: none;
         border: none;
         border-radius: 15px;
-        transition: background-color var(--transition);
+        transition: background-color 0.5s ease;
 
         /* Events */
         &:hover {
-            background-color: rgba(67, 34, 4, 0.075);
+            background-color: rgba(0, 0, 0, 0.05);
         }
         &.active ~ #event_desc {
             height: auto;
@@ -339,13 +329,13 @@ body {
         height: 0;
         margin: 0 5px 0 20px;
         font-size: clamp(0.675rem, 0.65vmin + 0.35rem, 1.05rem);
-        opacity: 0;  
-        overflow: hidden;
-        interpolate-size: allow-keywords;
+        opacity: 0;
 
         transition:
             height 0.5s ease,
             opacity 0.5s ease,
-            margin 0.5s ease;
+            margin 0.5s ease;  
+        overflow: hidden;
+        interpolate-size: allow-keywords;
     }
 }

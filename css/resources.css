@@ -8,12 +8,19 @@
     margin-top: 7.5rem;
 }
 
+.eyebrow {
+    margin-bottom: -15px;
+    font-size: clamp(0.775rem, 0.75vmin + 0.4rem, 1.05rem);
+    font-weight: bold;
+    color: var(--orange);
+}
+
 hr {
     width: 100%;
     border: 2px dashed var(--light-gray1);
 }
 
-/* Crisis Section */
+/* ==================== Crisis Section ==================== */
 .block {
     max-width: 750px;
     margin: 50px;
@@ -51,7 +58,7 @@ hr {
     }
 }
 
-/* Support Section */
+/* ==================== Support Section ==================== */
 .support-panel, .dropdown,
 .wellbeing-cont .card {
     min-width: 0;
@@ -97,13 +104,15 @@ hr {
     background-color: var(--white);
     border: 2px solid var(--light-gray1);
 
-    h3 {
+    .title {
         margin: -10px 0;
+        font-size: clamp(1.25rem, 1.5vmin + 0.75rem, 2.25rem);
         font-weight: bold;
     }
 
-    h5 {
+    .desc {
         margin: 0;
+        font-size: clamp(1.0rem, 1.0vmin + 0.55rem, 1.4rem);
     }
 }
 
@@ -117,7 +126,7 @@ hr {
     translate: 0 0;
 
     .arrow {
-        transition: rotate var(--transition);
+        transition: rotate 0.5s ease;
     }
 
     /* Hover & Focus */
@@ -172,7 +181,7 @@ hr {
     }
 }
 
-/* Grid Section */
+/* ==================== Grid Section ==================== */
 .grid-section {
     padding: 50px;
     background-color: var(--light-orange1);
@@ -180,12 +189,6 @@ hr {
 
 .grid-header {
     text-align: center;
-
-    h6 {
-        margin-bottom: -10px;
-        font-weight: bold;
-        color: var(--orange);
-    }
 
     h1 {
         margin-bottom: 50px;
@@ -278,9 +281,10 @@ hr {
         transform: rotateX(180deg);
     }
 
-    h3 {
+    .title {
         margin-bottom: -5px;
         font-weight: bold;
+        font-size: clamp(1.25rem, 1.5vmin + 0.75rem, 2.25rem);
     }
 
     a {
@@ -291,35 +295,27 @@ hr {
     .icon {
         margin-bottom: -5px;
         border: none;
-
         transition:
-            box-shadow var(--transition),
-            translate var(--transition);
+            box-shadow 0.5s ease,
+            translate 0.5s ease;
     }
 }
 
-/* Everyday Wellbeing */
+/* ==================== Everyday Wellbeing ==================== */
 .wellbeing-section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 50px 50px;
-
+    padding: 100px 0 100px 0;
     text-align: center;
     color: var(--light-black);
 
     .title {
-        h6 {
-            margin-bottom: -15px;
-            font-weight: bold;
-            color: var(--orange);
-        }
-
         h1 {
             margin-bottom: -15px;
         }
 
-        h4 {
+        .desc {
             margin-bottom: 50px;
         }
     }
@@ -329,6 +325,7 @@ hr {
     display: flex;
     gap: 50px;
     width: 100%;
+    margin: 50px 0 0 50px;
 
     .card-cont {
         display: grid;
@@ -373,7 +370,6 @@ hr {
     align-items: center;
     gap: 30px;
     padding: 30px;
-
     background-color: var(--light-orange1);
     border: 2px solid #fcd6bb;
     translate: 0 0;
@@ -443,6 +439,7 @@ hr {
 
     div {
         display: flex;
+        flex: 1;
         flex-direction: column;
         justify-content: space-between;
         gap: 20px;
@@ -494,7 +491,7 @@ hr {
     }
 }
 
-/* Chatbot */
+/* ==================== Chatbot ==================== */
 .ai-chat {
     position: fixed;
     right: 20px;
@@ -628,7 +625,7 @@ hr {
         border-radius: 10px;
         box-shadow: 0 5px 0 rgba(28, 16, 8, 0.1);
 
-        transition: border var(--transition);
+        transition: border 0.5s ease;
         field-sizing: content;
         resize: none;
 

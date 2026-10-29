@@ -93,7 +93,7 @@ function createDayButton(date) {
 
 function handleDayClick(date, clickedButton) {
    // De-select current button
-   const currentActiveButton = document.querySelector('.day_button.active');
+   const currentActiveButton = document.querySelector('.day-button.active');
    if (currentActiveButton != clickedButton) {
        if (currentActiveButton) {
            currentActiveButton.classList.remove('active');
@@ -113,8 +113,8 @@ function addEvent (eventInfo) {
 
    let title = eventInfo.title;
    // 1. Set title
-   event.querySelector('.event_title_text').textContent = eventInfo.title;
-   event.classList.add(`event_${eventInfo.type}`);
+   event.querySelector('.event-title-text').textContent = eventInfo.title;
+   event.classList.add(`event-${eventInfo.type}`);
    const icon = clone.getElementById('icon');
    switch (eventInfo.type) {
        case 'academic':
@@ -166,29 +166,31 @@ function addEvent (eventInfo) {
 }
 
 // Render events
-import { db } from "./firebase-config.js";
+import { db } from './firebase-config.js';
 import {
   collection,
   getDocs
-} from "https://www.gstatic.com/firebasejs/13.1.0/firebase-firestore.js";
+} from 'https://www.gstatic.com/firebasejs/13.1.0/firebase-firestore.js';
 
 let savedEvents = await loadEvents();
 async function loadEvents() { // Loads all events from the database
-    const snapshot = await getDocs(collection(db, "events"));
+    const snapshot = await getDocs(collection(db, 'events'));
     return snapshot.docs.map((document) => ({
         ...document.data(),
         id: document.id
     }));
 }
 
-const event_amount = document.getElementById("event_amount");
-const event_amount_text = document.getElementById("event_amount_text");
+const event_amount = document.getElementById('event_amount');
+const event_amount_text = document.getElementById('event_amount_text');
 async function renderEvents() {
     // Clear all events
     let eventsDisplayed = 0;
     savedEvents.sort((a, b) => a.date - b.date); // Sort by time
-    const eventLists = document.getElementsByClassName("event_list");
+    const eventLists = document.getElementsByClassName('event-list');
+    const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
     for (const eventList of eventLists) { eventList.innerHTML = ''; }
+
     // Load each event
     for (const eventInfo of savedEvents) {
         const eventDate = new Date(eventInfo.date.seconds * 1000);
@@ -205,7 +207,8 @@ async function renderEvents() {
     }
     // Change event amount text
     event_amount.textContent = eventsDisplayed;
-    event_amount_text.textContent = (eventsDisplayed === 1) ? "event scheduled" : "events scheduled";
+    event_amount_text.textContent = (eventsDisplayed == 1) ? 'event scheduled' : 'events scheduled';
+    event_amount.classList.toggle('active', eventsDisplayed > 0);
 }
 
 updateCalendarShortcut(currentDate);

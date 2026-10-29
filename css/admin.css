@@ -5,7 +5,7 @@ input[type="text"], input[type="password"], textarea {
     border: 2px solid var(--light-gray1);
     border-radius: 10px;
     box-shadow: 0 5px 0 rgba(28, 16, 8, 0.1);
-    transition: border var(--transition);
+    transition: border 0.5s ease;
 
     &:focus {
         border: 2px solid var(--light-orange2);
@@ -26,7 +26,7 @@ input[type="text"], input[type="password"], textarea {
         margin-top: 50px;
         color: var(--orange);
         opacity: 0;
-        animation: fade_text 0.75s ease forwards;
+        animation: fade-text 0.75s ease forwards;
         text-decoration: none;
         animation-delay: 1.0s;
 
@@ -46,9 +46,9 @@ input[type="text"], input[type="password"], textarea {
     padding: 40px;
     background-color: var(--white);
     border-radius: 10px;
-    box-shadow: var(--box-shadow);
+    box-shadow: var(--shadow-panel);
     opacity: 0;
-    transition: width var(--transition);
+    transition: width 0.5s ease;
     animation: fade 0.75s ease forwards;
     animation-delay: 0.25s;
 
@@ -63,7 +63,7 @@ input[type="text"], input[type="password"], textarea {
         gap: 20px;
         flex: 1;
 
-        .button_cont {
+        .button-cont {
             display: flex;
             flex-direction: column;
             gap: 20px;
@@ -72,11 +72,13 @@ input[type="text"], input[type="password"], textarea {
         }
          
         /* Checkbox & Button */
-        .checkbox_cont {
-            width: 40%;
+        .checkbox-cont {
+            width: fit-content;
         }
         #sign_in {
-            transition: background-color var(--transition), border var(--transition);
+            transition: 
+                background-color 0.5s ease, 
+                border 0.5s ease;
 
             &:not(.active):enabled, &:disabled {
                 color: var(--light-gray2);
@@ -99,7 +101,9 @@ input[type="text"], input[type="password"], textarea {
             color: var(--black);
             background-color: transparent; 
             border: 5px solid var(--light-gray1);
-            transition: background-color var(--transition), border var(--transition);
+            transition: 
+                background-color 0.5s ease, 
+                border 0.5s ease;
 
             &:enabled:hover {
                 background-color: var(--light-gray1);
@@ -139,6 +143,10 @@ input[type="text"], input[type="password"], textarea {
         font-size: 14px;
         text-align: center;
         color: var(--orange);
+
+        &:empty {
+            display: none;
+        }
     }
 }
 
@@ -182,7 +190,9 @@ input[type="text"], input[type="password"], textarea {
         font-weight: bold;
         background-color: transparent;
         border: none;
-        transition: background-color var(--transition), color var(--transition);
+        transition: 
+            background-color 0.5s ease, 
+            color 0.5s ease;
         &:not(.active):hover {
             background-color: var(--light-orange1);
         }
@@ -247,7 +257,9 @@ input[type="text"], input[type="password"], textarea {
     button {
         width: 25%;
         min-width: 150px;
-        transition: background-color var(--transition), border var(--transition);
+        transition: 
+            background-color 0.5s ease, 
+            border 0.5s ease;
 
          &:disabled {
             color: var(--light-gray2);
@@ -273,9 +285,8 @@ input[type="text"], input[type="password"], textarea {
     gap: 15px;
     width: 70%;
     
-
     input[type="radio"] {
-        display: none;
+        display: none;s
 
         &:checked + label {
             background-color: var(--orange);

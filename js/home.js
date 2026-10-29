@@ -21,11 +21,11 @@ function addEventCard(eventInfo) {
     let monthNumber = new Date(0, eventInfo.month - 1); 
     let monthName = Intl.DateTimeFormat('en-US', { month: 'short' }).format(monthNumber);
     
-    card.querySelector(".event_title").textContent = eventInfo.title;
+    card.querySelector(".event-title").textContent = eventInfo.title;
     card.querySelector(".month").textContent = monthName;
     card.querySelector(".day").textContent = eventInfo.day;
-    card.querySelector(".event_details").textContent = eventInfo.time + " • " + eventInfo.location;
-    card.querySelector(".event_desc").textContent = eventInfo.description;
+    card.querySelector(".event-details").textContent = eventInfo.time + " • " + eventInfo.location;
+    card.querySelector(".event-desc").textContent = eventInfo.description;
 
 
     eventList.appendChild(card);

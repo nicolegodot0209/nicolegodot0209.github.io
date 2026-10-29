@@ -10,19 +10,18 @@
 </head>
   <body>
    <!-- Nav Bar -->
-   <nav class="nav_bar" id="nav_bar">
-     <a href="/index.html" class="logo"><img src="/images/logo.png"/></a>
-       <div id="nav_buttons" class="nav_buttons">
-         <a class="nav_button" href="./calendar.html">Calendar</a>
-         <a class="nav_button" href="./resources.html">Resources</a>
-         <a class="nav_button" href="./careers.html">Careers</a>
-       </div>
+   <nav class="nav-bar" id="nav_bar">
+    <a href="/index.html" class="logo"><img src="/images/logo.png"/></a>
+     <div id="nav_buttons" class="nav-buttons">
+       <a class="nav-button" href="./calendar.html">Calendar</a>
+       <a class="nav-button" href="./resources.html">Resources</a>
+       <a class="nav-button" href="./careers.html">Careers</a>
+     </div>
 
-       <button class="icon_button" id="menu_button"><i class="fa-solid fa-bars"></i></button>
-       <div id="search_cont" class="search_cont">
-           <input type="text" id="search_input" autocomplete="off">  
-           <button class="icon_button" id="search_button"><i class="fa-solid fa-magnifying-glass"></i></button>
-       </div>
+     <button class="icon-button" id="menu_button"><i class="fa-solid fa-bars"></i></button>
+     <div class="search-cont" id="search_cont">
+         <input type="text" id="search_input" placeholder="Search..." autocomplete="off">  
+         <button class="icon-button" id="search_button"><i class="fa-solid fa-magnifying-glass"></i></button>
      </div>
    </nav>
    <!-- End of Nav Bar -->
@@ -49,26 +48,26 @@
     </div>
     <!-- End of AI Chat Bot -->
         
-   <div class="page-content">
+   <main class="page-content">
         <div class="block">
             <h2>Need support now?</h2>
             <p>Call or text 988 for free, confidential support, available 24/7. You don’t have to be suicidal to reach out.</p>
             <div>
-                <a href="tel:988" class="crisis-button standard_button">Call 988 — Suicide & Crisis Lifeline</a>
+                <a href="tel:988" class="crisis-button standard-button">Call 988 — Suicide & Crisis Lifeline</a>
             </div>
         </div>
 
-        <div class="support-section">
+        <section class="support-section">
             <div class="support-cont">
                 <div class="support-panel">
                     <div class="icon icon--orange"><i class="fa-solid fa-chalkboard-user"></i></div>
-                    <h3>School Support</h3>
-                    <h5>Find your school counselor and learn how to reach out.</h5>
+                    <p class="title">School Support</p>
+                    <p class="desc">Find your school counselor and learn how to reach out.</p>
                 </div>
                 <div class="support-panel">
                     <div class="icon icon--orange"><i class="fa-solid fa-comments"></i></div>
-                    <h3>Support Outside of School</h3>
-                    <h5>Explore options for talking with someone outside of school.</h5>
+                    <p class="title">Support Outside of School</p>
+                    <p class="desc">Explore options for talking with someone outside of school.</p>
                 </div>
             </div>
 
@@ -112,12 +111,12 @@
                     </ol>
                 </div>
             </div>
-        </div> 
+        </section> 
 
-        <div class="grid-section">
+        <section class="grid-section">
             <div class="grid-header">
-                <h6>WHAT'S ON YOUR MIND?</h6>
-                <h1>Choose a topic to explore resources.</h1>
+                <p class="eyebrow">WHAT'S ON YOUR MIND?</p>
+                <h2>Choose a topic to explore resources.</h2>
             </div>
             <div class="grid">
                 <div class="card" tabindex="0" aria-label="Flip school stress resource card">
@@ -125,7 +124,7 @@
                         <div class="icon icon--black">
                             <i class="fa-solid fa-school"></i>
                         </div>
-                        <h3>School Stress &amp; Overwhelm</h3>
+                        <p class="title">School Stress &amp; Overwhelm</p>
                         <p>
                             Find resources for managing schoolwork, deadlines,
                             and the pressure to keep up.
@@ -133,7 +132,7 @@
                     </div>
             
                     <div class="card-back" inert>
-                        <h3>School Stress Resources</h3>
+                        <p class="title">School Stress Resources</p>
                         <a href="https://www.youngminds.org.uk/young-person/coping-with-life/exam-stress/">
                             YoungMinds — Exam Stress
                         </a>
@@ -150,7 +149,7 @@
                         <div class="icon icon--black">
                             <i class="fa-solid fa-face-grimace"></i>
                         </div>
-                        <h3>Feeling Anxious or Worried</h3>
+                        <p class="title">Feeling Anxious or Worried</p>
                         <p>
                             Explore ways to navigate worries and find support
                             when things feel overwhelming.
@@ -158,7 +157,7 @@
                     </div>
             
                     <div class="card-back" inert>
-                        <h3>Anxiety &amp; Worry Resources</h3>
+                        <p class="title">Anxiety &amp; Worry Resources</p>
                         <a href="https://kidshealth.org/en/teens/your-mind/problems">
                             Nemours KidsHealth — Dealing With Problems
                         </a>
@@ -174,7 +173,7 @@
                         <div class="icon icon--black">
                             <i class="fa-solid fa-face-sad-tear"></i>
                         </div>
-                        <h3>Feeling Low or Unmotivated</h3>
+                        <p class="title">Feeling Low or Unmotivated</p>
                         <p>
                             Find support for difficult days, low moods,
                             and feeling stuck.
@@ -182,7 +181,7 @@
                     </div>
             
                     <div class="card-back" inert>
-                        <h3>Low Mood &amp; Support</h3>
+                        <p class="title">Low Mood &amp; Support</p>
                         <a href="https://www.nimh.nih.gov/health/publications/teen-depression">
                             NIMH — Teen Depression: More Than Just Moodiness
                         </a>
@@ -199,7 +198,7 @@
                         <div class="icon icon--orange">
                             <i class="fa-solid fa-bed"></i>
                         </div>
-                        <h3>Sleep &amp; Daily Routines</h3>
+                        <p class="title">Sleep &amp; Daily Routines</p>
                         <p>
                             Explore tips for better rest and building routines
                             that work for you.
@@ -207,7 +206,7 @@
                     </div>
             
                     <div class="card-back" inert>
-                        <h3>Sleep &amp; Wellbeing Resources</h3>
+                        <p class="title">Sleep &amp; Wellbeing Resources</p>
                         <a href="https://www.mind.org.uk/for-young-people/feelings-and-experiences/sleep-and-mental-health/">
                             Mind — Sleep and Mental Health
                         </a>
@@ -224,7 +223,7 @@
                         <div class="icon icon--orange">
                             <i class="fa-solid fa-heart"></i>
                         </div>
-                        <h3>Friendships &amp; Belonging</h3>
+                        <p class="title">Friendships &amp; Belonging</p>
                         <p>
                             Find guidance on navigating friendships,
                             handling conflict, and feeling connected.
@@ -232,7 +231,7 @@
                     </div>
             
                     <div class="card-back" inert>
-                        <h3>Friendship &amp; Belonging Resources</h3>
+                        <p class="title">Friendship &amp; Belonging Resources</p>
                         <a href="https://kidshealth.org/en/teens/school-jobs/good-friends">
                             Nemours KidsHealth — Good Friends
                         </a>
@@ -249,7 +248,7 @@
                         <div class="icon icon--orange">
                             <i class="fa-solid fa-handshake-angle"></i>
                         </div>
-                        <h3>Helping a Friend</h3>
+                        <p class="title">Helping a Friend</p>
                         <p>
                             Learn how to listen, show you care,
                             and help a friend connect with support.
@@ -257,7 +256,7 @@
                     </div>
             
                     <div class="card-back" inert>
-                        <h3>Resources for Helping a Friend</h3>
+                        <p class="title">Resources for Helping a Friend</p>
                         <a href="https://childmind.org/article/support-friend-with-mental-health-challenges/">
                             Child Mind Institute — Supporting a Friend
                         </a>
@@ -269,13 +268,13 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="wellbeing-section">
+        <section class="wellbeing-section">
             <div class="title">
-                <h6>SMALL STEPS, EVERYDAY</h6>
-                <h1>Everyday Wellbeing</h1>
-                <h4>Make room for rest, conncetion, and routines </h4>
+                <p class="eyebrow">SMALL STEPS, EVERYDAY</p>
+                <h2>Everyday Wellbeing</h2>
+                <p class="desc">Make room for rest, conncetion, and routines </p>
              </div>
 
             <div class="wellbeing-cont">
@@ -285,107 +284,112 @@
                             <h3>Build Your Routine</h3>
                             <h5>Explore small ways to balance school, downtime, and the things you enjoy.</h5>
                         </div>
-                        <button class="standard_button routine-button">Explore Routines</button>
+                        <button class="standard-button routine-button">Explore Routines</button>
                     </div>
                     <div class="card">
                         <div class="text">
                             <h3>Take a Breather</h3>
                             <h5>Find ideas for stepping away from schoolwork and making time to recharge.</h5>
                         </div>
-                        <button class="standard_button breather-button">Find Break Ideas</button>
+                        <button class="standard-button breather-button">Find Break Ideas</button>
                     </div>
                     <div class="card">
                         <div class="text">
                             <h3>Stay Connected</h3>
                             <h5>Make space for friendships shared interests, and people you can turn to.</h5>
                         </div>
-                        <button class="standard_button connection-button">Explore Connection</button>
+                        <button class="standard-button connection-button">Explore Connection</button>
                     </div>
                 </div>
 
-                <div class="tips">
-                    <div class="breather">
-                        <h5>Choose Your Next Break</h5>
-                        <button>
-                            <h4>Listen to a song</h4>
-                            <h6>Enjoy a favorite track.</h6>
-                        </button>
-                        <button>
-                            <h4>Go screen-free</h4>
-                            <h6>Step away from your screen.</h6>
-                        </button>
-                        <button>
-                            <h4>Listen to a song</h4>
-                            <h6>Make a little time for a hobby.</h6>
-                        </button>
-                        <a href="https://aacap.org/AACAP/AACAP/Families_and_Youth/Facts_for_Families/FFF-Guide/Helping-Teenagers-With-Stress-066.aspx">More everyday stress-management ideas<i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    </div>
+            <div class="tips">
+                <div class="breather">
+                    <h5>Choose Your Next Break</h5>
+                    <button>
+                        <h4>Listen to a song</h4>
+                        <h6>Enjoy a favorite track.</h6>
+                    </button>
+                    <button>
+                        <h4>Go screen-free</h4>
+                        <h6>Step away from your screen.</h6>
+                    </button>
+                    <button>
+                        <h4>Listen to a song</h4>
+                        <h6>Make a little time for a hobby.</h6>
+                    </button>
+                    <a href="https://aacap.org/AACAP/AACAP/Families_and_Youth/Facts_for_Families/FFF-Guide/Helping-Teenagers-With-Stress-066.aspx">More everyday stress-management ideas<i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
 
-                    <div class="routine">
-                        <h5>Build a Routine That Works for You</h5>
-                    
-                        <button type="button">
-                            <h4>Plan your day</h4>
-                            <h6>Make a little time to organize what's ahead.</h6>
-                        </button>
-                    
-                        <button type="button">
-                            <h4>Start with one task</h4>
-                            <h6>Choose something small and manageable.</h6>
-                        </button>
-                    
-                        <button type="button">
-                            <h4>Make room for downtime</h4>
-                            <h6>Plan time for rest and things you enjoy.</h6>
-                        </button>
-                    
-                        <a href="https://kidshealth.org/HumanaLouisiana/en/teens/stress-tips.html?WT.ac=t-ra">
-                            More ideas for routines and balance
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                    </div>
+                <div class="routine">
+                    <h5>Build a Routine That Works for You</h5>
+                
+                    <button type="button">
+                        <h4>Plan your day</h4>
+                        <h6>Make a little time to organize what's ahead.</h6>
+                    </button>
+                
+                    <button type="button">
+                        <h4>Start with one task</h4>
+                        <h6>Choose something small and manageable.</h6>
+                    </button>
+                
+                    <button type="button">
+                        <h4>Make room for downtime</h4>
+                        <h6>Plan time for rest and things you enjoy.</h6>
+                    </button>
+                
+                    <a href="https://kidshealth.org/HumanaLouisiana/en/teens/stress-tips.html?WT.ac=t-ra">
+                        More ideas for routines and balance
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
 
-                    <div class="connection">
-                        <h5>Find Your Way to Connect</h5>
-                    
-                        <button type="button">
-                            <h4>Reach out to someone</h4>
-                            <h6>Send a message to someone you care about.</h6>
-                        </button>
-                    
-                        <button type="button">
-                            <h4>Share an activity</h4>
-                            <h6>Make time for something you both enjoy.</h6>
-                        </button>
-                    
-                        <button type="button">
-                            <h4>Make someone feel included</h4>
-                            <h6>Say hello or invite someone to join you.</h6>
-                        </button>
-                    
-                        <a href="https://kidshealth.org/en/teens/lonely-help.html">
-                            More ways to feel connected
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                    </div>
+                <div class="connection">
+                    <h5>Find Your Way to Connect</h5>
+                
+                    <button type="button">
+                        <h4>Reach out to someone</h4>
+                        <h6>Send a message to someone you care about.</h6>
+                    </button>
+                
+                    <button type="button">
+                        <h4>Share an activity</h4>
+                        <h6>Make time for something you both enjoy.</h6>
+                    </button>
+                
+                    <button type="button">
+                        <h4>Make someone feel included</h4>
+                        <h6>Say hello or invite someone to join you.</h6>
+                    </button>
+                
+                    <a href="https://kidshealth.org/en/teens/lonely-help.html">
+                        More ways to feel connected
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
                 </div>
             </div>
-    </div>
+        </div>
+        </section>
+    </main>
 
     <!-- Footer -->
-      <div class="footer">
-        <div class="footer_text">
+    <footer class="footer">
+        <div class="footer-text">
           <h4>MyMHS</h4>
-          <div class="footer_links">
+          <div class="footer-links">
             <a href="/index.html">Home</a>
-            <a href="/html/calendar.html">Calendar</a>
-            <a href="/html/resources.html">Resources</a>
-            <a href="/html/careers.html">Career Center</a>
-            <a href="/html/admin.html">Admin Sign-In</a>
+            <a href="./calendar.html">Calendar</a>
+            <a href="./resources.html">Resources</a>
+            <a href="./careers.html">Career Center</a>
+            <a href="./admin.html">Admin Sign-In</a>
           </div>
-          <h6>Designed & Developed by Nicole Odukwu, Middletown High School | FBLA Website Coding & Development | 2026</h6>
+          <p class="footer-credits">
+           Designed &amp; Developed by Nicole Odukwu, Mako Mharadze
+           and Scout Sherman, Middletown High School |
+           FBLA Website Coding &amp; Development | 2026
+         </p>
         </div>
-      </div>
+      </footer>
       <!-- End of Footer -->
    </div>
 

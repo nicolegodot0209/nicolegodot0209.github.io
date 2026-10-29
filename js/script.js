@@ -24,54 +24,19 @@ elements.forEach((element) => {
 const nav_bar = document.getElementById('nav_bar');
 const menuButton = document.getElementById('menu_button');
 const navButtons = document.getElementById('nav_buttons')
-let isMenuOpen = false;
 
-function menuButtonToggled() {
-    if (isMenuOpen) {
-        closeMenu();
-    } else {
-        openMenu();
-    }
-}
-
-function openMenu() {
-    isMenuOpen = true;
-    nav_bar.classList.add('menuOpen');
-}
-
-function closeMenu() {
-    isMenuOpen = false;
-    nav_bar.classList.remove('menuOpen');
-}
-
-menuButton.addEventListener('click', menuButtonToggled);
+menuButton.addEventListener('click', () => {
+  nav_bar.classList.toggle('menuOpen');
+});
 
 // Search Bar
 const searchButton = document.getElementById('search_button');
 const searchInput = document.getElementById('search_input');
 const searchContainer = document.getElementById('search_cont');
-let isSearchOpen = false;
 
-function searchButtonToggled() {
-    if (isSearchOpen) {
-        closeSearch();
-    } else {
-        openSearch();
-    }
-}
-
-function openSearch() {
-    isSearchOpen = true;
-    searchInput.classList.add('active');
-    searchInput.placeholder = "Search..."
-    searchInput.focus();
-}
-function closeSearch() {
-    isSearchOpen = false;
-    searchInput.placeholder = ""
-    searchInput.classList.remove('active');
-}
-searchButton.addEventListener('click', searchButtonToggled);
+searchButton.addEventListener('click', () => {
+  searchInput.classList.toggle('active');
+});
 
 // Scrolling
 let lastScrollY = window.scrollY;
@@ -85,7 +50,6 @@ window.addEventListener('scroll', () => {
         nav_bar.classList.add('shrink');
     }
   } else if (currentScrollY < lastScrollY) { // When scrolling up
-
     if (lastScrollDir != 1) {
         lastScrollDir = 1;
         nav_bar.classList.remove('shrink');

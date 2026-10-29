@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
  <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,39 +8,39 @@
    <link rel="stylesheet" href="/css/calendar.css">
    <script src="https://kit.fontawesome.com/1a99a24fea.js" crossorigin="anonymous"></script>
 </head>
+
   <body>
    <!-- Nav Bar -->
-   <div class="nav_bar" id="nav_bar">
+   <nav class="nav-bar" id="nav_bar">
      <a href="/index.html" class="logo"><img src="/images/logo.png"/></a>
-       <div id="nav_buttons" class="nav_buttons">
-         <a class="nav_button" href="./calendar.html">Calendar</a>
-         <a class="nav_button" href="./resources.html">Resources</a>
-         <a class="nav_button" href="./careers.html">Careers</a>
-       </div>
+      <div id="nav_buttons" class="nav-buttons">
+        <a class="nav-button" href="./calendar.html">Calendar</a>
+        <a class="nav-button" href="./resources.html">Resources</a>
+        <a class="nav-button" href="./careers.html">Careers</a>
+      </div>
 
-       <button class="icon_button" id="menu_button"><i class="fa-solid fa-bars"></i></button>
-       <div id="search_cont" class="search_cont">
-           <input type="text" id="search_input" autocomplete="off">  
-           <button class="icon_button" id="search_button"><i class="fa-solid fa-magnifying-glass"></i></button>
-       </div>
-     </div>
-   </div>
+      <button class="icon-button" id="menu_button"><i class="fa-solid fa-bars"></i></button>
+      <div id="search_cont" class="search-cont">
+          <input type="text" id="search_input" placeholder="Search..." autocomplete="off">  
+          <button class="icon-button" id="search_button"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </div>
+    </nav>
    <!-- End of Nav Bar -->
 
    <template id="day_button_template">
-     <button id="day_button_0" class="day_button">0</button>
+     <button id="day_button_0" class="day-button">0</button>
    </template>
 
-   <div class="page_content">
-     <div class="sidebar">
-       <div class="calendar_shortcut">
-         <div class="calendar_header">
+   <main class="page-content">
+     <section class="sidebar">
+       <div class="calendar-shortcut">
+         <div class="calendar-header">
            <button id="prev_month_btn"><i class="fa-solid fa-caret-left"></i></button>
            <h2 id="month_year">January 2000</h2>
            <button id="next_month_btn"><i class="fa-solid fa-caret-right"></i></button>
          </div>
          <!-- Static Weekday Headers -->
-         <ul class="weekday_header">
+         <ul class="weekday-header">
            <li>S</li>
            <li>M</li>
            <li>T</li>
@@ -50,99 +50,103 @@
            <li>S</li>
          </ul>
          <!-- Dynamic Day Buttons -->
-         <div id="shortcut_buttons" class="shortcut_buttons"></div>
+         <div class="shortcut-buttons" id="shortcut_buttons"></div>
        </div>
 
 
        <div class="checkboxes">
-         <div class="checkbox_cont">
+         <div class="checkbox-cont">
            <input type="checkbox" id="academics" name="category" value="academics" checked>
            <label for="academics">Academics</label>
          </div>
-         <div class="checkbox_cont">
+         <div class="checkbox-cont">
            <input type="checkbox" id="clubs" name="category" value="clubs" checked>
            <label for="clubs">Clubs</label>
          </div>
-         <div class="checkbox_cont">
+         <div class="checkbox-cont">
            <input type="checkbox" id="sports" name="category" value="sports" checked>
            <label for="sports">Sports</label>
          </div>
-         <div class="checkbox_cont">
+         <div class="checkbox-cont">
            <input type="checkbox" id="social" name="category" value="social" checked>
            <label for="social">Social & Community</label>
          </div>
-         <div class="checkbox_cont">
+         <div class="checkbox-cont">
            <input type="checkbox" id="announcements" name="category" value="school_dates" checked>
            <label for="announcements">Announcements</label>
          </div>
        </div>
-     </div>
+     </section>
 
 
      <!-- Main Calendar -->
      <template id="event_template">
        <div class="event" id="event">
          <button id="event_button">
-           <div class="event_title">
-             <span class="event_title_text"></span>
+           <div class="event-title">
+             <span class="event-title-text"></span>
              <i class="fa-solid fa-people-group" id="icon"></i>
            </div>
-           <div class="event_details" id="event_details"></div>
+           <div class="event-details" id="event_details"></div>
          </button>
 
 
-         <p class="event_desc" id="event_desc"></p>
+         <p class="event-desc" id="event_desc"></p>
        </div>
      </template>
 
-     <div class="calendar">
-       <div class="event_amount_cont">
+     <section class="calendar">
+       <div class="event-amount-cont">
          <div id="event_amount">0</div>
-         <h6 id="event_amount_text">events scheduled</h6>
+         <span id="event_amount_text">events scheduled</span>
        </div>
        <hr>
       
        <!-- Event Rows -->
        <div class="events">
-         <div class="event_cont">
-           <h6>ALL DAY</h6>
-           <div class="event_list" id="event_list0"></div>
+         <div class="event-cont">
+           <span>ALL DAY</span>
+           <div class="event-list" id="event_list0"></div>
          </div>
-         <div class="event_cont">
-           <h6>6 AM - 9 AM</h6>
-           <div class="event_list" id="event_list1"></div>
+         <div class="event-cont">
+           <span>6 AM - 9 AM</span>
+           <div class="event-list" id="event_list1"></div>
          </div>
-         <div class="event_cont">
-           <h6>10 AM - 1 PM</h6>
-           <div class="event_list" id="event_list2"></div>
+         <div class="event-cont">
+           <span>10 AM - 1 PM</span>
+           <div class="event-list" id="event_list2"></div>
          </div>
-         <div class="event_cont">
-           <h6>2 PM - 5 PM</h6>
-           <div class="event_list" id="event_list3"></div>
+         <div class="event-cont">
+           <span>2 PM - 5 PM</span>
+           <div class="event-list" id="event_list3"></div>
          </div>
-         <div class="event_cont">
-           <h6>6 PM - 9 PM</h6>
-           <div class="event_list" id="event_list4"></div>
+         <div class="event-cont">
+           <span>6 PM - 9 PM</span>
+           <div class="event-list" id="event_list4"></div>
          </div>
        </div>
         <!-- End of Event Rows -->
-     </div>
-   </div>
+     </section>
+   </main>
 
    <!-- Footer -->
-   <div class="footer">
-     <div class="footer_text">
+   <footer class="footer">
+     <div class="footer-text">
        <h4>MyMHS</h4>
-       <div class="footer_links">
+       <div class="footer-links">
          <a href="/index.html">Home</a>
          <a href="./calendar.html">Calendar</a>
          <a href="./resources.html">Resources</a>
          <a href="./careers.html">Career Center</a>
          <a href="./admin.html">Admin Sign-In</a>
        </div>
-       <h6>Designed & Developed by Nicole Odukwu, Middletown High School | FBLA Website Coding & Development | 2026</h6>
+       <p class="footer-credits">
+        Designed &amp; Developed by Nicole Odukwu, Mako Mharadze
+        and Scout Sherman, Middletown High School |
+        FBLA Website Coding &amp; Development | 2026
+      </p>
      </div>
-   </div>
+   </footer>
    <!-- End of Footer -->
 
 
@@ -151,4 +155,3 @@
  <script type="module" src="/js/calendar.js"></script>
  </body>
 </html>
-

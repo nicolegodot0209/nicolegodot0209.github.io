@@ -13,35 +13,54 @@
   --white: #fff;
  
   --font: "Be Vietnam Pro", sans-serif;
-  --translate: translate(-50%, -50%);
-  --transition: 0.5s ease;
-
-  --shadow-box: 0 8px 0 rgba(28, 16, 8, 0.15);
-  --shadow-button: 0 5px 0 rgba(28, 16, 8, 0.1);
-  --shadow-panel: 0 5px 0 rgba(28, 16, 8, 0.05);
+  --shadow-box: 0 8px 0 rgba(0, 0, 0, 0.15);
+  --shadow-button: 0 5px 0 rgba(0, 0, 0, 0.1);
+  --shadow-panel: 0 5px 0 rgba(0, 0, 0, 0.05);
 }
 /* Prevent user select across all platforms */
-* { 
+*,
+*::before,
+*::after { 
+  box-sizing: border-box;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;  
-  outline: none;
 }
 /* Default Behaviors */
 html, body {
   width: 100%;
   margin: 0;
-  padding: 0;
-
   font-family: var(--font);
   overflow-x: hidden;
   scroll-behavior: smooth;
   touch-action: manipulation;
-  & :is(button, input, textarea, select) { font-family: var(--font); }
+
+  button, input,
+  textarea, select {
+    font-family: inherit;
+  }
 }
-img, svg { -webkit-user-drag: none; } /* Prevents the image from being dragged with the mouse */
-:is(button:enabled, a) { cursor: pointer; } /* All buttons should change cursor */
+img, svg { /* Prevents the image from being dragged with the mouse */
+   -webkit-user-drag: none; 
+  } 
+button:enabled, a { /* All buttons should change cursor */
+  cursor: pointer; 
+}
+@media (prefers-reduced-motion: reduce) {
+  html,
+  body {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
 /* Animations */
 @keyframes fade {
   from {
@@ -53,7 +72,7 @@ img, svg { -webkit-user-drag: none; } /* Prevents the image from being dragged w
     transform: translateY(0px);
   }
 }
-@keyframes fade_text {
+@keyframes fade-text {
   from {
     opacity: 0;
     transform: translateY(10px);
@@ -63,7 +82,6 @@ img, svg { -webkit-user-drag: none; } /* Prevents the image from being dragged w
     transform: translateY(0px);
   }
 }
-
 
 /* Icons */
 .icon {
@@ -75,7 +93,6 @@ img, svg { -webkit-user-drag: none; } /* Prevents the image from being dragged w
   font-size: 25px;
   border-radius: 30%;
   box-shadow: 0 4px 0px 0px rgba(0, 0, 0, 0.2);
-  aspect-ratio: 1;
 
   &.icon--black { /* Color Modifier: Black Version */
     color: var(--white);
@@ -86,39 +103,41 @@ img, svg { -webkit-user-drag: none; } /* Prevents the image from being dragged w
     background-color: var(--orange);
   }
 }
-
 /* Button */
-.standard_button {
+.standard-button {
   display: inline-flex;
-  gap: 8px;
   justify-content: center;
   align-items: center;
-
+  gap: 8px;
   padding: 15px;
   font-size: 13.5px;
   font-weight: bold;
   text-align: center;
   border-radius: 30px;
-  box-shadow: 0 4px 0 rgba(28, 16, 8, 0.16);
-  transition-property: border, background-color, font-size, color;
-  transition-duration: 0.5s;
-  text-decoration: none
+  box-shadow: var(--shadow-button);
+  transition:
+    border 0.5s ease,
+    background-color 0.5s ease,
+    font-size 0.5s ease,
+    color 0.5s ease;
+  text-decoration: none;
 }
-
 /* Checkbox */
-.checkbox_cont {
+.checkbox-cont {
   display: flex;
   flex-direction: row;
   align-items: center;
-
   width: 100%;
   padding: 10px;
   background-color: var(--white);
   border-radius: 30px;
-  transition: background-color var(--transition);
+  transition: background-color 0.5s ease;
 
   &:hover {
       background-color: var(--light-gray1);
+  }
+  label {
+    white-space: nowrap;
   }
 
   input {
@@ -128,26 +147,22 @@ img, svg { -webkit-user-drag: none; } /* Prevents the image from being dragged w
       margin: 0 10px 0 0;
       box-sizing: border-box;
       background-color: var(--white);
-
       border: 2.5px solid var(--light-orange2);
       border-radius: 30%;
-      box-shadow: 0 3px 0 rgba(28, 16, 8, 0.16);
-
+      box-shadow: var(--shadow-panel);
       cursor: pointer;
       transition:
-          background-color 150ms ease,
-          border-color 150ms ease;
-
+          background-color 0.2s ease,
+          border-color 0.2s ease;
       flex: none;
       appearance: none;
-      aspect-ratio: 1 / 1;
       place-content: center;
 
-      &:before {
+      &::before {
           width: 5px;
           height: 10px;
       
-          border: solid white;
+          border: solid var(--white);
           visibility: hidden;
       
           transform: translateY(-1px) rotate(45deg);
@@ -157,23 +172,20 @@ img, svg { -webkit-user-drag: none; } /* Prevents the image from being dragged w
       &:checked {
           background-color: var(--orange);
           border-color: var(--orange);
-          &::before { visibility: visible; }
+          &::before { 
+            visibility: visible; 
+          }
       }
       &:focus-visible {
           outline: 2.5px solid var(--orange);
           outline-offset: 3px;
       }
   }
-
-  label {
-      white-space: nowrap;
-  }
 }
 
 /* Header Sizing/Styling */
 h1 { font-size: clamp(1.75rem, 2.5vmin + 1rem, 4rem); font-weight: bold; }
-
-:is(h2, h3, h4, h5, h6, p) { font-weight: normal }
+h2, h3, h4, h5, h6, p { font-weight: normal; }
 h2 { font-size: clamp(1.5rem, 2.0vmin + 0.85rem, 3rem); }
 h3 { font-size: clamp(1.25rem, 1.5vmin + 0.75rem, 2.25rem); }
 h4 { font-size: clamp(1.1rem, 1.25vmin + 0.65rem, 1.75rem); }
@@ -183,7 +195,7 @@ p { font-size: clamp(12px, 1.25vmin + 8px, 20px); }
 
 
 /* Navigation Bar */
-.nav_bar {
+.nav-bar {
   position: fixed;
   top: 0;
   left: 0;
@@ -194,21 +206,29 @@ p { font-size: clamp(12px, 1.25vmin + 8px, 20px); }
   height: 5rem;
   background-color: var(--black);
   box-shadow: 0 15px 10px 0px rgba(28, 16, 8, 0.1);
-  transition: height var(--transition);
+  transition: height 0.5s ease;
+  --shadow-nav-control: 0 5px 0px 0px rgba(0, 0, 0, 0.6);
   /* Events */
   &.shrink {
       height: 3.5rem;
   }
+
+  @media (max-width: 900px) {
+    &.menuOpen .nav-buttons {
+      visibility: visible;
+      pointer-events: auto;
+    }
+  }
   
   /* Regular Nav Buttons */
-  .nav_buttons {
+  .nav-buttons {
     position: relative;
     display: flex;
-    gap: 0px;
+    gap: 0;
     width: 100%;
     height: 100%;
 
-    & a {
+    a {
       display: flex; 
       justify-content: center; 
       align-items: center;
@@ -218,11 +238,14 @@ p { font-size: clamp(12px, 1.25vmin + 8px, 20px); }
       color: var(--white);
       background-color: var(--black);
       border: none;
-      transition: background-color var(--transition); 
+      transition: background-color 0.5s ease; 
       text-decoration: none;
     
       &:hover {
         background-color: var(--light-black);
+      }
+      @media (max-width: 900px) {
+        width: 100%;
       }
     }
 
@@ -244,12 +267,6 @@ p { font-size: clamp(12px, 1.25vmin + 8px, 20px); }
       /* Closed state */
       visibility: hidden;
       pointer-events: none;
-     
-      a { width: 100%;}
-      .nav_bar.menuOpen & {
-        visibility: visible;
-        pointer-events: auto;
-      }
     }
   }
 
@@ -269,7 +286,7 @@ p { font-size: clamp(12px, 1.25vmin + 8px, 20px); }
   }
   
   /* Smaller Icon Buttons */
-  .icon_button {
+  .icon-button {
     position: absolute;
     top: 50%;
     right: 0;
@@ -279,22 +296,21 @@ p { font-size: clamp(12px, 1.25vmin + 8px, 20px); }
     background-color: var(--light-black);
     border: none;
     border-radius: 100%;
-    box-shadow: 0 5px 0px 0px rgba(0, 0, 0, 0.6);
+    box-shadow: var(--shadow-nav-control);
     transform: translate(0%, -50%);
-    transition: background-color var(--transition);
-    aspect-ratio: 1;
+    transition: background-color 0.5s ease;
   
     /* Default icon styles */
     .svg-inline--fa {
       color: var(--white);
       pointer-events: none;
-      transition: var(--transition);
+      transition: color 0.5s ease;
     }
   
     /* Hover State */
     &:hover {
       background-color: var(--orange);
-      & .svg-inline--fa {
+      .svg-inline--fa {
         color: var(--black);
       }
     }
@@ -303,11 +319,13 @@ p { font-size: clamp(12px, 1.25vmin + 8px, 20px); }
   #menu_button {
     display: none;
     margin-right: 3%;
-    @media (max-width: 900px) { display: inline; }
+    @media (max-width: 900px) { 
+      display: inline; 
+    }
   }
   
   /* Search */
-  .search_cont {
+  .search-cont {
     position: absolute;
     right: 3%;
     display: flex;
@@ -319,59 +337,72 @@ p { font-size: clamp(12px, 1.25vmin + 8px, 20px); }
       height: 35px;
       margin: 0;
       padding-top: 1px;
-      box-sizing: border-box;
-      color: transparent;
       color: var(--white);
       background-color: var(--light-black);
       border: none;
       border-radius: 50px;
-      box-shadow: 0 5px 0px 0px rgba(0, 0, 0, 0.6);
-      visibility: hidden;
-      transition: var(--transition);
+      box-shadow: var(--shadow-nav-control);
+      transition: 
+        padding-left 0.5s ease,
+        width 0.5s ease;
+      outline: none;
     
       /* When search is toggled */
       &.active {
+        visibility: visible;
         width: clamp(80px, 25vw, 300px);
         padding-left: 15px;
-        visibility: visible;
+
         & + #search_button {
           box-shadow: none;
         }
       }
+      &:focus-visible {
+        outline: 2px solid var(--orange);
+        outline-offset: 3px;
+      }
     }
 
-    @media (max-width: 900px) { display: none; }
+    @media (max-width: 900px) { 
+      display: none; 
+    }
   }
 }
 
 /* Footer */
 .footer {
+  width: 100%;
   color: var(--white);
   background-color: var(--light-black);
   padding-block: 5px;
-  width: 100%;
 
-  .footer_text {
-    padding: 0px 30px;
+  .footer-text {
+    padding: 0 30px;
   
-    h6 { font-size: clamp(0.575rem, 0.5vmin + 0.25rem, 0.85rem);}
-    h4 { font-weight: bold; }
+    h4 { 
+      font-weight: bold; 
+    }
   }
-}
-.footer_links {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 30px;
 
-  a {
-    flex-direction: row;
+  .footer-links {
+    display: flex;
     align-items: center;
-    margin-bottom: -10px;
-    font-size: clamp(0.775rem, 0.75vmin + 0.4rem, 1.05rem);
-    color: var(--white);
-    text-decoration: none;
+    gap: 30px;
+  
+    a {
+      margin-bottom: -10px;
+      font-size: clamp(0.775rem, 0.75vmin + 0.4rem, 1.05rem);
+      color: var(--white);
+      text-decoration: none;
+  
+      &:hover { 
+        text-decoration: underline; 
+      }
+    }
+  }
 
-    &:hover { text-decoration: underline; }
+  .footer-credits {
+    margin-top: 25px;
+    font-size: clamp(0.575rem, 0.5vmin + 0.25rem, 0.85rem);
   }
 }
