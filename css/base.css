@@ -15,7 +15,10 @@
   --font: "Be Vietnam Pro", sans-serif;
   --translate: translate(-50%, -50%);
   --transition: 0.5s ease;
-  --box-shadow: 0 8px 0 rgba(28, 16, 8, 0.16);
+
+  --shadow-box: 0 8px 0 rgba(28, 16, 8, 0.15);
+  --shadow-button: 0 5px 0 rgba(28, 16, 8, 0.1);
+  --shadow-panel: 0 5px 0 rgba(28, 16, 8, 0.05);
 }
 /* Prevent user select across all platforms */
 * { 
@@ -343,9 +346,10 @@ p { font-size: clamp(12px, 1.25vmin + 8px, 20px); }
 
 /* Footer */
 .footer {
-  color: white;
+  color: var(--white);
   background-color: var(--light-black);
   padding-block: 5px;
+  width: 100%;
 
   .footer_text {
     padding: 0px 30px;
@@ -365,7 +369,7 @@ p { font-size: clamp(12px, 1.25vmin + 8px, 20px); }
     align-items: center;
     margin-bottom: -10px;
     font-size: clamp(0.775rem, 0.75vmin + 0.4rem, 1.05rem);
-    color: white;
+    color: var(--white);
     text-decoration: none;
 
     &:hover { text-decoration: underline; }

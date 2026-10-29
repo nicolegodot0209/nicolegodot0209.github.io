@@ -10,7 +10,7 @@
 </head>
   <body>
    <!-- Nav Bar -->
-   <div class="nav_bar" id="nav_bar">
+   <nav class="nav_bar" id="nav_bar">
      <a href="/index.html" class="logo"><img src="/images/logo.png"/></a>
        <div id="nav_buttons" class="nav_buttons">
          <a class="nav_button" href="./calendar.html">Calendar</a>
@@ -24,7 +24,7 @@
            <button class="icon_button" id="search_button"><i class="fa-solid fa-magnifying-glass"></i></button>
        </div>
      </div>
-   </div>
+   </nav>
    <!-- End of Nav Bar -->
 
    <!-- AI Chat Bot -->
@@ -58,9 +58,61 @@
             </div>
         </div>
 
-        <div class="find-support">
+        <div class="support-section">
+            <div class="support-cont">
+                <div class="support-panel">
+                    <div class="icon icon--orange"><i class="fa-solid fa-chalkboard-user"></i></div>
+                    <h3>School Support</h3>
+                    <h5>Find your school counselor and learn how to reach out.</h5>
+                </div>
+                <div class="support-panel">
+                    <div class="icon icon--orange"><i class="fa-solid fa-comments"></i></div>
+                    <h3>Support Outside of School</h3>
+                    <h5>Explore options for talking with someone outside of school.</h5>
+                </div>
+            </div>
 
-        </div>
+            <div class="dropdown" tabindex="0">
+                <i class="fa-solid fa-caret-right arrow"></i>
+                Support in School Options
+                <div class="text">
+                    <p>Looking for support with stress, friendships, or something that’s been on your mind? 
+                        Start by connecting with your school counselor.</p>
+                    <br>
+                    <p>Counselors:</p>
+                    <ul>
+                        <li><p>(A-D)</p> <a href="mailto:Meredith.Bagnell@fcps.org">Meredith Bagnell</a></li>
+                        <li><p>(E-K)</p> <a href="mailto:James.Claney@fcps.org">James Claney</a></li>
+                        <li><p>(L-Rod)</p> <a href="mailto:Erin.Phelps@fcps.org">Erin Phelps</a></li>
+                        <li><p>(Roe-Z)</p> <a href="mailto:Jacqueline.Bassler@fcps.org">Jacqueline Bassler</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="dropdown" tabindex="0">
+                <i class="fa-solid fa-caret-right arrow"></i>
+                Support Outside School Options
+                <div class="text">
+                    <p>Looking for support with stress, friendships, or something that’s been on your mind? 
+                        Start by connecting with your school counselor.</p>
+                    <br>
+                    <p>Services:</p>
+                    <ol>
+                        <li>
+                            <a href="https://www.nami.org/nami-helpline/teen-young-adult-helpline/">NAMI Teen & Young Adult HelpLine</a>
+                            <p>Connect with a trained young-adult volunteer for emotional support, mental-health 
+                                information, and help finding resources. This is a free, confidential peer-support 
+                                service—not a crisis line or therapy.</p> 
+                        </li>
+                        <li>
+                            <a href="https://didihirsch.org/teenline/">Teen Line</a>
+                            <p>Talk with a trained teen listener about school stress, friendships, family issues, 
+                                or anything else that’s bothering you. You don’t have to be in crisis to reach out. 
+                                Available to young people up to age 19.</p> 
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div> 
 
         <div class="grid-section">
             <div class="grid-header">
@@ -255,15 +307,15 @@
                     <div class="breather">
                         <h5>Choose Your Next Break</h5>
                         <button>
-                            <h4><i class="fa-solid fa-headphones symbol"></i> Listen to a song</h4>
+                            <h4>Listen to a song</h4>
                             <h6>Enjoy a favorite track.</h6>
                         </button>
                         <button>
-                            <h4><i class="fa-solid fa-desktop"></i> Go screen-free</h4>
+                            <h4>Go screen-free</h4>
                             <h6>Step away from your screen.</h6>
                         </button>
                         <button>
-                            <h4><i class="fa-solid fa-paintbrush"></i> Listen to a song</h4>
+                            <h4>Listen to a song</h4>
                             <h6>Make a little time for a hobby.</h6>
                         </button>
                         <a href="https://aacap.org/AACAP/AACAP/Families_and_Youth/Facts_for_Families/FFF-Guide/Helping-Teenagers-With-Stress-066.aspx">More everyday stress-management ideas<i class="fa-solid fa-arrow-up-right-from-square"></i></a>
@@ -273,17 +325,17 @@
                         <h5>Build a Routine That Works for You</h5>
                     
                         <button type="button">
-                            <h4><i class="fa-solid fa-sun"></i>Plan your day</h4>
+                            <h4>Plan your day</h4>
                             <h6>Make a little time to organize what's ahead.</h6>
                         </button>
                     
                         <button type="button">
-                            <h4><i class="fa-solid fa-clipboard"></i>Start with one task</h4>
+                            <h4>Start with one task</h4>
                             <h6>Choose something small and manageable.</h6>
                         </button>
                     
                         <button type="button">
-                            <h4><i class="fa-solid fa-couch"></i>Make room for downtime</h4>
+                            <h4>Make room for downtime</h4>
                             <h6>Plan time for rest and things you enjoy.</h6>
                         </button>
                     
@@ -297,17 +349,17 @@
                         <h5>Find Your Way to Connect</h5>
                     
                         <button type="button">
-                            <h4><i class="fa-solid fa-hand-holding-heart"></i>Reach out to someone</h4>
+                            <h4>Reach out to someone</h4>
                             <h6>Send a message to someone you care about.</h6>
                         </button>
                     
                         <button type="button">
-                            <h4><i class="fa-solid fa-person-walking"></i>Share an activity</h4>
+                            <h4>Share an activity</h4>
                             <h6>Make time for something you both enjoy.</h6>
                         </button>
                     
                         <button type="button">
-                            <h4><i class="fa-solid fa-door-open"></i>Make someone feel included</h4>
+                            <h4>Make someone feel included</h4>
                             <h6>Say hello or invite someone to join you.</h6>
                         </button>
                     
@@ -318,7 +370,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+    </div>
 
     <!-- Footer -->
       <div class="footer">
