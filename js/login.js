@@ -45,7 +45,6 @@ loginForm.addEventListener('submit', async (event) => {
  signInButton.disabled = true;
  googleButton.disabled = true;
 
-
  try {
    await signInWithEmailAndPassword(auth, email, password);
    passwordInput.value = '';
@@ -84,10 +83,8 @@ googleButton.addEventListener('click', async () => {
      (provider) => provider.providerId === 'google.com'
    );
 
-
    let result;
    let linkedGoogle = false;
-
 
    if (currentUser && hasPassword && !hasGoogle) {
      // Add Google to the existing signed-in password account.
@@ -107,7 +104,6 @@ googleButton.addEventListener('click', async () => {
        (allowedEmail) =>
          allowedEmail.toLowerCase() === userEmail
      );
-
 
    if (!isAllowed) {
      await signOut(auth);

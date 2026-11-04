@@ -188,7 +188,6 @@ async function renderEvents() {
     let eventsDisplayed = 0;
     savedEvents.sort((a, b) => a.date - b.date); // Sort by time
     const eventLists = document.getElementsByClassName('event-list');
-    const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
     for (const eventList of eventLists) { eventList.innerHTML = ''; }
 
     // Load each event

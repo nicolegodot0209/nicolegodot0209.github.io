@@ -30,7 +30,6 @@ dateInput.addEventListener('input', checkInputs);
 
 // Submitting events
 import { db } from "./firebase-config.js";
-
 import {
   collection,
   addDoc,
@@ -40,7 +39,6 @@ import {
 
 async function postEvent(eventInfo) {
     const eventDocument = await addDoc(collection(db, "events"), eventInfo);
-  
     return eventDocument.id;
   }
 
