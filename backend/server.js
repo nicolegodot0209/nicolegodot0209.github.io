@@ -10,7 +10,11 @@ const groq = new Groq({
 
 app.use(
   cors({
-    origin: process.env.FRONTEND_ORIGIN
+    origin: [
+      "https://nicolegodot0209.github.io",
+      "http://127.0.0.1:5500",
+      "http://localhost:5500"
+    ]
   })
 );
 

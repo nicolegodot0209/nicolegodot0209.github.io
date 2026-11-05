@@ -45,7 +45,7 @@ chatBotButton.addEventListener('click', chatBotButtonClicked);
 
 async function sendToAI(message) {
   const response = await fetch(
-    "https://YOUR-SERVICE.onrender.com/chat",
+    "https://chatbot-c481.onrender.com/chat",
     {
       method: "POST",
 
