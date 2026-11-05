@@ -42,3 +42,39 @@ function chatBotButtonClicked() {
 }
 
 chatBotButton.addEventListener('click', chatBotButtonClicked);
+
+async function sendToAI(message) {
+  const response = await fetch(
+    "https://YOUR-SERVICE.onrender.com/chat",
+    {
+      method: "POST",
+
+      headers: {
+        "Content-Type": "application/json"
+      },
+
+      body: JSON.stringify({
+        message: message
+      })
+    }
+  );
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(
+      data.error || `Request failed: ${response.status}`
+    );
+  }
+
+  return data.reply;
+}
+
+// Test the connection.
+sendToAI("Hello! What can you help me with?")
+  .then((reply) => {
+    console.log("AI:", reply);
+  })
+  .catch((error) => {
+    console.error("AI error:", error.message);
+  });
