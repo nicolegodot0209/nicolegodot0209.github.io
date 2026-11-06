@@ -497,6 +497,8 @@ hr {
     right: 20px;
     bottom: 20px;
     z-index: 1;
+    min-width: 200px;
+    width: 50%;
 
     display: flex;
     flex-direction: column;
@@ -523,8 +525,8 @@ hr {
 }
 
 .chat-button {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     font-size: 18px;
     color: var(--light-black);
     pointer-events: auto;
@@ -550,7 +552,7 @@ hr {
     position: relative;
     margin: 0 25px 25px 0;
     opacity: 0;
-
+    width: 100%;
     transition:
         margin 0.5s,
         opacity 0.5s;
@@ -571,11 +573,8 @@ hr {
     display: flex;
     flex-direction: column;
     gap: 15px;
-
-    width: 200px;
     height: 0;
     padding: 25px 25px 0;
-
     background-color: var(--white);
     border: 1.5px solid var(--light-gray1);
     border-radius: 0 0 15px 15px;
@@ -620,6 +619,7 @@ hr {
         padding: 5px 10px;
         box-sizing: border-box;
         font-size: 12px;
+        outline: none;
 
         border: 2px solid var(--light-gray1);
         border-radius: 10px;

@@ -44,13 +44,7 @@ app.post("/chat", async (req, res) => {
       messages: [
         {
           role: "system",
-          content:
-            "You are a friendly school-resource assistant for an " +
-            "FBLA website. Keep answers short and clear. " +
-            "Do not invent school contacts, events, policies, or links. " +
-            "If information has not been provided, say you don't know. " +
-            "You are not a counselor and must not diagnose or provide treatment. " +
-            "Provide links to resources only when you know they are accurate."
+          content: process.env.PROMPT
         },
         {
           role: "user",
