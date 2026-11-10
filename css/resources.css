@@ -563,8 +563,7 @@ hr {
     }
 }
 
-.chat-button,
-.chat-input button {
+.chat-button, .chat-input button {
     padding: 10px;
     background-color: var(--white);
     border: none;
@@ -589,13 +588,13 @@ hr {
 
     &:hover {
         background-color: var(--light-orange1);
-        box-shadow: 0 7px 0 rgba(28, 16, 8, 0.1);
+        box-shadow: 0 7px 0 rgba(0, 0, 0, 0.05);
         translate: 0 -3px;
     }
 
     &.active {
         background-color: var(--orange);
-        box-shadow: 0 2px 0 rgba(28, 16, 8, 0.1);
+        box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
         translate: 0 2px;
 
         &:hover {
@@ -673,7 +672,7 @@ hr {
         font-size: 12px;
         border: 2px solid var(--light-gray1);
         border-radius: 10px;
-        box-shadow: 0 5px 0 rgba(28, 16, 8, 0.1);
+        box-shadow: var(--shadow-panel);
         transition: border 0.5s ease;
         field-sizing: content;
         resize: none;

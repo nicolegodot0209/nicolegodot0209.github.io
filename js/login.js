@@ -111,7 +111,7 @@ googleButton.addEventListener('click', async () => {
      return;
    }
 
-   loginSuccess();
+   window.location.href = '/html/admin.html'; // Re-direct when logged in
  } catch (error) {
    console.error(error.code, error.message);
   status.textContent = 'Could not complete Google sign-in.';
@@ -120,12 +120,3 @@ googleButton.addEventListener('click', async () => {
    signInButton.disabled = false;
  }
 });
-
-function loginSuccess() {
-  // Hide the old page and display the new one
-  const login_page = document.getElementById('sign_in_cont');
-  const event_page = document.getElementById('event_submit_cont');
-
-  login_page.style.display = 'none';
-  event_page.style.display = 'flex';
-}

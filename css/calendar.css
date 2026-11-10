@@ -305,17 +305,25 @@ body {
         margin: 0;
         padding: 10px;
         font-weight: bold;
+        font-size: 14px;
         color: var(--black);
         background: none;
         border: none;
         border-radius: 15px;
         transition: background-color 0.5s ease;
 
+        .event-title-text {
+            font-size: 14px;
+        }
+        .event-details {
+            font-size: 14px;
+        }
+
         /* Events */
         &:hover {
             background-color: rgba(0, 0, 0, 0.05);
         }
-        &.active ~ #event_desc {
+        &:focus ~ #event_desc {
             height: auto;
             margin-top: 10px;
             opacity: 1;
@@ -333,7 +341,6 @@ body {
         margin: 0 5px 0 20px;
         font-size: clamp(0.675rem, 0.65vmin + 0.35rem, 1.05rem);
         opacity: 0;
-
         transition:
             height 0.5s ease,
             opacity 0.5s ease,

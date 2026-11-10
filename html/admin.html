@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>MyMHS</title>
+        <link rel="stylesheet" href="/css/base.css">
+        <link rel="stylesheet" href="/css/admin.css">
+        <script src="https://kit.fontawesome.com/1a99a24fea.js" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <div class="tab-buttons">
+            <button id="calendar_button" class="tab-button"><i class="fa-solid fa-calendar"></i></button>
+            <button id="announcements_button" class="tab-button"><i class="fa-solid fa-bullhorn"></i></button>
+        </div>
+
+        <section id="calendar_section" class="section calendar-section">
+            <div class="events">
+                <div class="event-cont">
+                    <div class="event" id="event">
+                        <button id="event_button">
+                            <div class="event-title">
+                                <input class="event-title-text" placeholder="Title...">
+                                <i class="fa-solid fa-people-group" id="icon"></i>
+                            </div>
+                            <div class="event-details">
+                                <input id="event_time" placeholder="Time..."> • <input id="event_location" placeholder="Location...">
+                            </div>
+                        </button>
+
+                        <textarea class="event-desc" id="event_desc" rows="1" placeholder="Description..."></textarea>
+                    </div>
+
+                    <div class="mod-buttons">
+                        <button class="delete"><i class="fa-solid fa-trash"></i></button>
+                        <button class="edit"><i class="fa-solid fa-pen"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="announcements_section" class="section announcement-section">
+            <h1>Announcements</h1>
+        </section>
+
+        <script src="/js/admin.js"></script>
+    </body>
+</html>

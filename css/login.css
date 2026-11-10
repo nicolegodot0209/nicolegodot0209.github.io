@@ -1,0 +1,151 @@
+/* Text Inputs */
+input[type="text"], input[type="password"], textarea {
+    width: 90%;
+    padding: 15px 10px 15px 10px;
+    border: 2px solid var(--light-gray1);
+    border-radius: 10px;
+    box-shadow: 0 5px 0 rgba(28, 16, 8, 0.1);
+    transition: border 0.5s ease;
+
+    &:focus {
+        border: 2px solid var(--light-orange2);
+    }
+}
+
+/* Sign-In Page */
+#sign_in_cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--light-gray1);
+    padding: 30px;
+
+    a {
+        margin-top: 50px;
+        color: var(--orange);
+        opacity: 0;
+        animation: fade-text 0.75s ease forwards;
+        text-decoration: none;
+        animation-delay: 1.0s;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.sign-in {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 40%;
+    height: 50vh;
+    min-height: max-content;
+    padding: 40px;
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: var(--shadow-panel);
+    opacity: 0;
+    transition: width 0.5s ease;
+    animation: fade 0.75s ease forwards;
+    animation-delay: 0.25s;
+
+    /* Sizing */
+    @media (max-width: 900px) { 
+        width: 75%;
+    }
+    /* Inputs */
+    .login-form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        flex: 1;
+
+        .input-cont {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+         
+        /* Checkbox & Button */
+        .checkbox-cont {
+            width: fit-content;
+        }
+        #sign_in {
+            transition: 
+                background-color 0.5s ease, 
+                border 0.5s ease;
+
+            &:not(.active):enabled, &:disabled {
+                color: var(--light-gray2);
+                background-color: transparent; 
+                border: 5px solid var(--light-gray1);
+            }
+
+            &.active:enabled {
+              color: var(--black);
+              background-color: var(--light-orange2);
+              border: 5px solid var(--light-orange2);
+              &:hover {
+                background-color: var(--orange);
+                border: 5px solid var(--orange);
+              }
+            }
+          }
+        #google_sign_in {
+            gap: 12px;
+            color: var(--black);
+            background-color: transparent; 
+            border: 5px solid var(--light-gray1);
+            transition: 
+                background-color 0.5s ease, 
+                border 0.5s ease;
+
+            &:enabled:hover {
+                background-color: var(--light-gray1);
+            }
+            img {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+    /* Text */
+    .text {
+        padding-bottom: 40px;
+        h6 { 
+            margin: 0; 
+            color: var(--light-gray2);
+        }
+        h1 { 
+            margin: 0; 
+        }
+        img {
+            display: block;
+            max-width: 25px;
+            height: auto;
+        }
+        span {
+            display: inline-flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            height: auto;
+        }
+    }
+    /* Status */
+    #status {
+        font-size: 14px;
+        text-align: center;
+        color: var(--orange);
+
+        &:empty {
+            display: none;
+        }
+    }
+}

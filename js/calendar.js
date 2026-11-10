@@ -149,11 +149,6 @@ function addEvent (eventInfo) {
     // 3. Set description
     const event_desc = clone.getElementById('event_desc');
     event_desc.textContent = eventInfo.description;
-    // 4. Connect button
-    const button = clone.getElementById('event_button');
-    button.addEventListener('click', () => {
-        button.classList.toggle('active');
-    });
    // 4. Add element
    const bounds = ['09:59', '13:59', '17:59', '99:99'];
    const isBetween = (time, start, end) => time >= start && time <= end;
