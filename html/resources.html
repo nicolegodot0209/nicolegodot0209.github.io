@@ -27,19 +27,19 @@
    <!-- End of Nav Bar -->
 
    <!-- AI Chat Bot -->
+   <template id="message_template">
+        <div class="ai-message">...</div>
+   </template>
+
    <div class="ai-chat">
+        <div class="background"></div>
         <div class="chat">
-            <div class="header">Title</div>
-            <div class="chat-cont">
-                <div class="ai-message">Hello! I am a chat message that is slowly expanding to fit its contents!</div>
-                <div class="user-message">Hello! I am a chat message that is slowly expanding to fit its contents!</div>
-                <div class="ai-message">Hello! I am a chat message that is slowly expanding to fit its contents!</div>
-                <div class="user-message">Hello! I am a chat message that is slowly expanding to fit its contents!</div>
-                <div class="ai-message">Hello! I am a chat message that is slowly expanding to fit its contents!</div>
-                <div class="user-message">Hello! I am a chat message that is slowly expanding to fit its contents!</div>
+            <div class="header">Mental Health Chatbot</div>
+            <div class="chat-box">
+                <div class="chat-cont" id="chat_cont"></div>
                 <div class="chat-input">
-                    <textarea placeholder="..."></textarea>
-                    <button><i class="fa-solid fa-paper-plane"></i></button>
+                    <textarea id="chat_input" placeholder="..."></textarea>
+                    <button id="send_button" disabled><i class="fa-solid fa-paper-plane"></i></button>
                 </div>
             </div>
 
@@ -49,7 +49,7 @@
     <!-- End of AI Chat Bot -->
         
    <main class="page-content">
-        <div class="block">
+        <div class="block scroll-reveal">
             <h2>Need support now?</h2>
             <p>Call or text 988 for free, confidential support, available 24/7. You don’t have to be suicidal to reach out.</p>
             <div>
@@ -57,7 +57,7 @@
             </div>
         </div>
 
-        <section class="support-section">
+        <section class="support-section scroll-reveal">
             <div class="support-cont">
                 <div class="support-panel">
                     <div class="icon icon--orange"><i class="fa-solid fa-chalkboard-user"></i></div>
@@ -118,7 +118,7 @@
                 <p class="eyebrow">WHAT'S ON YOUR MIND?</p>
                 <h2>Choose a topic to explore resources.</h2>
             </div>
-            <div class="grid">
+            <div class="grid scroll-reveal">
                 <div class="card" tabindex="0" aria-label="Flip school stress resource card">
                     <div class="card-front">
                         <div class="icon icon--black">
@@ -278,25 +278,25 @@
              </div>
 
             <div class="wellbeing-cont">
-                <div class="card-cont">
+                <div class="card-cont scroll-reveal">
                     <div class="card">
                         <div class="text">
-                            <h3>Build Your Routine</h3>
-                            <h5>Explore small ways to balance school, downtime, and the things you enjoy.</h5>
+                            <p class="title">Build Your Routine</h3>
+                            <p class="desc">Explore small ways to balance school, downtime, and the things you enjoy.</h5>
                         </div>
                         <button class="standard-button routine-button">Explore Routines</button>
                     </div>
                     <div class="card">
                         <div class="text">
-                            <h3>Take a Breather</h3>
-                            <h5>Find ideas for stepping away from schoolwork and making time to recharge.</h5>
+                            <p class="title">Take a Breather</p>
+                            <p class="desc">Find ideas for stepping away from schoolwork and making time to recharge.</p>
                         </div>
                         <button class="standard-button breather-button">Find Break Ideas</button>
                     </div>
                     <div class="card">
                         <div class="text">
-                            <h3>Stay Connected</h3>
-                            <h5>Make space for friendships shared interests, and people you can turn to.</h5>
+                            <p class="title">Stay Connected</p>
+                            <p class="desc">Make space for friendships shared interests, and people you can turn to.</p>
                         </div>
                         <button class="standard-button connection-button">Explore Connection</button>
                     </div>
@@ -304,38 +304,38 @@
 
             <div class="tips">
                 <div class="breather">
-                    <h5>Choose Your Next Break</h5>
+                    <p class="title">Choose Your Next Break</p>
                     <button>
-                        <h4>Listen to a song</h4>
-                        <h6>Enjoy a favorite track.</h6>
+                        <p class="title">Listen to a song</p>
+                        <p class="desc">Enjoy a favorite track.</p>
                     </button>
                     <button>
-                        <h4>Go screen-free</h4>
-                        <h6>Step away from your screen.</h6>
+                        <p class="title">Go screen-free</p>
+                        <p class="desc">Step away from your screen.</p>
                     </button>
                     <button>
-                        <h4>Listen to a song</h4>
-                        <h6>Make a little time for a hobby.</h6>
+                        <p class="title">Listen to a song</p>
+                        <p class="desc">Make a little time for a hobby.</p>
                     </button>
-                    <a href="https://aacap.org/AACAP/AACAP/Families_and_Youth/Facts_for_Families/FFF-Guide/Helping-Teenagers-With-Stress-066.aspx">More everyday stress-management ideas<i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    <a href="https://aacap.org/AACAP/AACAP/Families_and_Youth/Facts_for_Families/FFF-Guide/Helping-Teenagers-With-Stress-066.aspx">
+                        More everyday stress-management ideas
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
                 </div>
 
                 <div class="routine">
-                    <h5>Build a Routine That Works for You</h5>
-                
+                    <p class="title">Build a Routine That Works for You</p>
                     <button type="button">
-                        <h4>Plan your day</h4>
-                        <h6>Make a little time to organize what's ahead.</h6>
+                        <p class="title">Plan your day</p>
+                        <p class="desc">Make a little time to organize what's ahead.</p>
                     </button>
-                
                     <button type="button">
-                        <h4>Start with one task</h4>
-                        <h6>Choose something small and manageable.</h6>
+                        <p class="title">Start with one task</p>
+                        <p class="desc">Choose something small and manageable.</p>
                     </button>
-                
                     <button type="button">
-                        <h4>Make room for downtime</h4>
-                        <h6>Plan time for rest and things you enjoy.</h6>
+                        <p class="title">Make room for downtime</p>
+                        <p class="desc">Plan time for rest and things you enjoy.</p>
                     </button>
                 
                     <a href="https://kidshealth.org/HumanaLouisiana/en/teens/stress-tips.html?WT.ac=t-ra">
@@ -345,23 +345,19 @@
                 </div>
 
                 <div class="connection">
-                    <h5>Find Your Way to Connect</h5>
-                
+                    <p class="title">Find Your Way to Connect</p>
                     <button type="button">
-                        <h4>Reach out to someone</h4>
-                        <h6>Send a message to someone you care about.</h6>
+                        <p class="title">Reach out to someone</p>
+                        <p class="desc">Send a message to someone you care about.</p>
                     </button>
-                
                     <button type="button">
-                        <h4>Share an activity</h4>
-                        <h6>Make time for something you both enjoy.</h6>
+                        <p class="title">Share an activity</p>
+                        <p class="desc">Make time for something you both enjoy.</p>
                     </button>
-                
                     <button type="button">
-                        <h4>Make someone feel included</h4>
-                        <h6>Say hello or invite someone to join you.</h6>
+                        <p class="title">Make someone feel included</p>
+                        <p class="desc">Say hello or invite someone to join you.</p>
                     </button>
-                
                     <a href="https://kidshealth.org/en/teens/lonely-help.html">
                         More ways to feel connected
                         <i class="fa-solid fa-arrow-up-right-from-square"></i>

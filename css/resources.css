@@ -15,6 +15,10 @@
     color: var(--orange);
 }
 
+h2 {
+    font-weight: bold;
+}
+
 hr {
     width: 100%;
     border: 2px dashed var(--light-gray1);
@@ -26,11 +30,16 @@ hr {
     margin: 50px;
     padding: 40px;
     box-sizing: border-box;
-
+    animation: fade 0.75s ease forwards;
+    opacity: 0;
     color: var(--black);
     background-color: var(--orange);
     border-radius: 15px;
     box-shadow: var(--shadow-box);
+
+    &.visible {
+        animation: fade 0.75s ease forwards;
+    }
 
     h2 {
         font-weight: bold;
@@ -85,6 +94,17 @@ hr {
     gap: 10px;
     width: 90%;
     padding: 50px;
+
+    /* Animation */
+    & > * {
+        opacity: 0;
+    }
+    &.visible > * {
+        animation: fade 0.75s ease forwards; 
+    }
+    & > :nth-child(1) { animation-delay: 0.0s; }
+    & > :nth-child(2) { animation-delay: 0.5s; }
+    & > :nth-child(3) { animation-delay: 1.0s; }
 }
 
 .support-cont {
@@ -100,7 +120,6 @@ hr {
     gap: 30px;
     padding: 30px;
     box-sizing: border-box;
-
     background-color: var(--white);
     border: 2px solid var(--light-gray1);
 
@@ -119,7 +138,6 @@ hr {
 .dropdown {
     padding: 15px;
     font-weight: bold;
-
     background-color: var(--light-orange1);
     border: 2px solid #fcd6bb;
     cursor: pointer;
@@ -153,7 +171,6 @@ hr {
         height: 0;
         font-weight: normal;
         opacity: 0;
-
         transition:
             height 0.5s ease,
             opacity 0.5s ease,
@@ -200,7 +217,12 @@ hr {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
     gap: 25px;
-
+    opacity: 0;
+    
+    /* Animation */
+    &.visible {
+      animation: fade 0.75s ease forwards;  
+    }
     /* Sizing */
     @media (max-width: 900px) {
         grid-template-columns: repeat(2, 1fr);
@@ -212,10 +234,8 @@ hr {
     position: relative;
     display: grid;
     padding: 25px;
-
     text-align: center;
     color: var(--black);
-
     background-color: var(--light-orange2);
     border: none;
     border-radius: 20px;
@@ -325,7 +345,7 @@ hr {
     display: flex;
     gap: 50px;
     width: 100%;
-    margin: 50px 0 0 50px;
+    padding: 0 25px 0 25px;
 
     .card-cont {
         display: grid;
@@ -336,6 +356,17 @@ hr {
         grid-auto-rows: minmax(15vh, auto);
         justify-items: stretch;
         flex: 1;
+
+        /* Animation */
+        & > * {
+            opacity: 0;
+        }
+        &.visible > * {
+            animation: fade 0.75s ease forwards; 
+        }
+        & > :nth-child(1) { animation-delay: 0.0s; }
+        & > :nth-child(2) { animation-delay: 0.5s; }
+        & > :nth-child(3) { animation-delay: 1.0s; }
     }
 
     /* Buttons */
@@ -357,7 +388,7 @@ hr {
         }
     }
 
-    @media (max-width: 850px) {
+    @media (max-width: 900px) {
         .routine-button, .connection-button, .breather-button {
             display: none;
         }
@@ -375,19 +406,19 @@ hr {
     translate: 0 0;
 
     .text {
-        h3 {
+        .title {
             margin: 0 0 15px;
             font-weight: bold;
             color: var(--light-black);
             white-space: nowrap;
+            font-size: clamp(1.25rem, 1.5vmin + 0.75rem, 2.25rem);
         }
 
-        h5 {
+        .desc {
             margin: 0;
             font-weight: lighter;
             color: var(--light-black);
-            overflow: hidden;
-            text-overflow: ellipsis;
+            font-size: clamp(1.0rem, 1.0vmin + 0.55rem, 1.4rem);
         }
     }
 
@@ -407,10 +438,12 @@ hr {
         flex-direction: row-reverse;
         background-color: var(--white);
         border: 2px solid var(--light-gray1);
+        text-align: right;
 
         /* Sizing */
         @media (max-width: 900px) {
             flex-direction: column;
+            text-align: center;
         }
     }
 
@@ -425,15 +458,12 @@ hr {
     display: none;
     justify-content: center;
     align-items: center;
-
     background-color: var(--white);
     border: 2px solid var(--light-gray1);
     border-radius: 10px;
     flex: 1;
 
-    .breather,
-    .connection,
-    .routine {
+    .breather, .connection, .routine {
         display: none;
     }
 
@@ -445,9 +475,10 @@ hr {
         gap: 20px;
         padding: 20px;
 
-        h5 {
+        .title {
             margin: 0 0 20px;
             font-weight: bold;
+            font-size: clamp(1.0rem, 1.0vmin + 0.55rem, 1.4rem);
         }
 
         a {
@@ -455,7 +486,6 @@ hr {
             justify-content: center;
             gap: 1px;
             margin-top: 20px;
-
             font-size: 14px;
             font-weight: bold;
             color: var(--orange);
@@ -470,22 +500,23 @@ hr {
             padding: 20px;
             text-align: left;
             color: var(--light-black);
-
             background-color: var(--light-orange1);
             border: none;
             border-radius: 10px;
 
-            h4 {
+            .title {
                 display: inline-flex;
                 align-items: center;
                 gap: 5px;
-                margin: 0 0 20px;
+                margin: 0 0 10px;
                 font-weight: bold;
+                font-size: clamp(1.1rem, 1.25vmin + 0.65rem, 1.75rem);
             }
 
-            h6 {
+            .desc {
                 margin: 0;
                 font-weight: lighter;
+                font-size: clamp(0.775rem, 0.75vmin + 0.4rem, 1.05rem);
             }
         }
     }
@@ -499,11 +530,37 @@ hr {
     z-index: 1;
     min-width: 200px;
     width: 50%;
-
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     pointer-events: none;
+
+    /* When the chat button is active, show the chat box */
+    &:has(.chat-button.active) {
+        .chat {
+            opacity: 1;
+        }
+        .chat-box {
+            height: 300px;
+        }
+        .background {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    }
+
+    .background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.35);
+        z-index: -1;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.5s ease;
+    }
 }
 
 .chat-button,
@@ -513,14 +570,13 @@ hr {
     border: none;
     border-radius: 50%;
     box-shadow: var(--shadow-button);
-
     transition:
         background-color 0.5s ease,
         translate 0.5s ease,
         box-shadow 0.5s ease;
 }
 
-.chat-cont, .ai-message, .user-message {
+.chat-box, .ai-message, .user-message {
     box-shadow: var(--shadow-panel)
 }
 
@@ -568,29 +624,27 @@ hr {
     }
 }
 
-.chat-cont {
+.chat-box {
     position: relative;
+    pointer-events: auto;
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    height: 0;
-    padding: 25px 25px 0;
-    background-color: var(--white);
-    border: 1.5px solid var(--light-gray1);
+    align-items: center;
     border-radius: 0 0 15px 15px;
-    pointer-events: auto;
+    height: 0;
     transition: height 0.5s;
-    overflow-y: auto;
-}
 
-.ai-chat:has(.chat-button.active) {
-    z-index: 10;
-    .chat {
-        opacity: 1;
-
-        .chat-cont {
-            height: 300px;
-        }
+    .chat-cont {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        padding: 25px 25px 0;
+        background-color: var(--white);
+        pointer-events: auto;
+        overflow-y: auto;
+        overflow-x: hidden;
+        width: 100%;
+        flex: 1;
     }
 }
 
@@ -598,33 +652,28 @@ hr {
     position: sticky;
     bottom: 0;
     z-index: 1;
-
+    width: 100%;
+    gap: 20px;
+    min-height: min-content;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 20px;
-
-    width: calc(100% + 50px);
     margin: auto -25px 0;
-    padding: 15px;
     box-sizing: border-box;
-
+    padding: 20px;
+    border-radius: 0 0 15px 15px;
     background-color: white;
-    box-shadow: 0 -5px 5px rgba(28, 16, 8, 0.05);
-    flex-shrink: 0;
+    box-shadow: 0 -5px 5px rgba(0, 0, 0, 0.02);
 
     textarea {
-        width: 90%;
+        flex: 1;
         min-height: 1lh;
         padding: 5px 10px;
         box-sizing: border-box;
         font-size: 12px;
-        outline: none;
-
         border: 2px solid var(--light-gray1);
         border-radius: 10px;
         box-shadow: 0 5px 0 rgba(28, 16, 8, 0.1);
-
         transition: border 0.5s ease;
         field-sizing: content;
         resize: none;
@@ -638,7 +687,6 @@ hr {
         display: flex;
         justify-content: center;
         align-items: center;
-
         width: 30px;
         height: 30px;
         font-size: 12px;
@@ -660,7 +708,6 @@ hr {
     padding: 10px 25px;
     font-size: 12px;
     color: var(--light-black);
-
     border: none;
     border-radius: 15px;
     animation: fade 0.5s ease;

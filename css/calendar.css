@@ -1,4 +1,4 @@
-/* ==================== Page layout ==================== */
+/* ==================== Page Layout ==================== */
 body {
     display: flex;
     flex-direction: column;
@@ -101,7 +101,7 @@ body {
     box-shadow: var(--shadow-panel);
 }
 .day-button {
-    width: max-content;
+    min-width: max-content;
     padding: 5px;
     font-size: 14px;
     font-weight: bold;
@@ -230,6 +230,21 @@ body {
     height: auto;
     padding-bottom: 30px;
     box-sizing: border-box;
+
+    & > .event-cont:nth-child(odd) .event-list{
+        background-color: var(--light-orange1);
+    }
+
+    /* Animation */
+    & > * {
+        opacity: 0;
+        animation: fade 0.75s ease-in-out forwards;
+    }
+    & > .event-cont:nth-child(1) { animation-delay: 0.25s; }
+    & > .event-cont:nth-child(2) { animation-delay: 0.5s; }
+    & > .event-cont:nth-child(3) { animation-delay: 0.75s; }
+    & > .event-cont:nth-child(4) { animation-delay: 1.0s; } 
+    & > .event-cont:nth-child(5) { animation-delay: 1.25s; }
 }
 
 .event-cont {
@@ -244,10 +259,6 @@ body {
     box-sizing: border-box;
     flex-shrink: 0;
 
-    &:has(.event-list:empty) {
-        display: none;
-    }
-
     span {
         font-size: clamp(0.775rem, 0.75vmin + 0.4rem, 1.05rem);
         font-weight: bold;
@@ -257,6 +268,10 @@ body {
             margin-bottom: 0;
             flex: 0 0 auto;
         }
+    }
+
+    &:has(.event-list:empty) {
+        display: none;
     }
 
     @media (max-width: 900px) { flex-direction: column; }
@@ -271,19 +286,7 @@ body {
     background-color: var(--light-orange2);
     border-radius: 15px;
     box-shadow: var(--shadow-panel); 
-    opacity: 0;
-    animation: fade 0.5s ease forwards;
 
-    &#event_list1, &#event_list3 {
-        background-color: var(--light-orange1);
-    }
-
-    &#event_list0 { animation-delay: 0.25s; }
-    &#event_list1 { animation-delay: 0.5s;}
-    &#event_list2 { animation-delay: 0.75s; }
-    &#event_list3 { animation-delay: 1.0s; }
-    &#event_list4 { animation-delay: 1.25s; }
-    
     /* Sizing */
     @media (max-width: 900px) {
         width: 100%;

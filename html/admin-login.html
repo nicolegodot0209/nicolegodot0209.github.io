@@ -21,7 +21,7 @@
             </div>
             
             <form id="login_form" class="login-form">
-                <div class="button-cont">
+                <div class="input-cont">
                     <input type="text" id="login_email" placeholder="Email address..." required>
                     <input type="password" id="login_password" placeholder="Password..." required>
                 </div>
@@ -38,42 +38,7 @@
     </section>
 
     <section id="event_submit_cont">
-        <div class="sidebar">
-            <h6>MyMHS</h6>
-            <hr>
-            <button class="active">Events <i class="fa-solid fa-calendar"></i></button>
-            <button>Announcement <i class="fa-solid fa-bullhorn"></i></button>
-        </div>
-
-        <form class="event-submission" id="event_form">
-            <div class="cont">
-                <h1>Add Event</h1>
-                <div class="text">
-                    <div>
-                        <input type="text" id="event_title" placeholder="Title..." autocomplete="off" required>
-                        <input type="text" id="location" placeholder="Location..." autocomplete="off" required>
-                    </div>
-                    <textarea id="description" placeholder="Description..." maxlength="250"></textarea>
-                </div>
-
-                <div class="event-types">
-                    <input type="radio" id="academic" name="event_type" value="academic" checked>
-                    <label for="academic">Academic</label>
-
-                    <input type="radio" id="club" name="event_type" value="club">
-                    <label for="club">Club</label>
-
-                    <input type="radio" id="sport" name="event_type" value="sport">
-                    <label for="sport">Sport</label>
-                    
-                    <input type="radio" id="social" name="event_type" value="social">
-                    <label for="social">Social</label>
-                </div>
-
-                <input id="date" type="datetime-local">
-                <button class="standard_button" type="submit" id="event_submit" disabled>Submit</button>
-            </div>
-        </form>
+       
     </section>
 
 

@@ -15,7 +15,7 @@ const observer = new IntersectionObserver((entries) => {
     threshold: 0.35
 });
 
-// Start watching each element separately.
+// Start watching each element separately
 elements.forEach((element) => {
   observer.observe(element);
 });

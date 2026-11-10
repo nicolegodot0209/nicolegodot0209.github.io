@@ -39,6 +39,7 @@ html, body {
   button, input,
   textarea, select {
     font-family: inherit;
+    outline: none;
   }
 }
 img, svg { /* Prevents the image from being dragged with the mouse */

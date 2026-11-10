@@ -22,7 +22,6 @@ function updateCalendarShortcut(date) {
    const year = currentDate.getFullYear();
    const month = currentDate.getMonth() + 1;
 
-
    // Calendar Header
    // 1. Set the month/year title
    const monthYearHeader = document.getElementById('month_year');
@@ -32,7 +31,6 @@ function updateCalendarShortcut(date) {
    // Calendar Buttons
    const calendarButtons = document.getElementById('shortcut_buttons');
    calendarButtons.innerHTML = ''; // Clear calendar
-
 
    const daysInMonth = new Date(year, month, 0).getDate(); // Get total days in the current month
    const firstDayIndex = new Date(year, month - 1, 1).getDay(); // Find what day of the week the first of the month

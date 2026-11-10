@@ -63,7 +63,7 @@ input[type="text"], input[type="password"], textarea {
         gap: 20px;
         flex: 1;
 
-        .button-cont {
+        .input-cont {
             display: flex;
             flex-direction: column;
             gap: 20px;
