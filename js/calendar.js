@@ -154,8 +154,8 @@ function addEvent (eventInfo) {
    const isBetween = (time, start, end) => time >= start && time <= end;
   
    let event_list_id = time === '' ? 0 : bounds.findIndex(b => time <= b) + 1;
-   const event_list = document.getElementById(`event_list${event_list_id}`);
-   event_list.appendChild(clone);
+   const eventList = document.getElementById(`event_list${event_list_id}`);
+   eventList.appendChild(clone);
 }
 
 // Render events

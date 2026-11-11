@@ -298,6 +298,7 @@ body {
     height: min-content;
     margin: 5px;
 
+
     button {
         display: flex;
         justify-content: space-between;
@@ -312,10 +313,7 @@ body {
         border-radius: 15px;
         transition: background-color 0.5s ease;
 
-        .event-title-text {
-            font-size: 14px;
-        }
-        .event-details {
+        .event-title-text, .event-title, .event-details {
             font-size: 14px;
         }
 

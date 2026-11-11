@@ -15,28 +15,44 @@
             <button id="announcements_button" class="tab-button"><i class="fa-solid fa-bullhorn"></i></button>
         </div>
 
-        <section id="calendar_section" class="section calendar-section">
-            <div class="events">
-                <div class="event-cont">
-                    <div class="event" id="event">
-                        <button id="event_button">
-                            <div class="event-title">
-                                <input class="event-title-text" placeholder="Title...">
-                                <i class="fa-solid fa-people-group" id="icon"></i>
-                            </div>
-                            <div class="event-details">
-                                <input id="event_time" placeholder="Time..."> • <input id="event_location" placeholder="Location...">
-                            </div>
-                        </button>
+        <template id="event_template">
+            <div class="event-cont">
+                <div class="event">
+                    <button>
+                        <div class="event-title">
+                            <input class="event-title-text" placeholder="Title..." disabled>
+                            <div class="icon-cont"><i class="icon fa-solid fa-people-group"></i></div>
 
-                        <textarea class="event-desc" id="event_desc" rows="1" placeholder="Description..."></textarea>
-                    </div>
+                            <select name="event-type" class="event-type">
+                                <option value="academic">Academic</option>
+                                <option value="club">Club</option>
+                                <option value="sport">Sport</option>
+                                <option value="social">Social</option>
+                            </select>
+                        </div>
+                        <div class="event-details">
+                            <input class="event-time" type="time" disabled>•
+                            <input class="event-location" placeholder="Location..." disabled>
+                        </div>
+                    </button>
 
-                    <div class="mod-buttons">
-                        <button class="delete"><i class="fa-solid fa-trash"></i></button>
-                        <button class="edit"><i class="fa-solid fa-pen"></i></button>
-                    </div>
+                    <textarea class="event-desc" rows="1" placeholder="Description..." disabled></textarea>
                 </div>
+
+                <div class="mod-buttons">
+                    <button class="delete"><i class="fa-solid fa-trash"></i></button>
+                    <button class="edit"><i class="fa-solid fa-pen"></i></button>
+                    <button class="confirm"><i class="fa-solid fa-check"></i></button>
+                    <button class="exit"><i class="fa-solid fa-x"></i></button>
+                </div>
+            </div>
+        </template>
+
+        <section id="calendar_section" class="section calendar-section">
+            <input type="date" id="date_input">
+            <div class="cont">
+                <div class="events" id="events"></div>
+                <button id="add_event" class="add-event"><i class="fa-solid fa-plus"></i></button>
             </div>
         </section>
 
@@ -44,6 +60,6 @@
             <h1>Announcements</h1>
         </section>
 
-        <script src="/js/admin.js"></script>
+        <script src="/js/admin.js" type="module"></script>
     </body>
 </html>

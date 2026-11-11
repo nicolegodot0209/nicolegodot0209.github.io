@@ -48,7 +48,7 @@ loginForm.addEventListener('submit', async (event) => {
  try {
    await signInWithEmailAndPassword(auth, email, password);
    passwordInput.value = '';
-   loginSuccess();
+   window.location.href = '/html/admin.html'; // Re-direct when logged in
  } catch (error) {
    if (error.code === 'auth/too-many-requests') {
      status.textContent = 'Too many attempts. Please wait and try again.';
