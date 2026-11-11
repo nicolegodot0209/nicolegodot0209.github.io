@@ -45,71 +45,148 @@ const month = String(selectedDate.getMonth() + 1).padStart(2, "0");
 const day = String(selectedDate.getDate()).padStart(2, "0");
 dateInput.value = `${year}-${month}-${day}`;
 
-let savedEvents = await loadEvents();
-async function loadEvents() { // Loads all events from the database
+let savedEvents = '';
+let sortedEvents = '';
+await loadEvents();
+renderEvents();
+
+async function loadEvents() { // Load all events from database by ID
     const snapshot = await getDocs(collection(db, 'events'));
-    return snapshot.docs.map((document) => ({
-        ...document.data(),
-        id: document.id
-    }));
+    savedEvents = Object.fromEntries(
+        snapshot.docs.map(document => [
+            document.id, {
+                ...document.data(),
+                id: document.id,
+            },
+        ])
+    );
+
+    sortedEvents = Object.values(savedEvents).sort(
+        (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
+    ); 
 }
 
-function renderEvents(date) {
-    // Sort by time
-    savedEvents.sort((a, b) =>
-        new Date(a.date).getTime() - new Date(b.date).getTime()
-    );
+function renderEvents() {
     // Loop through all savedEvents, add events that are in current date
-    for (const eventInfo of savedEvents) {
+    const selectedDate = new Date(`${dateInput.value}T00:00:00`);
+    const isSameDay = (eventDate) => {
+        eventDate = new Date(eventDate);
+        return (
+            eventDate.getFullYear() === selectedDate.getFullYear() &&
+            eventDate.getMonth() === selectedDate.getMonth() &&
+            eventDate.getDate() === selectedDate.getDate()
+        )
+    };
+    
+    // Add dates to list
+    sortedEvents.forEach(eventInfo => {
         const eventDate = new Date(eventInfo.date);
         const selectedDate = new Date(`${dateInput.value}T00:00:00`);
-        const sameDay = (
-            selectedDate.getFullYear() === eventDate.getFullYear() &&
-            selectedDate.getMonth() === eventDate.getMonth() &&
-            selectedDate.getDate() === eventDate.getDate()
-        );
-        
-        if (sameDay && eventInfo.type != 'announcement') { addEvent(eventInfo) }
-    }
-}
-renderEvents(dateInput.value);
 
-function updateEvent(eventCont) { // FIXME
-
+        if (isSameDay(eventInfo.date) && eventInfo.type != 'announcement') {
+            addEvent(eventInfo.id);
+        }
+    });
 }
 
-function addEvent(eventInfo) {
+function addEvent(id) {
     // 1. Get children
+    const eventInfo = savedEvents[id];
     const eventList = document.getElementById('events')
     const eventTemplate = document.getElementById('event_template')
 
     const clone = eventTemplate.content.cloneNode(true);
     const eventCont = clone.querySelector('.event-cont');
-    const eventTitle = clone.querySelector('.event-title-text');
-    const eventTypeDropdown = clone.querySelector('.event-type');
-    const eventTime = clone.querySelector('.event-time');
-    const eventLocation = clone.querySelector('.event-location');
-    const eventDesc = clone.querySelector('.event-desc');
+    updateEvent(eventCont, id);
 
-    const icon = clone.querySelector('.icon');
-    switch (eventInfo.type) {
-        case 'academic':
-            icon.className = 'fa-solid fa-book';
-            break;
-        case 'club':
-            icon.className = 'fa-solid fa-people-group';
-            break;
-        case 'sport':
-            icon.className = 'fa-solid fa-football';
-            break;
-        case 'social':
-            icon.className = 'fa-solid fa-children';
-            break;
-        case 'announcement':
-            icon.className = 'fa-solid fa-bullhorn';
-            break;
-        default:
-            icon.className = '';
+    const eventElements = getEventElements(eventCont);
+
+    // 3. Buttons
+    const deleteButton = clone.querySelector('.delete-button');
+    const editButton = eventCont.querySelector('.edit-button');
+    const confirmButton = clone.querySelector('.confirm-button');
+    const exitButton = clone.querySelector('.exit-button');
+
+    const clearAllActive = () => {
+        document.querySelectorAll('.event-cont').forEach(event => event.classList.remove('active'));
+    };
+    const toggleAllInputs = (disabled) => {
+        eventCont.querySelectorAll('.edit').forEach(input => input.disabled = disabled);
+    };
+
+    // Delete 
+    deleteButton.addEventListener("click", async () => {
+        clearAllActive();
+        await deleteDoc(doc(db, "events", eventInfo.id));
+        eventCont.remove();
+    });
+    // Edit
+    editButton.addEventListener("click", () => {
+        clearAllActive();
+        eventCont.classList.add('active');
+        toggleAllInputs(false);
+    });
+    // Confirm
+    confirmButton.addEventListener("click", async () => {
+        clearAllActive();
+        eventCont.classList.remove('active');
+        toggleAllInputs(true);
+
+        await updateDoc(doc(db, "events", eventInfo.id), {
+            date: `${dateInput.value}T${eventElements.time.value}`,
+            description: eventElements.description.value,
+            location: eventElements.location.value,
+            title: eventElements.title.value,
+            type: eventElements.type.value,
+        });
+
+        // Update the container
+        await loadEvents();
+        updateEvent(eventCont, id);
+    });
+    // Exit
+    exitButton.addEventListener("click", async () => {
+        clearAllActive();
+        eventCont.classList.remove('active');
+        toggleAllInputs(true);
+
+        // Update the container
+        await loadEvents();
+        updateEvent(eventCont, id);
+    });
+
+    // 4. Add event
+    eventList.appendChild(clone);
+}
+
+function getEventElements(eventCont) {
+    return {
+        title: eventCont.querySelector('.event-title-text'),
+        type: eventCont.querySelector('.event-type'),
+        time: eventCont.querySelector('.event-time'),
+        location: eventCont.querySelector('.event-location'),
+        description: eventCont.querySelector('.event-desc'),
+        icon: eventCont.querySelector('.icon-cont').firstElementChild,
+    };
+}
+
+function updateEvent(eventCont, id) { // FIXME
+    const eventElements = getEventElements(eventCont);
+    const eventInfo = savedEvents[id];
+    const iconClasses = {
+        academic: 'fa-book',
+        club: 'fa-people-group',
+        sport: 'fa-football',
+        social: 'fa-children',
+        announcement: 'fa-bullhorn',
+    };
+
+    const icon = eventElements.icon;
+    icon.classList.remove(...Object.values(iconClasses));
+    const iconClass = iconClasses[eventInfo.type];
+
+    if (iconClass) {
+        icon.classList.add('fa-solid', iconClass);
     }
 
     // 2. Set data
@@ -117,77 +194,16 @@ function addEvent(eventInfo) {
     const hours = date.getHours().toString().padStart(2, '0');
     const minutes = date.getMinutes().toString().padStart(2, '0');
 
-    eventTime.value = `${hours}:${minutes}`;
-    eventLocation.value = eventInfo.location;
-    eventTitle.value = eventInfo.title;
-    eventTypeDropdown.value = eventInfo.type;
-    eventDesc.value = eventInfo.description;
-
-    // 3. Buttons
-    const deleteButton = clone.querySelector('.delete');
-    const editButton = clone.querySelector('.edit');
-    const confirmButton = clone.querySelector('.confirm');
-    const exitButton = clone.querySelector('.exit');
-    const editableElements = [eventTitle, eventTypeDropdown, eventTime, eventLocation, eventDesc]
-
-    // Delete 
-    deleteButton.addEventListener("click", async () => {
-        const events = document.querySelectorAll('.event-cont')
-        for (const event of events) {
-            event.classList.remove('active')
-        }
-        await deleteDoc(doc(db, "events", eventInfo.id));
-        eventCont.remove();
-    });
-    // Edit
-    editButton.addEventListener("click", () => {
-        const events = document.querySelectorAll('.event-cont')
-        for (const event of events) {
-            event.classList.remove('active')
-        }
-        eventCont.classList.add('active');
-        for (const element of editableElements) {
-            element.disabled = false;
-        }
-    });
-    // Confirm
-    confirmButton.addEventListener("click", async () => {
-        const events = document.querySelectorAll('.event-cont')
-        for (const event of events) {
-            event.classList.remove('active')
-        }
-        eventCont.classList.remove('active');
-        for (const element of editableElements) {
-            element.disabled = true;
-        }
-
-        await updateDoc(doc(db, "events", eventInfo.id), {
-            date: `${dateInput.value}T${eventTime.value}`,
-            description: eventDesc.value,
-            location: eventLocation.value,
-            title: eventTitle.value,
-            type: eventTypeDropdown.value,
-        });
-    });
-    // Exit
-    exitButton.addEventListener("click", () => {
-        const events = document.querySelectorAll('.event-cont')
-        for (const event of events) {
-            event.classList.remove('active')
-        }
-        eventCont.classList.remove('active');
-        for (const element of editableElements) {
-            element.disabled = true;
-        }
-    });
-
-    // 4. Add event
-    eventList.appendChild(clone);
+    eventElements.time.value = `${hours}:${minutes}`;
+    eventElements.location.value = eventInfo.location;
+    eventElements.title.value = eventInfo.title;
+    eventElements.type.value = eventInfo.type;
+    eventElements.description.value = eventInfo.description;
 }
 
 async function cloneTestEvent() {
     try {
-        const original = await getDoc(doc(db, "events", "abc123"));
+        const original = await getDoc(doc(db, "events", "4lAjvWMZw3klqHEqsfjU"));
 
         if (!original.exists()) {
             console.error("Event abc123 does not exist.");

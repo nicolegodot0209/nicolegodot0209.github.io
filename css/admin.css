@@ -56,6 +56,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: space-between;
         width: 100%;
         height: 100%;
         gap: 50px;
@@ -90,13 +91,16 @@
     &.active {
         .icon-cont { 
             display: none; 
+            .fa-solid {
+                font-size: 10px;
+            }
         }
         select {
             display: flex;
         }
         .mod-buttons { 
-            .delete, .edit { display: none; }
-            .confirm, .exit { display: block; }
+            .delete-button, .edit-button { display: none; }
+            .confirm-button, .exit-button { display: block; }
         }
     }
 
@@ -193,6 +197,7 @@
         border: none;
         border-radius: 10px;
         opacity: 0;
+        field-sizing: content;
         transition:
             height 0.5s ease,
             opacity 0.5s ease,
@@ -271,8 +276,8 @@
         }
     }
 
-    .delete, .edit { display: block; }
-    .confirm, .exit { display: none; }
+    .delete-button, .edit-button { display: block; }
+    .confirm-button, .exit-button { display: none; }
 
     /* Sizing */
     @media (max-width: 900px) {
